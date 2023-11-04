@@ -15,8 +15,24 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
     return view('home');
-});
+})->name('home');
 
-Route::get('/baru', function () {
-    return view('baru');
-});
+Route::get('/tentang-kami', function () {
+    return view('tentang_kami');
+})->name('tentang_kami');
+
+Route::get('/katalog', function () {
+    return view('katalog');
+})->name('katalog');
+
+Route::get('/cara-pemesanan', function () {
+    return view('cara_pemesanan');
+})->name('cara_pemesanan');
+
+Route::get('/cara-pembayaran', function () {
+    return view('cara_pembayaran');
+})->name('cara_pembayaran');
+
+Route::get('/contact', function () {
+    return view('contact');
+})->name('contact');
