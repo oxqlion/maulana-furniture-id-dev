@@ -1,26 +1,120 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
-  <head>
-    <!-- Required meta tags -->
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
-    <!-- Bootstrap CSS -->
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-\latihan.htmlscale=1.0" />
+    <title>Document</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+    <script>
+        tailwind.config = {
+            theme: {
+                container: {
+                    center: true,
+                    padding: "30px",
+                },
+                extend: {
+                    screens: {
+                        "2xl": "1320px",
+                    },
+                },
+            },
+        };
+    </script>
+    <style>
+        .hamburger-active>span:nth-child(1) {
+            transform: rotate(45deg);
+        }
 
-    <title>Hello, world!</title>
-  </head>
-  <body>
-    <h1>Hello, world!</h1>
+        .hamburger-active>span:nth-child(3) {
+            transform: rotate(-45deg);
+        }
 
-    <div class="content">
-        @yield('content')
-    </div>
+        .hamburger-active>span:nth-child(2) {
+            transform: scale(0);
+        }
 
-    <!-- Optional JavaScript -->
-    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
-    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
-  </body>
+        .nav-blur {
+            backdrop-filter: blur(5px);
+            box-shadow: inset 0 -1px 0 0 rgba(0, 0, 0, 0.1);
+        }
+    </style>
+</head>
+
+<body>
+    <header class="bg-[#434240] nav-blur fixed top-0 left-0 w-full flex items-center z-10">
+        <div class="container">
+            <div class="flex items-center justify-between relative">
+                <div class="">
+                    <a href="#home" class="font-bold text-lg text-[#DDBD7E] block py-6">Maulana Furniture
+                        Indonesia</a>
+                </div>
+                <div class="flex items-center">
+                    <button id="hamburger" name="hamburger" class="block absolute right-4 lg:hidden">
+                        <span
+                            class="w-[30px] h-[2px] my-2 block bg-[#DDBD7E] transition duration-300 ease-in-out origin-top-left"></span>
+                        <span
+                            class="w-[30px] h-[2px] my-2 block bg-[#DDBD7E] transition duration-300 ease-in-out"></span>
+                        <span
+                            class="w-[30px] h-[2px] my-2 block bg-[#DDBD7E] transition duration-300 ease-in-out origin-bottom-left"></span>
+                    </button>
+                    <nav id="nav-menu"
+                        class="hidden absolute py-5 bg-white shadow-lg rounded-lg max-w-[250px] w-full right-4 top-full lg:block lg:static lg:bg-transparent lg:max-w-full lg:shadow-none">
+                        <ul class="block lg:flex">
+                            <li class="group">
+                                <a href={{ route('home') }}
+                                    class="text-base text-[#DDBD7E] py-2 mx-8 group hover:opacity-50 flex font-normal">Home</a>
+                            </li>
+                            <li class="group">
+                                <a href={{ route('tentang_kami') }}
+                                    class="text-base text-[#DDBD7E] py-2 mx-8 group hover:opacity-50 flex font-normal">Tentang
+                                    Kami</a>
+                            </li>
+                            <li class="group">
+                                <a href={{ route('katalog') }}
+                                    class="text-base text-[#DDBD7E] py-2 mx-8 group hover:opacity-50 flex font-normal">Katalog</a>
+                            </li>
+                            <li class="group">
+                                <a href={{ route('cara_pemesanan') }}
+                                    class="text-base text-[#DDBD7E] py-2 mx-8 group hover:opacity-50 flex font-normal">Cara
+                                    Pemesanan</a>
+                            </li>
+                            <li class="group">
+                                <a href={{ route('cara_pembayaran') }}
+                                    class="text-base text-[#DDBD7E] py-2 mx-8 group hover:opacity-50 flex font-normal">Cara
+                                    Pembayaran</a>
+                            </li>
+                            <li class="group">
+                                <a href={{ route('contact') }}
+                                    class="text-base text-[#DDBD7E] py-2 mx-8 group hover:opacity-50 flex font-normal">Contact</a>
+                            </li>
+                        </ul>
+                    </nav>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <section>
+        <div class="container pt-28">
+            @yield('content')
+        </div>
+    </section>
+
+    <script>
+        const hamburger = document.querySelector("#hamburger");
+        const navMenu = document.querySelector("#nav-menu");
+        hamburger.addEventListener("click", function() {
+            hamburger.classList.toggle("hamburger-active");
+            navMenu.classList.toggle("hidden");
+        });
+    </script>
+    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+    <script>
+        AOS.init();
+    </script>
+</body>
+
 </html>
