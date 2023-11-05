@@ -8,6 +8,8 @@
     <title>Document</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Gelasio:wght@700&family=Montserrat:wght@100;300;400;500;600;700;800;900&display=swap');
 
@@ -177,17 +179,17 @@
     </section>
 
     <footer class="bg-[#434240] text-white px-12 pt-12 pb-2 font-montserrat">
-        <div class="md:flex flex-wrap md:justify-center md:mx-auto md:max-w-7xl">
-            <div class="md:w-2/5 md:pr-8">
+        <div class="md:flex flex-wrap">
+            <div class="md:w-2/5 md:pr-8 mb-12 md:mb-4">
                 <div class="mb-4 mr-8">
-                    <img src="logoperusahaan.png" alt="Logo Perusahaan" class="w-40-">
+                    <img src="logoperusahaan.png" alt="Logo Perusahaan" class="w-40">
                     <p class="text-xs">Dengan semangat dan kekuatan dari Team Work menghasilkan produk berkualitas serta
                         memberikan pelayanan yang terbaik sehingga menjadi pemimpin industri furniture asal Jepara yang
                         unggul di Indonesia dan memenangkan persaingan internasional.</p>
                 </div>
             </div>
-            <div class="md:w-1/5 md:pr-8">
-                <h2 class="text-lg font-extrabold mb-6">Menu</h2>
+            <div class="md:w-1/5 md:pr-8 mb-12 md:mb-4">
+                <h2 class="text-lg font-extrabold mb-4">Menu</h2>
                 <ul class="text-sm">
                     <li class="mb-3">
                         <a href="#" class="relative group">
@@ -240,8 +242,8 @@
                 </ul>
 
             </div>
-            <div class="md:w-1/5 md:pr-8">
-                <h2 class="text-lg font-bold mb-6">E-commerce</h2>
+            <div class="md:w-1/5 md:pr-8 mb-12 md:mb-4">
+                <h2 class="text-lg font-bold mb-4">E-commerce</h2>
                 <ul class="text-sm">
                     <li class="mb-3">
                         <a href="#" class="relative group">
@@ -261,7 +263,7 @@
                     </li>
                 </ul>
             </div>
-            <div class="md:w-1/5">
+            <div class="md:w-1/5 mb-12 md:mb-4">
                 <div class="flex mb-6 space-x-4">
                     <a href="#" class="bg-[#1877f2] rounded-full p-2">
                         <i class="fab fa-facebook text-white"></i>
@@ -280,9 +282,8 @@
 
             </div>
         </div>
-        <div class="border-t border-[#DDBD7E] text-center mt-4 mb-4 flex justify-between">
-            <p class="text-sm my-4">Copyrights &copy; 2023 Maulana Furniture Indonesia. Hak Cipta Dilindungi
-                Undang-Undang.</p>
+        <div class="border-t border-[#DDBD7E] mt-4 mb-4 flex justify-between">
+            <p class="text-sm my-4">Copyrights &copy; 2023 Maulana Furniture Indonesia.</p>
             <div class="flex gap-6">
                 <p class="text-sm my-4">Terms</p>
                 <p class="text-sm my-4">Privacy</p>
