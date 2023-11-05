@@ -10,6 +10,13 @@
     <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@500;600&display=swap');
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
         .hamburger-active>span:nth-child(1) {
             transform: rotate(45deg);
         }
@@ -26,6 +33,44 @@
             backdrop-filter: blur(5px);
             box-shadow: inset 0 -1px 0 0 rgba(0, 0, 0, 0.1);
         }
+
+        @keyframes slide {
+            from {
+                transform: translateX(0);
+            }
+
+            to {
+                transform: translateX(-100%);
+            }
+        }
+
+        .slider {
+            display: flex;
+            animation: 5s slide infinite linear;
+        }
+        .slider-container:before {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 250px;
+            height: 100%;
+            background: linear-gradient(to left, rgba(255,255,255,0), rgba(255,255,255,1));
+            content: "";
+            z-index: 2;
+        }
+        .slider-container:after {
+            position: absolute;
+            top: 0;
+            right: 0;
+            width: 250px;
+            height: 100%;
+            background: linear-gradient(to right, rgba(255,255,255,0), rgba(255,255,255,1));
+            content: "";
+            z-index: 2;
+        }
+        .slider-container:hover, .slider:hover {
+            animation-play-state: paused;
+        }
     </style>
     <script>
         tailwind.config = {
@@ -40,10 +85,10 @@
                     },
                 },
                 fontFamily: {
-                    montserrat:['Montserrat']
+                    montserrat: ['Montserrat']
                 },
             },
-        };
+        }
     </script>
 </head>
 
@@ -149,7 +194,7 @@
             </div>
         </div>
     </footer>
-    
+
 
     <script>
         const hamburger = document.querySelector("#hamburger");
