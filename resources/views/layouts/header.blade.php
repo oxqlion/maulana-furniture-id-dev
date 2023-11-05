@@ -173,8 +173,8 @@
         </div>
     </section>
 
-    <footer class="bg-[#434240] text-white p-12 font-montserrat">
-        <div class="md:flex flex-wrap">
+    <footer class="bg-[#434240] text-white px-12 pt-12 pb-2 font-montserrat">
+        <div class="md:flex flex-wrap md:justify-center md:mx-auto md:max-w-7xl">
             <div class="md:w-2/5 md:pr-8">
                 <div class="mb-4 mr-8">
                     <img src="logoperusahaan.png" alt="Logo Perusahaan" class="w-40-">
@@ -275,6 +275,14 @@
                     <p>Nomor Telepon: +1234567890</p>
                 </div>
 
+            </div>
+        </div>
+        <div class="border-t border-[#DDBD7E] text-center mt-4 mb-4 flex justify-between">
+            <p class="text-sm my-4">Copyrights &copy; 2023 Maulana Furniture Indonesia. Hak Cipta Dilindungi Undang-Undang.</p>
+            <div class="flex gap-6">
+                <p class="text-sm my-4">Terms</p>
+                <p class="text-sm my-4">Privacy</p>
+                <p class="text-sm my-4">Compliences</p>
             </div>
         </div>
     </footer>
