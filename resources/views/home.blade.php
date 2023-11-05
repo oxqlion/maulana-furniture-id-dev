@@ -4,11 +4,11 @@
     <div class="overflow-hidden font-montserrat">
         <!-- Hero Section -->
         <div class="relative flex flex-col items-start justify-start h-screen">
-            <div class="flex w-full justify-between bg-[#434240] p-32">
-                <div class="bg-cover bg-center h-full flex flex-col font-montserrat">
-                    <h1 class="text-5xl max-w-xl text-white font-bold">
+            <div class="flex w-full justify-center lg:justify-between bg-[#434240] p-12 pt-24 lg:p-32">
+                <div class="bg-cover h-full flex flex-col font-montserrat justify-center items-center lg:items-start lg:justify-start">
+                    <h1 class="text-2xl lg:text-5xl max-w-sm lg:max-w-xl text-white font-bold lg:text-left text-center">
                         Wujudkan Furniture Impian Anda Bersama Kami</h1>
-                    <p class="font-montserrat font-normal text-sm text-white pt-12 max-w-lg">Jelajahi koleksi furniture kami
+                    <p class="font-montserrat font-normal text-xs lg:text-sm text-white pt-2 lg:pt-12 max-w-lg text-center lg:text-start">Jelajahi koleksi furniture kami
                         yang
                         menghadirkan keindahan dan kenyamanan tak tertandingi. Kami di
                         Maulana
@@ -16,9 +16,14 @@
                         sofa,
                         meja, kursi, dan banyak lagi yang kami pilih dengan cermat untuk meningkatkan kualitas hidup Anda.
                     </p>
+                    <a
+                        class="mt-4 lg:mt-12 w-24 lg:w-64 gap-4 bg-[#DDBD7E] transition ease-in-out hover:bg-gray-400 text-gray-800 font-bold py-4 px-4 rounded flex items-center justify-center cursor-pointer">
+                        <i class="fab fa-whatsapp text-black text-3xl"></i>
+                        <span>Pesan Sekarang</span>
+                    </a>
                 </div>
             </div>
-            <img class="absolute top-80 right-[-15%] h-4/6" src="{{ asset('images/hero-sofa.png') }}" alt="hero">
+            <img class="block lg:absolute top-96 right-[-15%] h-4/6" src="{{ asset('images/hero-sofa.png') }}" alt="hero">
         </div>
 
         <!-- Our Clients Section -->
