@@ -106,34 +106,76 @@
             @yield('content')
         </div>
     </section>
+
     <footer class="bg-[#434240] text-white p-12 font-montserrat">
         <div class="md:flex flex-wrap">
-            <div class="md:w-1/4 md:pr-8">
-                <div class="mb-4">
-                    <img src="logoperusahaan.png" alt="Logo Perusahaan" class="w-20 h-20 mb-2">
-                    <p class="text-sm">Deskripsi Perusahaan</p>
+            <div class="md:w-2/5 md:pr-8">
+                <div class="mb-4 mr-8">
+                    <img src="logoperusahaan.png" alt="Logo Perusahaan" class="w-40-">
+                    <p class="text-xs">Dengan semangat dan kekuatan dari Team Work menghasilkan produk berkualitas serta memberikan pelayanan yang terbaik sehingga menjadi pemimpin industri furniture asal Jepara yang unggul di Indonesia dan memenangkan persaingan internasional.</p>
                 </div>
             </div>
-            <div class="md:w-1/4 md:pr-8">
-                <h2 class="text-lg font-semibold mb-2">Menu</h2>
-                <ul class="mb-4">
-                    <li class="mb-2"><a href="#">Beranda</a></li>
-                    <li class="mb-2"><a href="#">Tentang Kami</a></li>
-                    <li class="mb-2"><a href="#">Katalog</a></li>
-                    <li class="mb-2"><a href="#">Cara Pemesanan</a></li>
-                    <li class="mb-2"><a href="#">Cara Pembayaran</a></li>
-                    <li class="mb-2"><a href="#">Kontak</a></li>
+            <div class="md:w-1/5 md:pr-8">
+                <h2 class="text-lg font-extrabold mb-6">Menu</h2>
+                <ul class="text-sm">
+                    <li class="mb-3">
+                        <a href="#" class="relative group">
+                            Beranda
+                            <div class="absolute w-full h-0.5 bg-[#DDBD7E] bottom-(-1) left-0 transform scale-x-0 origin-left transition-transform group-hover:scale-x-100 duration-300"></div>
+                        </a>
+                    </li>
+                    <li class="mb-3">
+                        <a href="#" class="relative group">
+                            Tentang Kami
+                            <div class="absolute w-full h-0.5 bg-[#DDBD7E] bottom-(-1) left-0 transform scale-x-0 origin-left transition-transform group-hover:scale-x-100 duration-300"></div>
+                        </a>
+                    </li>
+                    <li class="mb-3">
+                        <a href="#" class="relative group">
+                            Katalog
+                            <div class="absolute w-full h-0.5 bg-[#DDBD7E] bottom-(-1) left-0 transform scale-x-0 origin-left transition-transform group-hover:scale-x-100 duration-300"></div>
+                        </a>
+                    </li>
+                    <li class="mb-3">
+                        <a href="#" class="relative group">
+                            Cara Pemesanan
+                            <div class="absolute w-full h-0.5 bg-[#DDBD7E] bottom-(-1) left-0 transform scale-x-0 origin-left transition-transform group-hover:scale-x-100 duration-300"></div>
+                        </a>
+                    </li>
+                    <li class="mb-3">
+                        <a href="#" class="relative group">
+                            Cara Pembayaran
+                            <div class="absolute w-full h-0.5 bg-[#DDBD7E] bottom-(-1) left-0 transform scale-x-0 origin-left transition-transform group-hover:scale-x-100 duration-300"></div>
+                        </a>
+                    </li>
+                    <li class="mb-3">
+                        <a href="#" class="relative group">
+                            Kontak
+                            <div class="absolute w-full h-0.5 bg-[#DDBD7E] bottom-(-1) left-0 transform scale-x-0 origin-left transition-transform group-hover:scale-x-100 duration-300"></div>
+                        </a>
+                    </li>
+                </ul>
+                
+            </div>
+            <div class="md:w-1/5 md:pr-8">
+                <h2 class="text-lg font-bold mb-6">E-commerce</h2>
+                <ul class="text-sm">
+                    <li class="mb-3">
+                        <a href="#" class="relative group">
+                            Shopee
+                            <div class="absolute w-full h-0.5 bg-[#DDBD7E] bottom-(-1) left-0 transform scale-x-0 origin-left transition-transform group-hover:scale-x-100 duration-300"></div>
+                        </a>
+                    </li>
+                    <li class="mb-3">
+                        <a href="#" class="relative group">
+                            Tokopedia
+                            <div class="absolute w-full h-0.5 bg-[#DDBD7E] bottom-(-1) left-0 transform scale-x-0 origin-left transition-transform group-hover:scale-x-100 duration-300"></div>
+                        </a>
+                    </li>
                 </ul>
             </div>
-            <div class="md:w-1/4 md:pr-8">
-                <h2 class="text-lg font-semibold mb-2">E-commerce</h2>
-                <ul class="mb-4">
-                    <li class="mb-2"><a href="https://www.shopee.co.id/">Shopee</a></li>
-                    <li><a href="https://www.tokopedia.com/">Tokopedia</a></li>
-                </ul>
-            </div>
-            <div class="md:w-1/4">
-                <div class="flex mb-4 space-x-4">
+            <div class="md:w-1/5">
+                <div class="flex mb-6 space-x-4">
                     <a href="#" class="bg-[#1877f2] rounded-full p-2">
                         <i class="fab fa-facebook text-white"></i>
                     </a>
@@ -144,8 +186,11 @@
                         <i class="fab fa-instagram text-white"></i>
                     </a>
                 </div>
-                <p class="mb-2">Email: example@example.com</p>
-                <p>Nomor Telepon: +1234567890</p>
+                <div class="text-sm">
+                    <p class="mb-2">Email: example@example.com</p>
+                    <p>Nomor Telepon: +1234567890</p>
+                </div>
+            
             </div>
         </div>
     </footer>
