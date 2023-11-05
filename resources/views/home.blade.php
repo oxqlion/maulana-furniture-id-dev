@@ -1,23 +1,29 @@
 @extends('layouts.header')
 
 @section('content')
-    <div class="overflow-hidden">
+    <div class="overflow-hidden font-montserrat">
         <!-- Hero Section -->
-        <div class="relative flex w-full h-5/6 justify-between bg-[#434240] p-32">
-            <div class="bg-cover bg-center h-full flex flex-col font-montserrat">
-                <h1 class="text-5xl max-w-xl text-white font-extrabold">
-                    Wujudkan Furniture Impian Anda Bersama Kami</h1>
-                <p class="font-montserrat font-normal text-sm text-white pt-12 max-w-lg">Jelajahi koleksi furniture kami yang menghadirkan keindahan dan kenyamanan tak tertandingi. Kami di
-                    Maulana
-                    Furniture Indonesia menyajikan perpaduan desain dan fungsi dari klasik hingga kontemporer. Temukan sofa,
-                    meja, kursi, dan banyak lagi yang kami pilih dengan cermat untuk meningkatkan kualitas hidup Anda.</p>
+        <div class="relative flex flex-col items-start justify-start h-screen">
+            <div class="flex w-full justify-between bg-[#434240] p-32">
+                <div class="bg-cover bg-center h-full flex flex-col font-montserrat">
+                    <h1 class="text-5xl max-w-xl text-white font-bold">
+                        Wujudkan Furniture Impian Anda Bersama Kami</h1>
+                    <p class="font-montserrat font-normal text-sm text-white pt-12 max-w-lg">Jelajahi koleksi furniture kami
+                        yang
+                        menghadirkan keindahan dan kenyamanan tak tertandingi. Kami di
+                        Maulana
+                        Furniture Indonesia menyajikan perpaduan desain dan fungsi dari klasik hingga kontemporer. Temukan
+                        sofa,
+                        meja, kursi, dan banyak lagi yang kami pilih dengan cermat untuk meningkatkan kualitas hidup Anda.
+                    </p>
+                </div>
             </div>
-            <img class="absolute top-72 right-[-10%] h-96" src="{{ asset('images/hero-sofa.png') }}" alt="hero">
+            <img class="absolute top-80 right-[-15%] h-4/6" src="{{ asset('images/hero-sofa.png') }}" alt="hero">
         </div>
 
         <!-- Our Clients Section -->
-        <div class="py-12 mt-32">
-            <h2 class="text-2xl text-center font-semibold mb-6">Our Clients</h2>
+        <div class="py-12">
+            <h2 class="text-6xl text-center font-semibold mb-6">Our Clients</h2>
             <div class="overflow-hidden whitespace-nowrap slider-container relative">
                 <div class="gap-12 slider">
                     <img src="{{ asset('images/cozy-monty.png') }}" alt="Client 1 Logo" class="w-[12%]">
