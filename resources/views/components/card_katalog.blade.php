@@ -1,4 +1,4 @@
-<div class="flex flex-wrap">
+<div class="flex flex-wrap" data-aos="fade-up" data-aos-duration="1000">
     <div class="max-w-full md:max-w-sm w-full xl:w-56 lg:w-52 md:w-52 sm:w-64 sm:justify-center relative">
         <div class="group relative overflow-hidden transform transition-transform duration-300 hover:shadow-xl hover:-translate-y-2 rounded-md cursor-pointer">
             <div class="relative overflow-hidden group">
