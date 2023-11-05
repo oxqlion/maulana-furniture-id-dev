@@ -1,6 +1,6 @@
 <div class="flex flex-wrap">
     <div class="max-w-full md:max-w-sm w-72 xl:w-56 lg:w-52 md:w-52 sm:justify-center relative">
-        <div class="group relative overflow-hidden transform transition-transform duration-300 hover:shadow-xl hover:-translate-y-2 rounded-md">
+        <div class="group relative overflow-hidden transform transition-transform duration-300 hover:shadow-xl hover:-translate-y-2 rounded-md cursor-pointer">
             <!-- Foto Produk -->
             <div class="relative overflow-hidden group">
                 <!-- Foto Produk -->
