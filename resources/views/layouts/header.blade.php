@@ -11,7 +11,7 @@
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     <style>
-        @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@500;600&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=Gelasio:wght@700&family=Montserrat:wght@100;300;400;500;600;700;800;900&display=swap');
 
         * {
             margin: 0;
@@ -55,6 +55,7 @@
             display: flex;
             height: 100%;
         }
+
         @media (min-width: 1025px) {
             .slider-container:before {
                 position: absolute;
@@ -78,11 +79,12 @@
                 z-index: 2;
             }
 
-            .slider-container:hover,
+            /* .slider-container:hover,
             .slider:hover {
                 animation-play-state: paused;
-            }
+            } */
         }
+
         .penutup {
             position: absolute;
             background-color: black;
@@ -115,11 +117,12 @@
 </head>
 
 <body>
-    <header class="bg-[#434240] nav-blur fixed top-0 left-0 w-full flex items-center z-10">
+    <header class="bg-[#434240] fixed top-0 left-0 w-full flex items-center z-10">
         <div class="w-full">
             <div class="flex items-center justify-between relative">
                 <div class="">
-                    <a href="#home" class="font-bold text-lg text-[#DDBD7E] block py-6 ml-6 lg:ml-12">Maulana Furniture
+                    <a href="#home" class="font-bold text-lg text-[#DDBD7E] block py-6 ml-6 lg:ml-12">Maulana
+                        Furniture
                         Indonesia</a>
                 </div>
                 <div class="flex items-center">
@@ -169,7 +172,7 @@
     </header>
 
     <section>
-        <div class="pt-32 relative">
+        <div class="relative">
             <div class="" id="penutup"></div>
             @yield('content')
         </div>

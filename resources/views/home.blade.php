@@ -3,13 +3,20 @@
 @section('content')
     <div class="overflow-hidden">
         <!-- Hero Section -->
-        <div class="bg-cover bg-center h-96 flex items-center justify-center"
-            style="background-image: url('your-hero-image.jpg');">
-            <h1 class="text-4xl text-white font-semibold text-center">Welcome to Our Website</h1>
+        <div class="relative flex w-full h-5/6 justify-between bg-[#434240] p-32">
+            <div class="bg-cover bg-center h-full flex flex-col font-montserrat">
+                <h1 class="text-5xl max-w-xl text-white font-extrabold">
+                    Wujudkan Furniture Impian Anda Bersama Kami</h1>
+                <p class="font-montserrat font-normal text-sm text-white pt-12 max-w-lg">Jelajahi koleksi furniture kami yang menghadirkan keindahan dan kenyamanan tak tertandingi. Kami di
+                    Maulana
+                    Furniture Indonesia menyajikan perpaduan desain dan fungsi dari klasik hingga kontemporer. Temukan sofa,
+                    meja, kursi, dan banyak lagi yang kami pilih dengan cermat untuk meningkatkan kualitas hidup Anda.</p>
+            </div>
+            <img class="absolute top-72 right-[-10%] h-96" src="{{ asset('images/hero-sofa.png') }}" alt="hero">
         </div>
 
         <!-- Our Clients Section -->
-        <div class="py-12">
+        <div class="py-12 mt-32">
             <h2 class="text-2xl text-center font-semibold mb-6">Our Clients</h2>
             <div class="overflow-hidden whitespace-nowrap slider-container relative">
                 <div class="gap-12 slider">
