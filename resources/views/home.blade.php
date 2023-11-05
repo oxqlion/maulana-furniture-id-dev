@@ -11,7 +11,7 @@
         <!-- Our Clients Section -->
         <div class="py-12">
             <h2 class="text-2xl text-center font-semibold mb-6">Our Clients</h2>
-            <div class="overflow-hidden whitespace-nowrap slider-container relataive">
+            <div class="overflow-hidden whitespace-nowrap slider-container relative">
                 <div class="gap-12 slider">
                     <img src="{{ asset('images/cozy-monty.png') }}" alt="Client 1 Logo" class="w-[12%]">
                     <img src="{{ asset('images/mocal.png') }}" alt="Client 1 Logo" class="w-[12%]">
