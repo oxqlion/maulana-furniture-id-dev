@@ -27,7 +27,7 @@
                     <p class="text-2xl font-bold font-montserrat text-[#434240]">Sofa Tempat Tidur</p>
                     <p class="text-sm font-light font-montserrat text-slate-700">Showing 25 result</p>
                 </div>
-                <div class="flex flex-wrap gap-8 justify-center md:justify-start">
+                <div class="flex flex-wrap gap-8 justify-center sm:justify-between md:justify-start">
                     <x-card_katalog></x-card_katalog>
                     <x-card_katalog></x-card_katalog>
                     <x-card_katalog></x-card_katalog>
