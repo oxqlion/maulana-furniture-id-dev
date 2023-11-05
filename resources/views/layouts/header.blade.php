@@ -8,22 +8,8 @@
     <title>Document</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
-    <script>
-        tailwind.config = {
-            theme: {
-                container: {
-                    center: true,
-                    padding: "30px",
-                },
-                extend: {
-                    screens: {
-                        "2xl": "1320px",
-                    },
-                },
-            },
-        };
-    </script>
     <style>
+        @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@500;600&display=swap');
         .hamburger-active>span:nth-child(1) {
             transform: rotate(45deg);
         }
@@ -41,6 +27,24 @@
             box-shadow: inset 0 -1px 0 0 rgba(0, 0, 0, 0.1);
         }
     </style>
+    <script>
+        tailwind.config = {
+            theme: {
+                container: {
+                    center: true,
+                    padding: "15px",
+                },
+                extend: {
+                    screens: {
+                        "2xl": "1320px",
+                    },
+                },
+                fontFamily: {
+                    montserrat:['Montserrat']
+                },
+            },
+        };
+    </script>
 </head>
 
 <body>
@@ -98,10 +102,54 @@
     </header>
 
     <section>
-        <div class="container pt-28">
+        <div class="container pt-32">
             @yield('content')
         </div>
     </section>
+    <footer class="bg-[#434240] text-white p-12 font-montserrat">
+        <div class="md:flex flex-wrap">
+            <div class="md:w-1/4 md:pr-8">
+                <div class="mb-4">
+                    <img src="logoperusahaan.png" alt="Logo Perusahaan" class="w-20 h-20 mb-2">
+                    <p class="text-sm">Deskripsi Perusahaan</p>
+                </div>
+            </div>
+            <div class="md:w-1/4 md:pr-8">
+                <h2 class="text-lg font-semibold mb-2">Menu</h2>
+                <ul class="mb-4">
+                    <li class="mb-2"><a href="#">Beranda</a></li>
+                    <li class="mb-2"><a href="#">Tentang Kami</a></li>
+                    <li class="mb-2"><a href="#">Katalog</a></li>
+                    <li class="mb-2"><a href="#">Cara Pemesanan</a></li>
+                    <li class="mb-2"><a href="#">Cara Pembayaran</a></li>
+                    <li class="mb-2"><a href="#">Kontak</a></li>
+                </ul>
+            </div>
+            <div class="md:w-1/4 md:pr-8">
+                <h2 class="text-lg font-semibold mb-2">E-commerce</h2>
+                <ul class="mb-4">
+                    <li class="mb-2"><a href="https://www.shopee.co.id/">Shopee</a></li>
+                    <li><a href="https://www.tokopedia.com/">Tokopedia</a></li>
+                </ul>
+            </div>
+            <div class="md:w-1/4">
+                <div class="flex mb-4 space-x-4">
+                    <a href="#" class="bg-[#1877f2] rounded-full p-2">
+                        <i class="fab fa-facebook text-white"></i>
+                    </a>
+                    <a href="#" class="bg-[#1da1f2] rounded-full p-2">
+                        <i class="fab fa-twitter text-white"></i>
+                    </a>
+                    <a href="#" class="bg-[#e1306c] rounded-full p-2">
+                        <i class="fab fa-instagram text-white"></i>
+                    </a>
+                </div>
+                <p class="mb-2">Email: example@example.com</p>
+                <p>Nomor Telepon: +1234567890</p>
+            </div>
+        </div>
+    </footer>
+    
 
     <script>
         const hamburger = document.querySelector("#hamburger");
