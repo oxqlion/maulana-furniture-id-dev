@@ -1,7 +1,7 @@
 @extends('layouts.header')
 
 @section('content')
-<body class="justify-content-center">
+<body class="justify-content-center pt-32">
     <div class="flex flex-col h-fit container">
         <div class="flex flex-1 gap-8">
             <div class="hidden md:block w-1/5 w-1/5 p-4 font-montserrat">
