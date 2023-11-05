@@ -102,7 +102,7 @@
     </header>
 
     <section>
-        <div class="container pt-32">
+        <div class="pt-32">
             @yield('content')
         </div>
     </section>
