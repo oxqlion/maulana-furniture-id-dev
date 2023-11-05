@@ -182,8 +182,8 @@
         <div class="md:flex flex-wrap">
             <div class="md:w-2/5 md:pr-8 mb-12 md:mb-4">
                 <div class="mb-4 mr-8">
-                    <img src="logoperusahaan.png" alt="Logo Perusahaan" class="w-40">
-                    <p class="text-xs">Dengan semangat dan kekuatan dari Team Work menghasilkan produk berkualitas serta
+                    <img src="{{asset('images/logo-maulana.png')}}" alt="Logo Perusahaan" class="w-60 mb-4">
+                    <p class="text-sm">Dengan semangat dan kekuatan dari Team Work menghasilkan produk berkualitas serta
                         memberikan pelayanan yang terbaik sehingga menjadi pemimpin industri furniture asal Jepara yang
                         unggul di Indonesia dan memenangkan persaingan internasional.</p>
                 </div>
