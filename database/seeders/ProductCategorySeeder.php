@@ -49,6 +49,9 @@ class ProductCategorySeeder extends Seeder
             ['category_id' => 8,'product_id'=> 33],
             ['category_id' => 8,'product_id'=> 34],
             ['category_id' => 8,'product_id'=> 35],
+            ['category_id' => 9,'product_id'=> 36],
+            ['category_id' => 9,'product_id'=> 37],
+            ['category_id' => 9,'product_id'=> 38],
         ];
 
         DB::table('product_category')->insert($prodcut_category);

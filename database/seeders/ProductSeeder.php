@@ -35,7 +35,7 @@ class ProductSeeder extends Seeder
                 'kategori' => 'Kursi Cafe',
                 'material' => 'Kayu Jati Perhutani Grade A Abangan + Rotan',
                 'furnish' => 'Melamine Natural / Custom',
-                'ukuran' => '46x48x83',
+                'ukuran' => '46 x 48 x 83',
             ],
             [
                 'nama' => 'Kursi Makan Kayu Jati',
@@ -147,7 +147,7 @@ class ProductSeeder extends Seeder
                 'kategori' => 'Meja Tamu',
                 'material' => 'Kayu Jati Perhutani',
                 'furnish' => 'Melamine',
-                'ukuran' => '120x45x45 cm',
+                'ukuran' => '120 x 45 x 45 cm',
             ],
 
             // Set Meja Makan
@@ -160,7 +160,7 @@ class ProductSeeder extends Seeder
                 'kategori' => 'Set Meja Makan',
                 'material' => 'Kayu Jati Perhutani Grade A',
                 'furnish' => 'Melamine',
-                'ukuran' => '120x45x45 cm dan Kursi Standart',
+                'ukuran' => '120 x 45 x 45 cm dan Kursi Standart',
             ],
             [
                 'nama' => 'Dining set meja makan',
@@ -230,7 +230,7 @@ class ProductSeeder extends Seeder
                 'kategori' => 'Sofa',
                 'material' => 'Kayu Jati Perhutani',
                 'furnish' => 'Melamine Natural / Custom',
-                'ukuran' => '160x75x60',
+                'ukuran' => '160 x 75 x 60',
             ],
             [
                 'nama' => 'Sofa Kayu Jati Minimalis',
@@ -278,7 +278,7 @@ class ProductSeeder extends Seeder
                 'kategori' => 'Gebyok Kayu Jati',
                 'material' => 'Kayu Jati',
                 'furnish' => 'Custom',
-                'ukuran' => '3m x 2,7 m',
+                'ukuran' => '3 x 2,7 m',
             ],
             [
                 'nama' => 'Gebyok Ukir Jepara Asli Pengrajin',
@@ -289,7 +289,7 @@ class ProductSeeder extends Seeder
                 'kategori' => 'Gebyok Kayu Jati',
                 'material' => 'Kayu Jati',
                 'furnish' => 'Custom',
-                'ukuran' => '3m x 2,7 m',
+                'ukuran' => '3 x 2,7 m',
             ],
             [
                 'nama' => 'Gebyok Ukir Jepara READY STOCK',
@@ -300,7 +300,7 @@ class ProductSeeder extends Seeder
                 'kategori' => 'Gebyok Kayu Jati',
                 'material' => 'Kayu Jati',
                 'furnish' => 'Custom',
-                'ukuran' => '3m x 2,7 m',
+                'ukuran' => '3 x 2,7 m',
             ],
             [
                 'nama' => 'Gebyok Jati Ukir Jepara Terbaru',
@@ -311,7 +311,7 @@ class ProductSeeder extends Seeder
                 'kategori' => 'Gebyok Kayu Jati',
                 'material' => 'Kayu Jati',
                 'furnish' => 'Custom',
-                'ukuran' => '3m x 2,7 m',
+                'ukuran' => '3 x 2,7 m',
             ],
             [
                 'nama' => 'Ready Stock Gebyok Kayu Jati Ukir',
@@ -322,7 +322,7 @@ class ProductSeeder extends Seeder
                 'kategori' => 'Gebyok Kayu Jati',
                 'material' => 'Kayu Jati',
                 'furnish' => 'Custom',
-                'ukuran' => '3m x 2,7 m',
+                'ukuran' => '3 x 2,7 m',
             ],
             [
                 'nama' => 'Jual Gebyok Kayu Jati',
@@ -333,7 +333,7 @@ class ProductSeeder extends Seeder
                 'kategori' => 'Gebyok Kayu Jati',
                 'material' => 'Kayu Jati',
                 'furnish' => 'Custom',
-                'ukuran' => '3m x 2,7 m',
+                'ukuran' => '3 x 2,7 m',
             ],
 
             // Rumah Kayu
