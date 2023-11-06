@@ -20,4 +20,9 @@ class Product extends Model
         'furnish',
         'ukuran',
     ];
+
+    public function categories()
+    {
+        return $this->belongsToMany(Category::class);
+    }
 }
