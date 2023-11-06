@@ -126,7 +126,7 @@
 </head>
 
 <body>
-    <header class="bg-[#434240] fixed top-0 left-0 w-full flex items-center z-10">
+    <header class="bg-[#434240] fixed top-0 left-0 w-full flex items-center z-10 font-montserrat">
         <div class="w-full">
             <div class="flex items-center justify-between relative">
                 <div class="">
@@ -198,7 +198,7 @@
                 </div>
             </div>
             <div class="md:w-1/5 md:pr-8 mb-12 md:mb-4">
-                <h2 class="text-lg font-extrabold mb-4">Menu</h2>
+                <h2 class="text-lg font-extrabold mb-4 text-[#DDBD7E]">Menu</h2>
                 <ul class="text-sm">
                     <li class="mb-3">
                         <a href="#" class="relative group">
@@ -252,7 +252,7 @@
 
             </div>
             <div class="md:w-1/5 md:pr-8 mb-12 md:mb-4">
-                <h2 class="text-lg font-bold mb-4">E-commerce</h2>
+                <h2 class="text-lg font-bold mb-4 text-[#DDBD7E]">E-commerce</h2>
                 <ul class="text-sm">
                     <li class="mb-3">
                         <a href="#" class="relative group">

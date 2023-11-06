@@ -28,12 +28,9 @@
                     <p class="text-sm font-light font-montserrat text-slate-700">Showing 25 result</p>
                 </div>
                 <div class="flex flex-wrap gap-8 justify-center sm:justify-between md:justify-start">
-                    <x-card_katalog></x-card_katalog>
-                    <x-card_katalog></x-card_katalog>
-                    <x-card_katalog></x-card_katalog>
-                    <x-card_katalog></x-card_katalog>
-                    <x-card_katalog></x-card_katalog>
-                    <x-card_katalog></x-card_katalog>
+                    <?php for ($i = 0; $i < 15; $i++): ?>
+                        <x-card_katalog></x-card_katalog>
+                    <?php endfor; ?>
                 </div>
             </div>
         </div>
