@@ -15,13 +15,13 @@ return new class extends Migration
             $table->id();
             $table->string('nama');
             $table->string('harga'); 
-            $table->string('hondisi');
-            $table->integer('waktu_preorder');
+            $table->string('kondisi');
+            $table->integer('waktu_preorder')->nullable();
             $table->integer('minimal_pemesanan');
             $table->string('kategori');
             $table->string('material');
             $table->string('furnish');
-            $table->string('ukuran');
+            $table->string('ukuran')->nullable();
             $table->timestamps();
         });
     }
