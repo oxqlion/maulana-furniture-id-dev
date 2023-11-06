@@ -414,6 +414,41 @@ class ProductSeeder extends Seeder
                 'furnish' => 'Melamine Natural / Custom',
                 'ukuran' => '4 x 4 M',
             ],
+
+            //Gazebo
+            [
+                'nama'=> 'Gaszebo Pergola Minimalis',
+                'harga' => 43000000,
+                'kondisi' => 'Baru',
+                'waktu_preorder' => 30,
+                'minimal_pemesanan' => 1,
+                'kategori' => 'Gazebo',
+                'material' => 'Kayu Jati Perhutani',
+                'furnish' => 'Melamine Natural / Custom',
+                'ukuran' => '4 x 3 M',
+            ],
+            [
+                'nama'=> 'Gaszebo Minimalis Kayu Jati',
+                'harga' => 29000000,
+                'kondisi' => 'Baru',
+                'waktu_preorder' => 30,
+                'minimal_pemesanan' => 1,
+                'kategori' => 'Gazebo',
+                'material' => 'Kayu Jati Perhutani',
+                'furnish' => 'Melamine Natural / Custom',
+                'ukuran' => '2 x 2 M',
+            ],
+            [
+                'nama'=> 'Gaszebo Tingkat Kayu Jati',
+                'harga' => 58000000,
+                'kondisi' => 'Baru',
+                'waktu_preorder' => 30,
+                'minimal_pemesanan' => 1,
+                'kategori' => 'Gazebo',
+                'material' => 'Kayu Jati Perhutani',
+                'furnish' => 'Melamine Natural / Custom',
+                'ukuran' => '3 x 3 M',
+            ],
         ];
         foreach ($products as $product) {
             DB::table('products')->insert($product);
