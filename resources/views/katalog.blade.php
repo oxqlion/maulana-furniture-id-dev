@@ -46,7 +46,7 @@
                         <p class="text-2xl font-bold font-montserrat text-[#434240]">Sofa Tempat Tidur</p>
                         <p class="text-sm font-light font-montserrat text-slate-700">Showing 25 result</p>
                     </div>
-                    <div class="flex flex-wrap gap-8 justify-center sm:justify-between md:justify-start">
+                    <div class="flex flex-wrap gap-6 justify-center sm:justify-between md:justify-start">
                         <?php for ($i = 0; $i < 15; $i++): ?>
                         <x-card_katalog></x-card_katalog>
                         <?php endfor; ?>
