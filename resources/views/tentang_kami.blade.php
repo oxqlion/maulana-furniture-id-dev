@@ -5,7 +5,7 @@
 
     <body class="mt-28">
 
-        <div class="container">
+        <div class="container font-montserrat mb-32">
             <!-- Breadcrumbs -->
             <div class="px-4">
                 <div class="flex items-center space-x-2 text-gray-400 text-sm">
@@ -28,9 +28,9 @@
             </div>
             <!-- ./ Breadcrumbs -->
 
-            <div class="max-w-5xl px-3 sm:px-6 lg:px-8 mt-6">
-                <div class="flex flex-col md:flex-row -mx-8">
-                    <div class="flex-1 md:flex-auto md:w-56 px-4">
+            <div class="px-3 sm:px-6 lg:px-8 mt-6">
+                <div class="flex flex-col md:flex-row gap-8 -mx-8 w-full mx-auto h-fit">
+                    <div class="flex-auto md:w-3/5 px-4">
                         <div x-data="{ image: 1 }" x-cloak>
                             <div class="h-64 md:h-96 rounded-lg bg-gray-100 mb-4">
                                 <div x-show="image === 1"
@@ -52,8 +52,7 @@
                             <div class="flex -mx-2 mb-4">
                                 <template x-for="i in 3">
                                     <div class="flex-1 px-2">
-                                        <button x-on:click="image = i"
-                                            :class="{ 'ring-2 ring-indigo-300 ring-inset': image === i }"
+                                        <button x-on:click="image = i" :class="{ 'ring-2 ring-[#434240]': image === i }"
                                             class="focus:outline-none w-full rounded-lg h-24 md:h-32 bg-gray-100 flex items-center justify-center">
                                             <img :src="'images/products/10_' + i + '.png'" alt="Image"
                                                 class="h-full w-full object-cover rounded-lg">
@@ -63,57 +62,53 @@
                             </div>
                         </div>
                     </div>
-                    <div class="md:flex-1 px-4">
-                        <h2 class="mb-2 leading-tight tracking-tight font-bold text-gray-800 text-2xl md:text-3xl">Lorem
-                            ipsum
-                            dolor, sit amet consectetur, adipisicing elit.</h2>
-                        <p class="text-gray-500 text-sm">By <a href="#" class="text-indigo-600 hover:underline">ABC
-                                Company</a></p>
-                        <div class="flex items-center space-x-4 my-4">
-                            <div>
-                                <div class="rounded-lg bg-gray-100 flex py-2 px-3">
-                                    <span class="text-indigo-400 mr-1 mt-1">$</span>
-                                    <span class="font-bold text-indigo-600 text-3xl">25</span>
-                                </div>
+                    <div class="flex-auto md:w-2/4 pl-4 md:pl-0">
+                        <h2 class="mb-2 leading-tight tracking-tight font-semibold text-gray-800 text-2xl md:text-4xl">
+                            Wishbone chair cafe & resto</h2>
+                        <p class="text-gray-500 text-sm">By <a href="#" class="text-[#DDBD7E] hover:underline">Maulana
+                                Furniture Indonesia</a></p>
+                        <div class="my-4 w-fit rounded-lg bg-[#DDBD7E] flex py-2 px-3">
+                            <span class="text-[#434240] mr-1 mt-1">Rp.</span>
+                            <span class="font-bold text-[#434240] text-4xl">750.000</span>
+                        </div>
+                        <div class="flex flex-col gap-2">
+                            <div class="flex text-sm">
+                                <p class="font-medium">Kondisi : </p>
+                                <p class="pl-1 text-black-700">Baru</p>
                             </div>
-                            <div class="flex-1">
-                                <p class="text-green-500 text-xl font-semibold">Save 12%</p>
-                                <p class="text-gray-400 text-sm">Inclusive of all Taxes.</p>
+                            <div class="flex text-sm">
+                                <p class="font-medium">Waktu Preorder : </p>
+                                <p class="pl-1 text-black-700">7</p>
+                            </div>
+                            <div class="flex text-sm">
+                                <p class="font-medium">Minimal Pemesanan : </p>
+                                <p class="pl-1 text-black-700">1</p>
                             </div>
                         </div>
 
-                        <p class="text-gray-500">Lorem ipsum, dolor sit, amet consectetur adipisicing elit. Vitae
-                            exercitationem
-                            porro saepe ea harum corrupti vero id laudantium enim, libero blanditiis expedita cupiditate a
-                            est.
-                        </p>
-
-                        <div class="flex py-4 space-x-4">
-                            <div class="relative">
-                                <div
-                                    class="text-center left-0 pt-2 right-0 absolute block text-xs uppercase text-gray-400 tracking-wide font-semibold">
-                                    Qty</div>
-                                <select
-                                    class="cursor-pointer appearance-none rounded-xl border border-gray-200 pl-4 pr-8 h-14 flex items-end pb-1">
-                                    <option>1</option>
-                                    <option>2</option>
-                                    <option>3</option>
-                                    <option>4</option>
-                                    <option>5</option>
-                                </select>
-
-                                <svg class="w-5 h-5 text-gray-400 absolute right-0 bottom-0 mb-2 mr-2"
-                                    xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
-                                    stroke="currentColor">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                        d="M8 9l4-4 4 4m0 6l-4 4-4-4" />
-                                </svg>
+                        <hr class="w-full my-6">
+                        <div class="flex flex-col gap-2">
+                            <p class="font-medium">Spesifikasi Produk :</p>
+                            <div class="flex text-sm">
+                                <p>- Material : </p>
+                                <p class="pl-1">Kayu Jati Makasar</p>
                             </div>
-
-                            <button type="button"
-                                class="h-14 px-6 py-2 font-semibold rounded-xl bg-indigo-600 hover:bg-indigo-500 text-white">
-                                Add to Cart
-                            </button>
+                            <div class="flex text-sm">
+                                <p>- Furnish : </p>
+                                <p class="pl-1">Melamine / Natural Custom</p>
+                            </div>
+                            <div class="flex text-sm">
+                                <p>- Ukuran : </p>
+                                <p class="pl-1">20 x 40 x 40</p>
+                            </div>
+                        </div>
+                        <div class="md:bottom-4 md:absolute mt-8 md:w-5/12 overflow-hidden ">
+                            <a
+                                class="w-full gap-4 border-2 border-[#DDBD7E] font-bold py-2 flex items-center justify-center cursor-pointer group hover:bg-[#DDBD7E] rounded transition">
+                                <i
+                                    class="fab fa-whatsapp text-[#DDBD7E] text-2xl group-hover:text-[#434240] group-hover:transition transition"></i>
+                                <p class="text-[#DDBD7E] group-hover:text-[#434240] transition">Pesan Sekarang</p>
+                            </a>
                         </div>
                     </div>
                 </div>

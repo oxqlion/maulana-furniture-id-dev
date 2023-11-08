@@ -114,7 +114,7 @@
             theme: {
                 container: {
                     center: true,
-                    padding: "15px",
+                    padding: "30px",
                 },
                 extend: {
                     screens: {
