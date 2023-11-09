@@ -37,29 +37,43 @@
                     <div class="text-start font-bold">KATEGORI PRODUK</div>
                     <div class="border-b-4 border-[#DDBD7E] mt-2 w-10"></div>
                     <div class="text-start mt-6 gab-2">
-                        <div class="mt-1">Kursi</div>
-                        <div class="border-b border-gray-400 mt-1 w-44"></div>
-                        <div class="mt-1">Lampu tidur</div>
-                        <div class="border-b border-gray-400 mt-1 w-44"></div>
-                        <div class="mt-1">Set kamar tidur</div>
-                        <div class="border-b border-gray-400 mt-1 w-44"></div>
-                        <div class="mt-1">Meja kayu</div>
-                        <div class="border-b border-gray-400 mt-1 w-44"></div>
-                        <div class="mt-1">Gazebo taman</div>
-                        <div class="border-b border-gray-400 mt-1 w-44"></div>
-                        <div class="mt-1">Kamar tidur</div>
-                        <div class="border-b border-gray-400 mt-1 w-44"></div>
+                        @foreach($categories as $category)
+                        <div class="py-1">
+                            <a href="{{ route('kategori_produk', $category->id) }}" class="mt-1" class="hover:text-[#434240]">{{$category->nama}}</a>
+                            <div class="border-b border-gray-400 mt-1"></div>
+                        </div>
+                        @endforeach
                     </div>
                 </div>
                 <div class="p-4 w-full">
                     <div class="flex justify-between mb-12">
-                        <p class="text-2xl font-bold font-montserrat text-[#434240]">Sofa Tempat Tidur</p>
-                        <p class="text-sm font-light font-montserrat text-slate-700">Showing 25 result</p>
+                        <p class="text-2xl font-bold font-montserrat text-[#434240]">Semua Produk</p>
+                        <p class="text-sm font-light font-montserrat text-slate-700">Showing {{ count($product_category) }} products</p>
                     </div>
                     <div class="flex flex-wrap gap-6 justify-center sm:justify-between md:justify-start">
-                        <?php for ($i = 0; $i < 15; $i++): ?>
-                        <x-card_katalog></x-card_katalog>
-                        <?php endfor; ?>
+                        @foreach($product_category as $pc)
+                        <div class="flex flex-wrap" data-aos="fade-up" data-aos-duration="800">
+                            <div class="max-w-full md:max-w-sm w-full xl:w-56 lg:w-52 md:w-52 sm:w-64 sm:justify-center relative">
+                                <a href="{{ route('produk_detail', $pc->product) }}" >
+                                    <div class="group relative overflow-hidden transform transition-transform duration-300 shadow-xl hover:-translate-y-2 rounded-lg cursor-pointer">
+                                        <div class="relative overflow-hidden group">
+                                            <!-- Foto Produk -->
+                                            <img src="{{ asset('images/products/' . $pc->product->id . '_1.png') }}" alt="Kursi Hiroshima x Anyaman Viro" class="w-full h-64 group-hover:brightness-50 transition-transform duration-900 object-cover" />
+                                            <div class="absolute top-0 left-0 right-0 bottom-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-900">
+                                                <p class="text-white text-lg font-bold">See Details</p>
+                                            </div>
+                                        </div>
+                                        <div class="py-4 bg-white shadow-md px-3">
+                                            <!-- Nama Produk -->
+                                            <h2 class="text-xl font-semibold text-gray-800 truncate">{{$pc->product->nama}}</h2>
+                                            <h2 class="text-md text-gray-500">{{$pc->product->kategori}}</h2>
+                                        </div>
+
+                                    </div>
+                                </a>
+                            </div>
+                        </div>
+                        @endforeach
                     </div>
                 </div>
             </div>

@@ -54,6 +54,6 @@ class ProductCategorySeeder extends Seeder
             ['category_id' => 9,'product_id'=> 38],
         ];
 
-        DB::table('product_category')->insert($prodcut_category);
+        DB::table('product_categories')->insert($prodcut_category);
     }
 }
