@@ -149,31 +149,52 @@
                         class="hidden absolute py-5 bg-white shadow-lg w-full right-0 top-full lg:block lg:static lg:bg-transparent lg:max-w-full lg:shadow-none">
                         <ul class="block w-full lg:flex">
                             <li class="group">
-                                <a href={{ route('home') }}
-                                    class="text-base text-[#434240] lg:text-[#DDBD7E] py-2 mx-8 group hover:opacity-50 flex font-normal">Home</a>
+                                <a href="{{route('home')}}" class="relative group text-base text-[#434240] lg:text-white hover:text-opacity-50 lg:hover:text-opacity-100 py-2 mx-8 group flex font-normal">
+                                    Home
+                                    <div
+                                        class="absolute md:w-full h-0.5 bg-[#DDBD7E] bottom-1 left-0 transform scale-x-0 origin-left transition-transform group-hover:scale-x-100 duration-300">
+                                    </div>
+                                </a>
                             </li>
                             <li class="group">
-                                <a href={{ route('tentang_kami') }}
-                                    class="text-base text-[#434240] lg:text-[#DDBD7E] py-2 mx-8 group hover:opacity-50 flex font-normal">Tentang
-                                    Kami</a>
+                                <a href="{{route('tentang_kami')}}" class="relative group text-base text-[#434240] lg:text-white hover:text-opacity-50 lg:hover:text-opacity-100 py-2 mx-8 group flex font-normal">
+                                    Tentang Kami
+                                    <div
+                                        class="absolute md:w-full h-0.5 bg-[#DDBD7E] bottom-1 left-0 transform scale-x-0 origin-left transition-transform group-hover:scale-x-100 duration-300">
+                                    </div>
+                                </a>
                             </li>
                             <li class="group">
-                                <a href={{ route('katalog') }}
-                                    class="text-base text-[#434240] lg:text-[#DDBD7E] py-2 mx-8 group hover:opacity-50 flex font-normal">Katalog</a>
+                                <a href="{{route('katalog')}}" class="relative group text-base text-[#434240] lg:text-white hover:text-opacity-50 lg:hover:text-opacity-100 py-2 mx-8 group flex font-normal">
+                                    Katalog
+                                    <div
+                                        class="absolute md:w-full h-0.5 bg-[#DDBD7E] bottom-1 left-0 transform scale-x-0 origin-left transition-transform group-hover:scale-x-100 duration-300">
+                                    </div>
+                                </a>
                             </li>
                             <li class="group">
-                                <a href={{ route('cara_pemesanan') }}
-                                    class="text-base text-[#434240] lg:text-[#DDBD7E] py-2 mx-8 group hover:opacity-50 flex font-normal">Cara
-                                    Pemesanan</a>
+                                <a href="{{route('cara_pemesanan')}}" class="relative group text-base text-[#434240] lg:text-white hover:text-opacity-50 lg:hover:text-opacity-100 py-2 mx-8 group flex font-normal">
+                                    Cara Pemesanan
+                                    <div
+                                        class="absolute md:w-full h-0.5 bg-[#DDBD7E] bottom-1 left-0 transform scale-x-0 origin-left transition-transform group-hover:scale-x-100 duration-300">
+                                    </div>
+                                </a>
                             </li>
                             <li class="group">
-                                <a href={{ route('cara_pembayaran') }}
-                                    class="text-base text-[#434240] lg:text-[#DDBD7E] py-2 mx-8 group hover:opacity-50 flex font-normal">Cara
-                                    Pembayaran</a>
+                                <a href="{{route('cara_pembayaran')}}" class="relative group text-base text-[#434240] lg:text-white hover:text-opacity-50 lg:hover:text-opacity-100 py-2 mx-8 group flex font-normal">
+                                    Cara Pembayaran
+                                    <div
+                                        class="absolute md:w-full h-0.5 bg-[#DDBD7E] bottom-1 left-0 transform scale-x-0 origin-left transition-transform group-hover:scale-x-100 duration-300">
+                                    </div>
+                                </a>
                             </li>
                             <li class="group">
-                                <a href={{ route('kontak') }}
-                                    class="text-base text-[#434240] lg:text-[#DDBD7E] py-2 mx-8 group hover:opacity-50 flex font-normal">Contact</a>
+                                <a href="{{route('kontak')}}" class="relative group text-base text-[#434240] lg:text-white hover:text-opacity-50 lg:hover:text-opacity-100 py-2 mx-8 group flex font-normal">
+                                    Kontak
+                                    <div
+                                        class="absolute md:w-full h-0.5 bg-[#DDBD7E] bottom-1 left-0 transform scale-x-0 origin-left transition-transform group-hover:scale-x-100 duration-300">
+                                    </div>
+                                </a>
                             </li>
                         </ul>
                     </nav>
