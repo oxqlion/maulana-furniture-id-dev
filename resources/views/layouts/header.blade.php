@@ -134,9 +134,7 @@
         <div class="w-full">
             <div class="flex items-center justify-between relative">
                 <div class="">
-                    <a href="#home" class="font-bold text-lg text-[#DDBD7E] block py-6 ml-6 lg:ml-12">Maulana
-                        Furniture
-                        Indonesia</a>
+                    <img src="{{asset('images/logo-maulana.png')}}" alt="Logo Perusahaan" class="w-36 my-4 ml-10">
                 </div>
                 <div class="flex items-center">
                     <button id="hamburger" name="hamburger" class="block absolute right-4 lg:hidden">
@@ -174,7 +172,7 @@
                                     Pembayaran</a>
                             </li>
                             <li class="group">
-                                <a href={{ route('contact') }}
+                                <a href={{ route('kontak') }}
                                     class="text-base text-[#434240] lg:text-[#DDBD7E] py-2 mx-8 group hover:opacity-50 flex font-normal">Contact</a>
                             </li>
                         </ul>
@@ -205,15 +203,15 @@
                 <h2 class="text-lg font-extrabold mb-4 text-[#DDBD7E]">Menu</h2>
                 <ul class="text-sm">
                     <li class="mb-3">
-                        <a href="#" class="relative group">
-                            Beranda
+                        <a href="{{route('home')}}" class="relative group">
+                            Home
                             <div
                                 class="absolute w-full h-0.5 bg-[#DDBD7E] bottom-(-1) left-0 transform scale-x-0 origin-left transition-transform group-hover:scale-x-100 duration-300">
                             </div>
                         </a>
                     </li>
                     <li class="mb-3">
-                        <a href="#" class="relative group">
+                        <a href="{{route('tentang_kami')}}" class="relative group">
                             Tentang Kami
                             <div
                                 class="absolute w-full h-0.5 bg-[#DDBD7E] bottom-(-1) left-0 transform scale-x-0 origin-left transition-transform group-hover:scale-x-100 duration-300">
@@ -221,7 +219,7 @@
                         </a>
                     </li>
                     <li class="mb-3">
-                        <a href="#" class="relative group">
+                        <a href="{{route('katalog')}}" class="relative group">
                             Katalog
                             <div
                                 class="absolute w-full h-0.5 bg-[#DDBD7E] bottom-(-1) left-0 transform scale-x-0 origin-left transition-transform group-hover:scale-x-100 duration-300">
@@ -229,7 +227,7 @@
                         </a>
                     </li>
                     <li class="mb-3">
-                        <a href="#" class="relative group">
+                        <a href="{{route('cara_pemesanan')}}" class="relative group">
                             Cara Pemesanan
                             <div
                                 class="absolute w-full h-0.5 bg-[#DDBD7E] bottom-(-1) left-0 transform scale-x-0 origin-left transition-transform group-hover:scale-x-100 duration-300">
@@ -237,7 +235,7 @@
                         </a>
                     </li>
                     <li class="mb-3">
-                        <a href="#" class="relative group">
+                        <a href="{{route('cara_pembayaran')}}" class="relative group">
                             Cara Pembayaran
                             <div
                                 class="absolute w-full h-0.5 bg-[#DDBD7E] bottom-(-1) left-0 transform scale-x-0 origin-left transition-transform group-hover:scale-x-100 duration-300">
@@ -245,7 +243,7 @@
                         </a>
                     </li>
                     <li class="mb-3">
-                        <a href="#" class="relative group">
+                        <a href="{{route('kontak')}}" class="relative group">
                             Kontak
                             <div
                                 class="absolute w-full h-0.5 bg-[#DDBD7E] bottom-(-1) left-0 transform scale-x-0 origin-left transition-transform group-hover:scale-x-100 duration-300">

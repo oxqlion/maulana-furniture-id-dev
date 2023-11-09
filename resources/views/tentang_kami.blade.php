@@ -35,17 +35,17 @@
                             <div class="h-64 md:h-96 rounded-lg bg-gray-100 mb-4">
                                 <div x-show="image === 1"
                                     class="h-64 md:h-96 rounded-lg mb-4 flex items-center justify-center">
-                                    <img src="{{ asset('images/products/10_1.png') }}" alt=""
+                                    <img src="{{ asset('images/products/5_1.png') }}" alt=""
                                         class="h-full w-full object-cover rounded-lg ">
                                 </div>
                                 <div x-show="image === 2"
                                     class="h-64 md:h-96 rounded-lg mb-4 flex items-center justify-center">
-                                    <img src="{{ asset('images/products/10_2.png') }}" alt=""
+                                    <img src="{{ asset('images/products/5_2.png') }}" alt=""
                                         class="h-full w-full object-cover rounded-lg">
                                 </div>
                                 <div x-show="image === 3"
                                     class="h-64 md:h-96 rounded-lg mb-4 flex items-center justify-center">
-                                    <img src="{{ asset('images/products/10_3.png') }}" alt=""
+                                    <img src="{{ asset('images/products/5_3.png') }}" alt=""
                                         class="h-full w-full object-cover rounded-lg">
                                 </div>
                             </div>
@@ -54,7 +54,7 @@
                                     <div class="flex-1 px-2">
                                         <button x-on:click="image = i" :class="{ 'ring-2 ring-[#434240]': image === i }"
                                             class="focus:outline-none w-full rounded-lg h-24 md:h-32 bg-gray-100 flex items-center justify-center">
-                                            <img :src="'images/products/10_' + i + '.png'" alt="Image"
+                                            <img :src="'images/products/5_' + i + '.png'" alt="Image"
                                                 class="h-full w-full object-cover rounded-lg">
                                         </button>
                                     </div>
