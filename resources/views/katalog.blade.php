@@ -33,7 +33,7 @@
                 </div>
             </div>
             <div class="flex flex-1 gap-8">
-                <div class="hidden md:block w-1/5 w-1/5 p-4 font-montserrat">
+                <div class="hidden md:block w-1/5 w-1/5 p-4 font-montserrat sticky top-24 bottom-24 rounded-lg p-4 py-6 mt-4 mb-6 h-fit bg-white shadow-xl border">
                     <div class="text-start font-bold">KATEGORI PRODUK</div>
                     <div class="border-b-4 border-[#DDBD7E] mt-2 w-10"></div>
                     <div class="text-start mt-6 gab-2">
