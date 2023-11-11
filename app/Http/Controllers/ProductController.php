@@ -22,6 +22,7 @@ class ProductController extends Controller
     public function kategoriProduk($category_id){
         $product_category = ProductCategory::where('category_id', $category_id)->get();
         $categories = Category::all();
-        return view('katalog', compact('product_category', 'categories'));
+        $current_category = Category::find($category_id);
+        return view('katalog', compact('product_category', 'categories', 'current_category'));
     }
 }
