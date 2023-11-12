@@ -26,4 +26,9 @@ class ProductController extends Controller
         $current_category = Category::find($category_id);
         return view('katalog', compact('product_category', 'categories', 'current_category'));
     }
+
+    public function produkPilihan() {
+        $products = ProductCategory::inRandomOrder()->take(9)->get(); 
+        return view('home', compact('products'));
+    }
 }
