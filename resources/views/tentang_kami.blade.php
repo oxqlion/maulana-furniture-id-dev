@@ -1,5 +1,5 @@
 @extends('layouts.header')
 
 @section('content')
-    <p>tentang kami</p>
+    <x-footer></x-footer>
 @endsection

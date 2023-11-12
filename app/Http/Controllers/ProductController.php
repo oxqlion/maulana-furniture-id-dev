@@ -16,7 +16,8 @@ class ProductController extends Controller
     }
 
     public function detailProduk(Product $product){
-        return view('produk_detail', compact('product'));
+        $productRec = Product::inRandomOrder()->take(10)->get();
+        return view('produk_detail', compact('product', 'productRec'));
     }
 
     public function kategoriProduk($category_id){
