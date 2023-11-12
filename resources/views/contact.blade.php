@@ -11,10 +11,7 @@
                 <p class="text-4xl lg:text-6xl font-bold pb-4 text-[#DDBD7E]">
                     Kontak.
                 </p>
-                <p class="text-xs text-white lg:text-sm font-semibold lg:w-1/2">Lorem ipsum dolor sit amet, consectetur
-                    adipisicing elit. Excepturi placeat corrupti suscipit consectetur quae ullam at quaerat repellendus.
-                    Earum enim libero, nihil perferendis culpa commodi incidunt dolores dignissimos eius unde.
-                </p>
+                <p class="text-xs text-white lg:text-sm font-medium lg:w-1/2">Selamat datang di halaman kontak, pintu gerbang untuk berkomunikasi langsung dengan tim kami. Kami menganggap setiap pertanyaan, masukan, atau kebutuhan Anda sangat berharga. </p>
             </div>
         </div>
         <div class="container">

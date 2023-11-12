@@ -11,9 +11,7 @@
                 <p class="text-4xl lg:text-6xl font-bold pb-4 text-[#DDBD7E]">
                     Cara Pembayaran.
                 </p>
-                <p class="text-xs text-white lg:text-sm font-semibold lg:w-1/2">Lorem ipsum dolor sit amet, consectetur
-                    adipisicing elit. Excepturi placeat corrupti suscipit consectetur quae ullam at quaerat repellendus.
-                    Earum enim libero, nihil perferendis culpa commodi incidunt dolores dignissimos eius unde.
+                <p class="text-xs text-white lg:text-sm font-medium lg:w-1/2">Tempat di mana kenyamanan dan keamanan saling bersatu dalam setiap transaksi. Kami mengerti bahwa setiap pembelian tidak hanya mengenai pencarian furnitur ideal, tetapi juga tentang memastikan proses pembayaran berjalan lancar.
                 </p>
             </div>
         </div>

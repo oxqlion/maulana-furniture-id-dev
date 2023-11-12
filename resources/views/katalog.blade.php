@@ -11,9 +11,7 @@
                 <p class="text-4xl lg:text-6xl font-bold pb-4 text-[#DDBD7E]">
                     Katalog.
                 </p>
-                <p class="text-xs text-white lg:text-sm font-semibold lg:w-1/2">Lorem ipsum dolor sit amet, consectetur
-                    adipisicing elit. Excepturi placeat corrupti suscipit consectetur quae ullam at quaerat repellendus.
-                    Earum enim libero, nihil perferendis culpa commodi incidunt dolores dignissimos eius unde.</p>
+                <p class="text-xs text-white lg:text-sm font-medium lg:w-1/2">Selamat datang di halaman katalog furniture kami, di mana kami menghadirkan koleksi eksklusif yang mengeksplorasi unsur-unsur desain terkini dan keunggulan bahan yang akan membuat ruanganmu kembali hidup. </p>
             </div>
         </div>
         <div class="flex flex-col h-fit container">
@@ -26,19 +24,18 @@
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
                         </svg>
                     </span>
-                    <a href="{{ route('katalog') }}" class="hover:underline hover:text-gray-600">Katalog</a>
+                    <span>Katalog</span>
                 </div>
             </div>
             <div class="flex flex-1 gap-8">
-                <div data-aos="fade-up" data-aos-duration="800"
-                    class="hidden md:block w-1/5 w-1/5 p-4 font-montserrat sticky top-24 bottom-24 rounded-lg p-4 py-6 mt-4 mb-12 h-fit bg-white shadow-xl border">
+                <div class="hidden md:block w-1/5 w-1/5 p-4 font-montserrat sticky top-24 bottom-24 rounded-lg p-4 py-6 mt-4 mb-12 h-fit bg-white shadow-xl border">
                     <div class="text-start font-bold text-[#434240]">KATEGORI PRODUK</div>
                     <div class="border-b-4 border-[#DDBD7E] mt-2 w-10"></div>
                     <div class="text-start mt-6 gab-2">
                         @foreach ($categories as $category)
                             <div class="py-1">
                                 <a href="{{ route('kategori_produk', $category->id) }}" class="mt-1">
-                                    <p class="hover:text-[#DDBD7E] hover:font-semibold ">{{ $category->nama }}</p></a>
+                                    <p class="hover:text-[#DDBD7E] hover:font-semibold">{{ $category->nama }}</p></a>
                                 <div class="border-b border-gray-400 mt-1"></div>
                             </div>
                         @endforeach
@@ -71,14 +68,19 @@
                                                     class="w-full h-64 group-hover:brightness-50 transition-transform duration-900 object-fit" />
                                                 <div
                                                     class="absolute top-0 left-0 right-0 bottom-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-900">
-                                                    <p class="text-white text-lg font-bold">See Details</p>
+                                                    <p class="text-white text-lg font-semibold">See Details</p>
                                                 </div>
                                             </div>
-                                            <div class="py-4 bg-white shadow-md px-3">
+                                            <div class="py-4 bg-white shadow-md px-4 flex flex-col gap-1">
                                                 <!-- Nama Produk -->
-                                                <h2 class="text-xl font-semibold text-gray-800 truncate">
-                                                    {{ $pc->product->nama }}</h2>
-                                                <h2 class="text-md text-gray-500">{{ $pc->product->kategori }}</h2>
+                                                <h2 class="text-md text-[#434240] font-semibold truncate">{{ ucwords($pc->product->nama) }}</h2>
+                                                <h2 class="text-sm text-slate-700">{{ $pc->product->kategori }}</h2>
+                                                <div class="flex">
+                                                    <span class="text-[#434240] font-bold text-xs mt-1 mr-1">Rp. </span>
+                                                    <span
+                                                        class="font-bold text-[#434240] text-lg">{{ number_format($pc->product->harga, 0, ',', '.') }}
+                                                    </span>
+                                                </div>
                                             </div>
                                         </div>
                                     </a>
