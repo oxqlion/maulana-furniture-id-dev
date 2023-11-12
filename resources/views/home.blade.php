@@ -93,10 +93,16 @@
                 </p>
                 <div class="flex flex-col md:flex-row gap-8 h-full">
                     <div class="flex flex-col gap-8">
-                        <img src="{{ asset('images/a_1.jpg') }}" class="w-56 h-56 object-cover rounded-xl cursor-pointer transition ease-in-out delay-150 hover:-translate-y-1 hover:scale-110 hover:bg-[#DDBD7E] duration-300" alt="">
-                        <img src="{{ asset('images/a_2.jpg') }}" class="w-56 h-56 object-cover rounded-xl cursor-pointer transition ease-in-out delay-150 hover:-translate-y-1 hover:scale-110 hover:bg-[#DDBD7E] duration-300" alt="">
+                        <img src="{{ asset('images/a_1.jpg') }}"
+                            class="w-56 h-56 object-cover rounded-xl cursor-pointer transition ease-in-out delay-150 hover:-translate-y-1 hover:scale-110 hover:bg-[#DDBD7E] duration-300"
+                            alt="">
+                        <img src="{{ asset('images/a_2.jpg') }}"
+                            class="w-56 h-56 object-cover rounded-xl cursor-pointer transition ease-in-out delay-150 hover:-translate-y-1 hover:scale-110 hover:bg-[#DDBD7E] duration-300"
+                            alt="">
                     </div>
-                    <img src="{{ asset('images/a_4.jpg') }}" class="rounded-xl w-56 object-cover cursor-pointer transition ease-in-out delay-150 hover:-translate-y-1 hover:scale-110 hover:bg-[#DDBD7E] duration-300" alt="">
+                    <img src="{{ asset('images/a_4.jpg') }}"
+                        class="rounded-xl w-56 object-cover cursor-pointer transition ease-in-out delay-150 hover:-translate-y-1 hover:scale-110 hover:bg-[#DDBD7E] duration-300"
+                        alt="">
                 </div>
             </div>
 
@@ -151,7 +157,43 @@
 
 
         <div class="p-12 flex flex-col">
-            
+            <h2 class="md:text-5xl text-3xl font-bold mb-4 md:mb-12 text-center">Produk Pilihan Kami</h2>
+            <div class="flex flex-wrap gap-8 justify-center">
+                @foreach ($products as $pc)
+                    <div class="flex flex-wrap" data-aos="fade-up" data-aos-duration="800">
+                        <div
+                            class="max-w-full md:max-w-sm w-80 xl:w-56 lg:w-52 md:w-52 sm:w-64 sm:justify-center relative">
+                            <a href="{{ route('produk_detail', $pc->product) }}">
+                                <div
+                                    class="group relative overflow-hidden transform transition-transform duration-300 shadow-xl hover:-translate-y-2 rounded-lg cursor-pointer">
+                                    <div class="relative overflow-hidden group">
+                                        <!-- Foto Produk -->
+                                        <img src="{{ asset('images/products/' . $pc->product->id . '_1.png') }}"
+                                            alt="Kursi Hiroshima x Anyaman Viro"
+                                            class="w-full h-64 group-hover:brightness-50 transition-transform duration-900 object-fit" />
+                                        <div
+                                            class="absolute top-0 left-0 right-0 bottom-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-900">
+                                            <p class="text-white text-lg font-semibold">See Details</p>
+                                        </div>
+                                    </div>
+                                    <div class="py-4 bg-white shadow-md px-4 flex flex-col gap-1">
+                                        <!-- Nama Produk -->
+                                        <h2 class="text-md text-[#434240] font-semibold truncate">
+                                            {{ ucwords($pc->product->nama) }}</h2>
+                                        <h2 class="text-sm text-slate-700">{{ $pc->product->kategori }}</h2>
+                                        <div class="flex">
+                                            <span class="text-[#434240] font-bold text-xs mt-1 mr-1">Rp. </span>
+                                            <span
+                                                class="font-bold text-[#434240] text-lg">{{ number_format($pc->product->harga, 0, ',', '.') }}
+                                            </span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </a>
+                        </div>
+                    </div>
+                @endforeach
+            </div>
         </div>
     </div>
     <x-footer></x-footer>
