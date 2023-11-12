@@ -60,15 +60,17 @@
                         </div>
                     </div>
                     <div class="flex-auto md:w-2/4 pl-4 md:pl-0">
-                        <h2 class="mb-2 leading-tight tracking-tight font-semibold text-gray-800 text-2xl md:text-4xl truncate">
-                            {{ $product->nama }}</h2>
+                        <h2
+                            class="mb-2 leading-tight tracking-tight font-semibold text-gray-800 text-2xl md:text-4xl truncate">
+                            {{ ucwords($product->nama) }}</h2>
                         <p class="text-gray-500 text-sm">By <a href="{{ route('home') }}"
                                 class="text-[#DDBD7E] hover:underline">Maulana
                                 Furniture Indonesia</a></p>
                         <div class="my-4 w-fit rounded-lg bg-[#DDBD7E] flex py-2 px-3">
                             <span class="text-[#434240] mr-1 mt-1">Rp. </span>
                             <span
-                                class="font-bold text-[#434240] text-4xl">{{ number_format($product->harga, 0, ',', '.') }}</span>
+                                class="font-bold text-[#434240] text-4xl">{{ number_format($product->harga, 0, ',', '.') }}
+                            </span>
                         </div>
                         <div class="flex flex-col gap-2">
                             <div class="flex text-sm">
@@ -121,34 +123,40 @@
             </p>
             <div class="border-b-4 border-[#DDBD7E] mt-1 w-10"></div>
         </div>
-        <div class="swiper mySwiper md:ml-10 md:ml-20 ml-20 mb-12">
+        <div class="swiper mySwiper md:ml-10 md:ml-20 ml-20 mb-12 font-montserrat">
             <div class="swiper-wrapper">
                 @foreach ($productRec as $pro)
-                <div class="swiper-slide mt-2">
-                    <div class="max-w-full md:max-w-sm w-80 xl:w-56 lg:w-52 md:w-52 sm:w-64 sm:justify-center relative">
-                        <a href="{{ route('produk_detail', $pro) }}">
-                            <div
-                                class="group relative overflow-hidden transform transition-transform duration-300 shadow-xl hover:-translate-y-2 rounded-lg cursor-pointer">
-                                <div class="relative overflow-hidden group">
-                                    <!-- Foto Produk -->
-                                    <img src="{{ asset('images/products/' . $pro->id . '_1.png') }}"
-                                        alt="Kursi Hiroshima x Anyaman Viro"
-                                        class="w-full h-64 group-hover:brightness-50 transition-transform duration-900 object-fit" />
-                                    <div
-                                        class="absolute top-0 left-0 right-0 bottom-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-900">
-                                        <p class="text-white text-lg font-bold">See Details</p>
+                    <div class="swiper-slide mt-2">
+                        <div class="max-w-full md:max-w-sm w-80 xl:w-56 lg:w-52 md:w-52 sm:w-64 sm:justify-center relative">
+                            <a href="{{ route('produk_detail', $pro) }}">
+                                <div
+                                    class="group relative overflow-hidden transform transition-transform duration-300 shadow-xl hover:-translate-y-2 rounded-lg cursor-pointer">
+                                    <div class="relative overflow-hidden group">
+                                        <!-- Foto Produk -->
+                                        <img src="{{ asset('images/products/' . $pro->id . '_1.png') }}"
+                                            alt="Kursi Hiroshima x Anyaman Viro"
+                                            class="w-full h-64 group-hover:brightness-50 transition-transform duration-900 object-fit" />
+                                        <div
+                                            class="absolute top-0 left-0 right-0 bottom-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-900">
+                                            <p class="text-white text-lg font-semibold">See Details</p>
+                                        </div>
+                                    </div>
+                                    <div class="py-4 bg-white shadow-md px-4 flex flex-col gap-1">
+                                        <!-- Nama Produk -->
+                                        <h2 class="text-md text-[#434240] font-semibold truncate">{{ ucwords($pro->nama) }}
+                                        </h2>
+                                        <h2 class="text-sm text-slate-700">{{ $pro->kategori }}</h2>
+                                        <div class="flex">
+                                            <span class="text-[#434240] font-bold text-xs mt-1 mr-1">Rp. </span>
+                                            <span
+                                                class="font-bold text-[#434240] text-lg">{{ number_format($pro->harga, 0, ',', '.') }}
+                                            </span>
+                                        </div>
                                     </div>
                                 </div>
-                                <div class="py-4 bg-white shadow-md px-3">
-                                    <!-- Nama Produk -->
-                                    <h2 class="text-xl font-semibold text-gray-800 truncate">
-                                        {{ $pro->nama }}</h2>
-                                    <h2 class="text-md text-gray-500">{{ $pro->kategori }}</h2>
-                                </div>
-                            </div>
-                        </a>
+                            </a>
+                        </div>
                     </div>
-                </div>
                 @endforeach
             </div>
             <div class="mt-12">
@@ -156,8 +164,8 @@
             </div>
         </div>
     </body>
-    
-    
+
+
     <x-footer></x-footer>
 
     <!-- Swiper JS -->
@@ -172,6 +180,7 @@
                 el: ".swiper-pagination",
                 clickable: true,
             },
+            bulletActiveClass: "swiper-pagination-bullet-active bg-[#434240]",
             breakpoints: {
                 // Responsive Breakpoints
                 1024: {
@@ -195,7 +204,6 @@
                 delay: 1500, // Adjust the delay in milliseconds (e.g., 5000 for 5 seconds)
             },
         });
-        
     </script>
     <!-- partial -->
 @endsection

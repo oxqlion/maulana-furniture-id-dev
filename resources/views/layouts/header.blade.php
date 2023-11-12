@@ -88,6 +88,19 @@
                 content: "";
                 z-index: 2;
             }
+            .swiper-pagination-bullet {
+  width: 10px; /* Adjust the width as needed */
+  height: 10px; /* Adjust the height as needed */
+  background-color: #DDBD7E; /* Set the background color */
+  opacity: 0.7; /* Adjust the opacity as needed */
+  margin: 0 5px; /* Adjust the margin between bullets */
+}
+
+/* Style for active pagination bullet */
+.swiper-pagination-bullet-active {
+  background-color: #434240; /* Set the background color for the active bullet */
+  opacity: 1; /* Set the opacity for the active bullet */
+}
 
             /* .slider-container:hover,
             .slider:hover {
@@ -151,15 +164,15 @@
                         <ul class="block w-full lg:flex mr-16">
                             <li class="group">
                                 <a href="{{route('home')}}" class="relative group text-base text-[#434240] lg:text-white hover:text-opacity-50 lg:hover:text-opacity-100 py-2 mx-8 group flex font-normal">
-                                    Home
+                                    <p class=" {{Route::currentRouteName() == 'home' ? 'text-[#DDBD7E]' : '' }}">Home</p>
                                     <div
-                                        class="absolute md:w-full h-0.5 bg-[#DDBD7E] bottom-1 left-0 transform scale-x-0 origin-left transition-transform group-hover:scale-x-100 duration-300">
+                                        class=" absolute md:w-full h-0.5 bg-[#DDBD7E] bottom-1 left-0 transform scale-x-0 origin-left transition-transform group-hover:scale-x-100 duration-300">
                                     </div>
                                 </a>
                             </li>
                             <li class="group">
-                                <a href="{{route('katalog')}}" class="relative group text-base text-[#434240] lg:text-white hover:text-opacity-50 lg:hover:text-opacity-100 py-2 mx-8 group flex font-normal">
-                                    Katalog
+                                <a href="{{route('katalog')}}" class=" relative group text-base text-[#434240] lg:text-white hover:text-opacity-50 lg:hover:text-opacity-100 py-2 mx-8 group flex font-normal">
+                                    <p class=" {{Route::currentRouteName() == 'katalog' ? 'text-[#DDBD7E]' : '' }}">Katalog</p>
                                     <div
                                         class="absolute md:w-full h-0.5 bg-[#DDBD7E] bottom-1 left-0 transform scale-x-0 origin-left transition-transform group-hover:scale-x-100 duration-300">
                                     </div>
@@ -167,7 +180,7 @@
                             </li>
                             <li class="group">
                                 <a href="{{route('cara_pemesanan')}}" class="relative group text-base text-[#434240] lg:text-white hover:text-opacity-50 lg:hover:text-opacity-100 py-2 mx-8 group flex font-normal">
-                                    Cara Pemesanan
+                                    <p class=" {{Route::currentRouteName() == 'cara_pemesanan' ? 'text-[#DDBD7E]' : '' }}">Cara Pemesanan</p>
                                     <div
                                         class="absolute md:w-full h-0.5 bg-[#DDBD7E] bottom-1 left-0 transform scale-x-0 origin-left transition-transform group-hover:scale-x-100 duration-300">
                                     </div>
@@ -175,7 +188,7 @@
                             </li>
                             <li class="group">
                                 <a href="{{route('cara_pembayaran')}}" class="relative group text-base text-[#434240] lg:text-white hover:text-opacity-50 lg:hover:text-opacity-100 py-2 mx-8 group flex font-normal">
-                                    Cara Pembayaran
+                                    <p class=" {{Route::currentRouteName() == 'cara_pembayaran' ? 'text-[#DDBD7E]' : '' }}">Cara Pembayaran</p>
                                     <div
                                         class="absolute md:w-full h-0.5 bg-[#DDBD7E] bottom-1 left-0 transform scale-x-0 origin-left transition-transform group-hover:scale-x-100 duration-300">
                                     </div>
@@ -183,7 +196,7 @@
                             </li>
                             <li class="group">
                                 <a href="{{route('kontak')}}" class="relative group text-base text-[#434240] lg:text-white hover:text-opacity-50 lg:hover:text-opacity-100 py-2 mx-8 group flex font-normal">
-                                    Kontak
+                                    <p class=" {{Route::currentRouteName() == 'kontak' ? 'text-[#DDBD7E]' : '' }}">Kontak</p>
                                     <div
                                         class="absolute md:w-full h-0.5 bg-[#DDBD7E] bottom-1 left-0 transform scale-x-0 origin-left transition-transform group-hover:scale-x-100 duration-300">
                                     </div>
