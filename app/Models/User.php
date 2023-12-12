@@ -24,7 +24,7 @@ class User extends Authenticatable
         'role_id'
     ];
 
-    public function roles()
+    public function role()
     {
         return $this->belongsTo(Role::class);
     }
@@ -32,6 +32,10 @@ class User extends Authenticatable
     public function projects()
     {
         return $this->hasMany(Project::class);
+    }
+
+    public function comments() {
+        return $this->hasMany(Comment::class);
     }
 
     /**

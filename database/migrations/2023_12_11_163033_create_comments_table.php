@@ -13,6 +13,9 @@ return new class extends Migration
     {
         Schema::create('comments', function (Blueprint $table) {
             $table->id();
+            $table->foreignId('user_id')->constrained('users')->cascadeOnDelete()->cascadeOnUpdate();
+            $table->foreignId('progress_id')->constrained('progress')->cascadeOnDelete()->cascadeOnUpdate();
+            $table->text('komen');
             $table->timestamps();
         });
     }

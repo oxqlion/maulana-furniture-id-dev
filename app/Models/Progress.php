@@ -8,4 +8,13 @@ use Illuminate\Database\Eloquent\Model;
 class Progress extends Model
 {
     use HasFactory;
+
+    public function project()
+    {
+        return $this->belongsTo(Project::class);
+    }
+
+    public function comments() {
+        return $this->hasMany(Comment::class);
+    }
 }
