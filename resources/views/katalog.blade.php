@@ -11,7 +11,10 @@
                 <p class="text-4xl lg:text-6xl font-bold pb-4 text-[#DDBD7E]">
                     Katalog.
                 </p>
-                <p class="text-xs text-white lg:text-sm font-medium lg:w-1/2">Selamat datang di halaman katalog furniture kami, di mana kami menghadirkan koleksi eksklusif yang mengeksplorasi unsur-unsur desain terkini dan keunggulan bahan yang akan membuat ruanganmu kembali hidup. </p>
+                <p class="text-xs text-white lg:text-sm font-medium lg:w-1/2">Selamat datang di halaman katalog furniture
+                    kami, di mana kami menghadirkan koleksi eksklusif yang mengeksplorasi unsur-unsur desain terkini dan
+                    keunggulan bahan yang akan membuat ruanganmu kembali hidup.
+                </p>
             </div>
         </div>
         <div class="flex flex-col h-fit container">
@@ -28,30 +31,42 @@
                 </div>
             </div>
             <div class="flex flex-1 gap-8">
-                <div class="hidden md:block w-1/5 w-1/5 p-4 font-montserrat sticky top-24 bottom-24 rounded-lg p-4 py-6 mt-4 mb-12 h-fit bg-white shadow-xl border">
+                <div
+                    class="hidden md:block w-1/5 w-1/5 p-4 font-montserrat sticky top-24 bottom-24 rounded-lg p-4 py-6 mt-4 mb-12 h-fit bg-white shadow-xl border">
                     <div class="text-start font-bold text-[#434240]">KATEGORI PRODUK</div>
                     <div class="border-b-4 border-[#DDBD7E] mt-2 w-10"></div>
                     <div class="text-start mt-6 gab-2">
                         @foreach ($categories as $category)
                             <div class="py-1">
                                 <a href="{{ route('kategori_produk', $category->id) }}" class="mt-1">
-                                    <p class="hover:text-[#DDBD7E] hover:font-semibold">{{ $category->nama }}</p></a>
+                                    <p class="hover:text-[#DDBD7E] hover:font-semibold">{{ $category->nama }}</p>
+                                </a>
                                 <div class="border-b border-gray-400 mt-1"></div>
                             </div>
                         @endforeach
                     </div>
                 </div>
                 <div class="p-4 w-full">
-                    <div class="flex justify-between mb-12">
-                        <p class="text-3xl font-bold font-montserrat text-[#434240]">
-                            @if(isset($current_category))
+                    <div class="flex justify-between mb-6">
+                        <p class="md:text-3xl text-xl font-bold font-montserrat text-[#434240]">
+                            @if (isset($current_category))
                                 {{ $current_category->nama }}
                             @else
                                 Semua Produk
                             @endif
                         </p>
                         <p class="text-sm font-light font-montserrat text-slate-700">Showing {{ count($product_category) }}
-                            products</p>
+                            products
+                        </p>
+                    </div>
+                    <div class="pb-4 mx-auto">
+                        <select class="md:hidden border border-gray-300 p-2 rounded" id="kategoriDropdown">
+                            @foreach ($categories as $category)
+                                <option value="{{ route('kategori_produk', $category->id) }}">
+                                    {{ $category->nama }}
+                                </option>
+                            @endforeach
+                        </select>
                     </div>
                     <div class="flex flex-wrap gap-6 mb-8 justify-center sm:justify-between md:justify-start">
                         @foreach ($product_category as $pc)
@@ -60,7 +75,7 @@
                                     class="max-w-full md:max-w-sm w-80 xl:w-56 lg:w-52 md:w-52 sm:w-64 sm:justify-center relative">
                                     <a href="{{ route('produk_detail', $pc->product) }}">
                                         <div
-                                        class="group relative overflow-hidden transform transition-transform duration-300 shadow-xl hover:-translate-y-2 rounded-lg cursor-pointer">
+                                            class="group relative overflow-hidden transform transition-transform duration-300 shadow-xl hover:-translate-y-2 rounded-lg cursor-pointer">
                                             <div class="relative overflow-hidden group">
                                                 <!-- Foto Produk -->
                                                 <img src="{{ asset('images/products/' . $pc->product->id . '_1.png') }}"
@@ -73,7 +88,8 @@
                                             </div>
                                             <div class="py-4 bg-white shadow-md px-4 flex flex-col gap-1">
                                                 <!-- Nama Produk -->
-                                                <h2 class="text-md text-[#434240] font-semibold truncate">{{ ucwords($pc->product->nama) }}</h2>
+                                                <h2 class="text-md text-[#434240] font-semibold truncate">
+                                                    {{ ucwords($pc->product->nama) }}</h2>
                                                 <h2 class="text-sm text-slate-700">{{ $pc->product->kategori }}</h2>
                                                 <div class="flex">
                                                     <span class="text-[#434240] font-bold text-xs mt-1 mr-1">Rp. </span>
@@ -93,4 +109,12 @@
         </div>
     </body>
     <x-footer></x-footer>
+    <script>
+        document.getElementById('kategoriDropdown').addEventListener('change', function() {
+            var selectedValue = this.value;
+            if (selectedValue) {
+                window.location.href = selectedValue;
+            }
+        });
+    </script>
 @endsection

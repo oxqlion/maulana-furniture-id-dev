@@ -20,14 +20,6 @@
                     </a>
                 </li>
                 <li class="mb-3">
-                    <a href="{{route('tentang_kami')}}" class="relative group">
-                        Tentang Kami
-                        <div
-                            class="absolute w-full h-0.5 bg-[#DDBD7E] bottom-(-1) left-0 transform scale-x-0 origin-left transition-transform group-hover:scale-x-100 duration-300">
-                        </div>
-                    </a>
-                </li>
-                <li class="mb-3">
                     <a href="{{route('katalog')}}" class="relative group">
                         Katalog
                         <div

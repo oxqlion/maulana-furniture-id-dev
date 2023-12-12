@@ -8,7 +8,7 @@
             <div class="absolute inset-0 bg-[#434240] bg-opacity-60"></div>
             <div class="absolute inset-0 pt-20 lg:pl-24 px-24 text-center lg:text-start" data-aos="fade-right"
                 data-aos-offset="500" data-aos-duration="800">
-                <p class="text-4xl lg:text-6xl font-bold pb-4 text-[#DDBD7E]">
+                <p class="text-xl lg:text-6xl font-bold pb-4 text-[#DDBD7E]">
                     Cara Pembayaran.
                 </p>
                 <p class="text-xs text-white lg:text-sm font-medium lg:w-1/2">Tempat di mana kenyamanan dan keamanan saling bersatu dalam setiap transaksi. Kami mengerti bahwa setiap pembelian tidak hanya mengenai pencarian furnitur ideal, tetapi juga tentang memastikan proses pembayaran berjalan lancar.

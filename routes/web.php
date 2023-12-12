@@ -16,10 +16,6 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', [ProductController::class,'produkPilihan'])->name('home');
 
-Route::get('/tentang-kami', function () {
-    return view('tentang_kami');
-})->name('tentang_kami');
-
 Route::get('/katalog', [ProductController::class,'listProduk'])->name('katalog');
 
 Route::get('/produk-detail/{product}', [ProductController::class,'detailProduk'])->name('produk_detail');

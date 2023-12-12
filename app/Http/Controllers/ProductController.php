@@ -28,7 +28,7 @@ class ProductController extends Controller
     }
 
     public function produkPilihan() {
-        $products = ProductCategory::inRandomOrder()->take(9)->get(); 
+        $products = ProductCategory::inRandomOrder()->take(15)->get(); 
         return view('home', compact('products'));
     }
 }
