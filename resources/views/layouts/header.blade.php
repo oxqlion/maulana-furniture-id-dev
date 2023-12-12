@@ -254,16 +254,19 @@
                                     </li>
                                 @endif
                             @else
-                                <li class="group">
-                                    <a href="{{ route('buat_produk') }}"
-                                        class="relative group text-base text-[#434240] lg:text-white hover:text-opacity-50 lg:hover:text-opacity-100 py-2 mx-8 group flex font-normal">
-                                        <p class=" {{ Route::currentRouteName() == 'buat_produk' ? 'text-[#DDBD7E]' : '' }}">
-                                            Dashboard</p>
-                                        <div
-                                            class="absolute md:w-full h-0.5 bg-[#DDBD7E] bottom-1 left-0 transform scale-x-0 origin-left transition-transform group-hover:scale-x-100 duration-300">
-                                        </div>
-                                    </a>
-                                </li>
+                                @if (Auth::user()->isAdmin())
+                                    <li class="group">
+                                        <a href="{{ route('buat_produk') }}"
+                                            class="relative group text-base text-[#434240] lg:text-white hover:text-opacity-50 lg:hover:text-opacity-100 py-2 mx-8 group flex font-normal">
+                                            <p
+                                                class=" {{ Route::currentRouteName() == 'buat_produk' ? 'text-[#DDBD7E]' : '' }}">
+                                                Dashboard</p>
+                                            <div
+                                                class="absolute md:w-full h-0.5 bg-[#DDBD7E] bottom-1 left-0 transform scale-x-0 origin-left transition-transform group-hover:scale-x-100 duration-300">
+                                            </div>
+                                        </a>
+                                    </li>
+                                @endif
                                 <li class="group">
                                     <div class="relative group text-base text-[#434240] lg:text-white hover:text-opacity-50 lg:hover:text-opacity-100 py-2 mx-8 group flex font-normal"
                                         aria-labelledby="navbarDropdown">
