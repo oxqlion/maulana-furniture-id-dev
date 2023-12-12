@@ -7,7 +7,7 @@
         <div class="absolute inset-0 bg-[#434240] bg-opacity-60"></div>
         <div class="absolute inset-0 pt-20 lg:pl-24 px-24 text-center lg:text-start" data-aos="fade-right"
             data-aos-offset="500" data-aos-duration="800">
-            <p class="text-4xl lg:text-6xl font-bold pb-4 text-[#DDBD7E]">
+            <p class="text-xl lg:text-6xl font-bold pb-4 text-[#DDBD7E]">
                 Cara Pemesanan.
             </p>
             <p class="text-xs text-white lg:text-sm font-medium lg:w-1/2">Selamat datang di halaman panduan pemesanan, di mana kemudahan menjadi landasan setiap langkah. Kami memahami bahwa proses pemesanan merupakan bagian krusial dalam perjalanan Anda menciptakan ruang yang ideal.

@@ -79,11 +79,11 @@
                             </div>
                             <div class="flex text-sm">
                                 <p class="font-medium">Waktu Preorder : </p>
-                                <p class="pl-1 text-black-700">{{ $product->waktu_preorder }}</p>
+                                <p class="pl-1 text-black-700">{{ $product->waktu_preorder ?? '14' }} hari</p>
                             </div>
                             <div class="flex text-sm">
                                 <p class="font-medium">Minimal Pemesanan : </p>
-                                <p class="pl-1 text-black-700">{{ $product->minimal_pemesanan }}</p>
+                                <p class="pl-1 text-black-700">{{ $product->minimal_pemesanan }} buah</p>
                             </div>
                         </div>
 
@@ -91,8 +91,7 @@
                         <div class="flex flex-col gap-2">
                             <p class="font-medium">Spesifikasi Produk :</p>
                             <div class="flex text-sm">
-                                <p>- Material : </p>
-                                <p class="pl-1">{{ $product->material }}</p>
+                                <p>- Material : {{ $product->material }}</p>
                             </div>
                             <div class="flex text-sm truncate">
                                 <p>- Furnish : </p>
@@ -100,7 +99,7 @@
                             </div>
                             <div class="flex text-sm">
                                 <p>- Ukuran : </p>
-                                <p class="pl-1">{{ $product->ukuran }}</p>
+                                <p class="pl-1">{{ $product->ukuran ?? 'Standar' }}</p>
                             </div>
                         </div>
                         <div class=" md:absolute md:mt-24 mt-4 md:w-5/12 overflow-hidden ">
@@ -171,7 +170,6 @@
     <!-- Swiper JS -->
     <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
 
-    <!-- Initialize Swiper -->
     <script>
         var swiper = new Swiper(".mySwiper", {
             slidesPerView: 5,
@@ -182,7 +180,6 @@
             },
             bulletActiveClass: "swiper-pagination-bullet-active bg-[#434240]",
             breakpoints: {
-                // Responsive Breakpoints
                 1024: {
                     slidesPerView: 5,
                     spaceBetween: 1,
@@ -201,9 +198,8 @@
                 },
             },
             autoplay: {
-                delay: 1500, // Adjust the delay in milliseconds (e.g., 5000 for 5 seconds)
+                delay: 1500,
             },
         });
     </script>
-    <!-- partial -->
 @endsection
