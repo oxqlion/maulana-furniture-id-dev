@@ -13,4 +13,19 @@ class Project extends Model
     {
         return $this->belongsTo(User::class);
     }
+
+    public function progress()
+    {
+        return $this->hasMany(Progress::class);
+    }
+
+    public function payments()
+    {
+        return $this->hasMany(Payment::class);
+    }
+
+    public function review()
+    {
+        return $this->hasOne(Review::class);
+    }
 }

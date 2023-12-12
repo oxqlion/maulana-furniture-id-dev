@@ -26,6 +26,10 @@ Route::get('/cara-pemesanan', function () {
     return view('cara_pemesanan');
 })->name('cara_pemesanan');
 
+Route::get('/buat-produk', function () {
+    return view('buat_produk');
+})->name('buat_produk');
+
 Route::get('/cara-pembayaran', function () {
     return view('cara_pembayaran');
 })->name('cara_pembayaran');
