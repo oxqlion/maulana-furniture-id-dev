@@ -26,10 +26,6 @@ Route::get('/cara-pemesanan', function () {
     return view('cara_pemesanan');
 })->name('cara_pemesanan');
 
-Route::get('/buat-produk', function () {
-    return view('buat_produk');
-})->name('buat_produk');
-
 Route::get('/cara-pembayaran', function () {
     return view('cara_pembayaran');
 })->name('cara_pembayaran');
@@ -39,5 +35,7 @@ Route::get('/contact', function () {
 })->name('kontak');
 
 Auth::routes();
+
+Route::get('/buat-produk', [ProductController::class,'listProdukAdmin'])->name('buat_produk');
 
 // Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');

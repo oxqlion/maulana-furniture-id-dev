@@ -31,4 +31,10 @@ class ProductController extends Controller
         $products = ProductCategory::inRandomOrder()->take(15)->get(); 
         return view('homepage', compact('products'));
     }
+
+    public function listProdukAdmin(){
+        $product_category = ProductCategory::all();
+        $categories = Category::all();
+        return view('buat_produk', compact('product_category', 'categories'));
+    }
 }
