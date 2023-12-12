@@ -20,7 +20,7 @@
                         sofa,
                         meja, kursi, dan banyak lagi yang kami pilih dengan cermat untuk meningkatkan kualitas hidup Anda.
                     </p>
-                    <a data-aos="fade-right" data-aos-duration="800"
+                    <a href="https://wa.me/6287815879282"
                         class="mt-4 lg:mt-12 lg:w-64 gap-4 bg-[#DDBD7E] transition ease-in-out hover:bg-gray-400 text-gray-800 font-bold py-4 px-4 rounded flex items-center justify-center cursor-pointer">
                         <i class="fab fa-whatsapp text-black text-3xl"></i>
                         <span>Pesan Sekarang</span>
