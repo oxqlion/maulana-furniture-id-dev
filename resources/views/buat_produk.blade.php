@@ -94,13 +94,14 @@
                         </tr>
                     </thead>
                     <tbody>
+                        @foreach ($product_category as $pc)
                         <tr class="border-b dark:border-gray-700">
-                            <th scope="row" class="px-4 py-3 font-medium text-gray-900 whitespace-nowrap dark:text-white">Apple iMac 27&#34;</th>
-                            <td class="px-6 py-3">PC</td>
-                            <td class="px-6 py-3">Apple</td>
-                            <td class="px-6 py-3">300</td>
-                            <td class="px-6 py-3">$2999</td>
-                            <td class="px-6 py-3">$2999</td>
+                            <td class="px-6 py-3">{{ $pc->product->nama }}</td>
+                            <td class="px-6 py-3">{{ $pc->category->nama }}</td>
+                            <td class="px-6 py-3">{{ $pc->product->harga }}</td>
+                            <td class="px-6 py-3">{{ $pc->product->kondisi }}</td>
+                            <td class="px-6 py-3">{{ $pc->product->ukuran }}</td>
+                            <td class="px-6 py-3">{{ $pc->product->material }}</td>
                             <td class="px-6 py-3 flex items-center gap-2">
                                 <button type="button" class="flex items-center justify-center text-white bg-red-600 hover:bg-primary-800 focus:ring-4 focus:ring-primary-300 font-medium rounded-lg text-sm px-4 py-2 dark:bg-primary-600 dark:hover:bg-primary-700 focus:outline-none dark:focus:ring-primary-800">
                                     Edit
@@ -110,6 +111,7 @@
                                 </button>
                             </td>
                         </tr>
+                        @endforeach
                     </tbody>
                 </table>
             </div>
