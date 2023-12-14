@@ -14,7 +14,7 @@ use Illuminate\Support\Facades\Auth;
 |
 */
 
-Route::get('/', [ProductController::class,'produkPilihan'])->name('home');
+Route::get('/home', [ProductController::class,'produkPilihan'])->name('home');
 
 Route::get('/katalog', [ProductController::class,'listProduk'])->name('katalog');
 
@@ -36,6 +36,6 @@ Route::get('/contact', function () {
 
 Auth::routes();
 
-Route::get('/buat-produk', [ProductController::class,'listProdukAdmin'])->middleware('auth')->name('buat_produk');
+Route::get('/buat-produk', [ProductController::class,'listProdukAdmin'])->middleware('admin')->name('buat_produk');
 
 // Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
