@@ -36,7 +36,7 @@ Route::get('/contact', function () {
 
 Auth::routes();
 
-Route::get('/buat-produk', [ProductController::class,'listProdukAdmin'])->name('buat_produk');
+Route::get('/buat-produk', [ProductController::class,'listProdukAdmin'])->middleware('auth')->name('buat_produk');
 
 Route::get('/tambah-produk', [ProductController::class,'tambahProduk'])->name('tambah_produk');
 
