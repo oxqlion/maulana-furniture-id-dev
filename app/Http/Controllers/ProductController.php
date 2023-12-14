@@ -72,9 +72,12 @@ class ProductController extends Controller
         $newlyCreatedProduct = Product::find($product->id);
 
         if ($request->hasFile('gambar')) {
+            $i = 1;
             foreach ($files as $file) {
-                $name = $file->getClientOriginalName();
-                $path = $file->storeAs('products', $name, 'public');
+                $imageName = $newlyCreatedProduct->id.'_'.$i.'.'.$file->extension();
+                // $name = $file->getClientOriginalName();
+                $path = $file->storeAs('products', $imageName, 'public');
+                $i++;
 
                 Image::create([
                     'product_id' => $newlyCreatedProduct->id,
