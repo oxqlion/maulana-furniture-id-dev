@@ -239,7 +239,7 @@
                                     </li>
                                 @endif
                             @else
-                                @if (Auth::user()->isAdmin())
+                                @if (Auth::user()->isAdmin() || Auth::user()->isClient())
                                     <li class="group">
                                         <a href="{{ route('buat_produk') }}"
                                             class="relative group text-base text-[#434240] lg:text-white hover:text-opacity-50 lg:hover:text-opacity-100 py-2 mx-8 group flex font-normal">
