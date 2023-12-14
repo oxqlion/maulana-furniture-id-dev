@@ -37,4 +37,9 @@ class ProductController extends Controller
         $categories = Category::all();
         return view('buat_produk', compact('product_category', 'categories'));
     }
+
+    public function tambahProduk(){
+        $categories = Category::all();
+        return view('tambah_produk', compact('categories'));
+    }
 }
