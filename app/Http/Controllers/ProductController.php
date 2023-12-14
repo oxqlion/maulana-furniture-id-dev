@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Category;
 use App\Models\Product;
+use App\Models\Image;
 use App\Models\ProductCategory;
 use Illuminate\Http\Request;
 
@@ -42,4 +43,48 @@ class ProductController extends Controller
         $categories = Category::all();
         return view('tambah_produk', compact('categories'));
     }
+
+    public function simpanProduk(Request $request){
+        $validateData = $request->validate([
+            'nama' => 'required',
+            'harga' => 'required',
+        ]);
+
+        $product = Product::create([
+            'nama' => $request->nama,
+            'harga' => $request->harga,
+            'kondisi' => $request->kondisi,
+            'waktu_preorder' => $request->waktu_preorder,
+            'minimal_pemesanan' => $request->minimal_pemesanan,
+            'kategori' => $request->kategori,
+            'material' => $request->material,
+            'furnish' => $request->furnish,
+            'ukuran' => $request->ukuran
+        ]);
+
+        $files = $request->file('gambar');
+        $newlyCreatedProduct = Product::find($product->id);
+
+        if ($request->hasFile('gambar')) {
+            foreach ($files as $file) {
+                $name = $file->getClientOriginalName();
+                $path = $file->storeAs('products', $name, 'public');
+
+                Image::create([
+                    'product_id' => $newlyCreatedProduct->id,
+                    'gambar' => $path,
+                ]);
+            }
+        }
+
+        ProductCategory::create([
+            'category_id' => $newlyCreatedProduct->kategori,
+            'product_id' => $newlyCreatedProduct->id
+        ]);
+
+        $product_category = ProductCategory::all();
+        $categories = Category::all();
+        return view('buat_produk', compact('product_category', 'categories'));
+    }
+    
 }

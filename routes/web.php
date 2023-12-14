@@ -40,7 +40,7 @@ Route::get('/buat-produk', [ProductController::class,'listProdukAdmin'])->middle
 
 Route::get('/tambah-produk', [ProductController::class,'tambahProduk'])->name('tambah_produk');
 
-Route::get('/simpan-produk', [ProductController::class,'simpanProduk'])->name('simpan_produk');
+Route::post('/simpan-produk', [ProductController::class,'simpanProduk'])->name('simpan_produk');
 
 
 // Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
