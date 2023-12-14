@@ -18,7 +18,13 @@ class ProductController extends Controller
 
     public function detailProduk(Product $product){
         $productRec = Product::inRandomOrder()->take(10)->get();
-        return view('produk_detail', compact('product', 'productRec'));
+        $imagePaths = Image::where('product_id', $product->id)
+            ->limit(3) 
+            ->pluck('gambar');
+        $path1 = $imagePaths[0] ?? null;
+        $path2 = $imagePaths[1] ?? null;
+        $path3 = $imagePaths[2] ?? null;
+        return view('produk_detail', compact('product', 'productRec', 'path1', 'path2', 'path3'));
     }
 
     public function kategoriProduk($category_id){

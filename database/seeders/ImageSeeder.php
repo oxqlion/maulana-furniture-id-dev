@@ -19,7 +19,7 @@ class ImageSeeder extends Seeder
             for ($j = 1; $j <= 3; $j++) {
                 $data[] = [
                     'product_id' => $i,
-                    'gambar' => "product/{$i}_{$j}.png",
+                    'gambar' => "products/{$i}_{$j}.png",
                 ];
             }
         }
