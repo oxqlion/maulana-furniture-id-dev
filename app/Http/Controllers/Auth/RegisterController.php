@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Auth;
 
 use App\Http\Controllers\Controller;
+use App\Models\ClientProject;
 use App\Providers\RouteServiceProvider;
 use App\Models\User;
 use Illuminate\Foundation\Auth\RegistersUsers;
@@ -77,6 +78,10 @@ class RegisterController extends Controller
         $this->validator($request->all())->validate();
 
         $user = $this->create($request->all());
+        // $client_project_relation = ClientProject::create([
+        //     'user_id' => $user->id,
+        //     'nama_project' => $request->project_name
+        // ]);
 
         if (empty($user)) {
             redirect()->route('register');

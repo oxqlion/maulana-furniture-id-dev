@@ -40,6 +40,10 @@ class User extends Authenticatable
         return $this->hasMany(Comment::class);
     }
 
+    public function client_project() {
+        return $this->belongsTo(Project::class);
+    }
+
     /**
      * The attributes that should be hidden for serialization.
      *
