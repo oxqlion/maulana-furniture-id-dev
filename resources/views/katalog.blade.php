@@ -78,7 +78,7 @@
                                             class="group relative overflow-hidden transform transition-transform duration-300 shadow-xl hover:-translate-y-2 rounded-lg cursor-pointer">
                                             <div class="relative overflow-hidden group">
                                                 <!-- Foto Produk -->
-                                                <img src="{{ asset('images/products/' . $pc->product->id . '_1.png') }}"
+                                                <img src="{{ asset('storage/products/' . $pc->product->id . '_1.png') }}"
                                                     alt="Kursi Hiroshima x Anyaman Viro"
                                                     class="w-full h-64 group-hover:brightness-50 transition-transform duration-900 object-fit" />
                                                 <div
