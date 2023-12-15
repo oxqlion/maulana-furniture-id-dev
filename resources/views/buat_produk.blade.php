@@ -107,12 +107,18 @@
                             <td class="px-6 py-3">{{ $pc->product->ukuran }}</td>
                             <td class="px-6 py-3">{{ $pc->product->material }}</td>
                             <td class="px-6 py-3 flex items-center gap-2">
-                                <button type="button" class="flex items-center justify-center text-white bg-red-600 hover:bg-primary-800 focus:ring-4 focus:ring-primary-300 font-medium rounded-lg text-sm px-4 py-2 dark:bg-primary-600 dark:hover:bg-primary-700 focus:outline-none dark:focus:ring-primary-800">
-                                    Edit
-                                </button>
-                                <button type="button" class="flex items-center justify-center text-white bg-yellow-600 hover:bg-primary-800 focus:ring-4 focus:ring-primary-300 font-medium rounded-lg text-sm px-4 py-2 dark:bg-primary-600 dark:hover:bg-primary-700 focus:outline-none dark:focus:ring-primary-800">
-                                    Delete
-                                </button>
+                                <a href="{{ route('edit_produk', $pc->product) }}">
+                                    <button type="button" class="flex items-center justify-center text-white bg-red-600 hover:bg-primary-800 focus:ring-4 focus:ring-primary-300 font-medium rounded-lg text-sm px-4 py-2 dark:bg-primary-600 dark:hover:bg-primary-700 focus:outline-none dark:focus:ring-primary-800">
+                                        Edit
+                                    </button>
+                                </a>
+                                <form action="{{ route('delete_produk', $pc->product) }}" method="POST">
+                                    @method('delete')
+                                    @csrf
+                                    <button type="submit" class="flex items-center justify-center text-white bg-yellow-600 hover:bg-primary-800 focus:ring-4 focus:ring-primary-300 font-medium rounded-lg text-sm px-4 py-2 dark:bg-primary-600 dark:hover:bg-primary-700 focus:outline-none dark:focus:ring-primary-800">
+                                        Delete
+                                    </button>
+                                </form>
                             </td>
                         </tr>
                         @endforeach

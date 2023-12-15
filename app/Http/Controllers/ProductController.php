@@ -18,7 +18,13 @@ class ProductController extends Controller
 
     public function detailProduk(Product $product){
         $productRec = Product::inRandomOrder()->take(10)->get();
-        return view('produk_detail', compact('product', 'productRec'));
+        $imagePaths = Image::where('product_id', $product->id)
+            ->limit(3) 
+            ->pluck('gambar');
+        $path1 = $imagePaths[0] ?? null;
+        $path2 = $imagePaths[1] ?? null;
+        $path3 = $imagePaths[2] ?? null;
+        return view('produk_detail', compact('product', 'productRec', 'path1', 'path2', 'path3'));
     }
 
     public function kategoriProduk($category_id){
@@ -66,9 +72,11 @@ class ProductController extends Controller
         $newlyCreatedProduct = Product::find($product->id);
 
         if ($request->hasFile('gambar')) {
+            $i = 1;
             foreach ($files as $file) {
-                $name = $file->getClientOriginalName();
-                $path = $file->storeAs('products', $name, 'public');
+                $imageName = $newlyCreatedProduct->id.'_'.$i.'.'.$file->extension();
+                $path = $file->storeAs('products', $imageName, 'public');
+                $i++;
 
                 Image::create([
                     'product_id' => $newlyCreatedProduct->id,
@@ -86,5 +94,75 @@ class ProductController extends Controller
         $categories = Category::all();
         return view('buat_produk', compact('product_category', 'categories'));
     }
+
+    public function editProduk(Product $product){
+        $produkEdit = Product::where('id', $product->id)->first();
+        $categories = Category::all();
+        return view('edit_produk', compact('produkEdit', 'categories'));
+    }
     
+    public function updateProduk(Request $request, Product $product){
+        $product->update([
+            'nama' => $request->nama,
+            'harga' => $request->harga,
+            'kondisi' => $request->kondisi,
+            'waktu_preorder' => $request->waktu_preorder,
+            'minimal_pemesanan' => $request->minimal_pemesanan,
+            'kategori' => $request->kategori,
+            'material' => $request->material,
+            'furnish' => $request->furnish,
+            'ukuran' => $request->ukuran
+        ]);
+
+        $images = Image::where('product_id', $product->id);
+
+        $oldImagePaths = [];
+
+        foreach($images as $image){
+            $oldImagePaths[] = public_path("storage/. $image");
+        }
+
+        foreach ($oldImagePaths as $path) {
+            if (file_exists($path)) {
+                unlink($path);
+            }
+        }
+
+        $files = $request->file('gambar');
+
+        if ($request->hasFile('gambar')) {
+            $i = 1;
+            foreach ($files as $file) {
+                $imageName = $product->id.'_'.$i.'.'.$file->extension();
+                $path = $file->storeAs('products', $imageName, 'public');
+                $i++;
+            }
+        }
+
+        $product_category = ProductCategory::all();
+        $categories = Category::all();
+        return view('buat_produk', compact('product_category', 'categories'));
+    }
+
+    public function deleteProduk(Product $product){
+        $images = Image::where('product_id', $product->id)->get();
+
+        $oldImagePaths = [];
+
+        foreach($images as $image){
+            $oldImagePaths[] = public_path("storage/. $image");
+        }
+
+        foreach ($oldImagePaths as $path) {
+            if (file_exists($path)) {
+                unlink($path);
+            }
+        }
+
+        $product->delete();
+
+        $product_category = ProductCategory::all();
+        $categories = Category::all();
+        return view('buat_produk', compact('product_category', 'categories'));
+    }
 }
