@@ -171,10 +171,10 @@
                     </button>
                     <div id="nav-menu"
                         class="hidden absolute py-5 bg-white shadow-lg w-full right-0 top-full lg:block lg:static lg:bg-transparent lg:max-w-full lg:shadow-none">
-                        <ul class="block w-full lg:flex mr-16">
+                        <ul class="block w-full lg:flex mr-8">
                             <li class="group">
                                 <a href="{{ route('home') }}"
-                                    class="relative group text-base text-[#434240] lg:text-white hover:text-opacity-50 lg:hover:text-opacity-100 py-2 mx-8 group flex font-normal">
+                                    class="relative group text-base text-[#434240] lg:text-white hover:text-opacity-50 lg:hover:text-opacity-100 py-2 mx-4 group flex font-normal">
                                     <p class=" {{ Route::currentRouteName() == 'home' ? 'text-[#DDBD7E]' : '' }}">Home
                                     </p>
                                     <div
@@ -184,7 +184,7 @@
                             </li>
                             <li class="group">
                                 <a href="{{ route('katalog') }}"
-                                    class=" relative group text-base text-[#434240] lg:text-white hover:text-opacity-50 lg:hover:text-opacity-100 py-2 mx-8 group flex font-normal">
+                                    class=" relative group text-base text-[#434240] lg:text-white hover:text-opacity-50 lg:hover:text-opacity-100 py-2 mx-4 group flex font-normal">
                                     <p class=" {{ Route::currentRouteName() == 'katalog' ? 'text-[#DDBD7E]' : '' }}">
                                         Katalog</p>
                                     <div
@@ -194,7 +194,7 @@
                             </li>
                             <li class="group">
                                 <a href="{{ route('cara_pemesanan') }}"
-                                    class="relative group text-base text-[#434240] lg:text-white hover:text-opacity-50 lg:hover:text-opacity-100 py-2 mx-8 group flex font-normal">
+                                    class="relative group text-base text-[#434240] lg:text-white hover:text-opacity-50 lg:hover:text-opacity-100 py-2 mx-4 group flex font-normal">
                                     <p
                                         class=" {{ Route::currentRouteName() == 'cara_pemesanan' ? 'text-[#DDBD7E]' : '' }}">
                                         Cara Pemesanan</p>
@@ -205,7 +205,7 @@
                             </li>
                             <li class="group">
                                 <a href="{{ route('cara_pembayaran') }}"
-                                    class="relative group text-base text-[#434240] lg:text-white hover:text-opacity-50 lg:hover:text-opacity-100 py-2 mx-8 group flex font-normal">
+                                    class="relative group text-base text-[#434240] lg:text-white hover:text-opacity-50 lg:hover:text-opacity-100 py-2 mx-4 group flex font-normal">
                                     <p
                                         class=" {{ Route::currentRouteName() == 'cara_pembayaran' ? 'text-[#DDBD7E]' : '' }}">
                                         Cara Pembayaran</p>
@@ -216,7 +216,7 @@
                             </li>
                             <li class="group">
                                 <a href="{{ route('kontak') }}"
-                                    class="relative group text-base text-[#434240] lg:text-white hover:text-opacity-50 lg:hover:text-opacity-100 py-2 mx-8 group flex font-normal">
+                                    class="relative group text-base text-[#434240] lg:text-white hover:text-opacity-50 lg:hover:text-opacity-100 py-2 mx-4 group flex font-normal">
                                     <p class=" {{ Route::currentRouteName() == 'kontak' ? 'text-[#DDBD7E]' : '' }}">
                                         Kontak</p>
                                     <div
@@ -228,7 +228,7 @@
                                 @if (Route::has('login'))
                                     <li class="group">
                                         <a href="{{ route('login') }}"
-                                            class="relative group text-base text-[#434240] lg:text-white hover:text-opacity-50 lg:hover:text-opacity-100 py-2 mx-8 group flex font-normal">
+                                            class="relative group text-base text-[#434240] lg:text-white hover:text-opacity-50 lg:hover:text-opacity-100 py-2 mx-4 group flex font-normal">
                                             <p
                                                 class="nav-link {{ Route::currentRouteName() == '' ? 'text-[#DDBD7E]' : '' }}">
                                                 {{ __('Login') }}</p>
@@ -239,13 +239,26 @@
                                     </li>
                                 @endif
                             @else
-                                @if (Auth::user()->isAdmin() || Auth::user()->isClient())
+                            @if (Auth::user()->isAdmin())
                                     <li class="group">
                                         <a href="{{ route('buat_produk') }}"
-                                            class="relative group text-base text-[#434240] lg:text-white hover:text-opacity-50 lg:hover:text-opacity-100 py-2 mx-8 group flex font-normal">
+                                            class="relative group text-base text-[#434240] lg:text-white hover:text-opacity-50 lg:hover:text-opacity-100 py-2 mx-4 group flex font-normal">
                                             <p
                                                 class=" {{ Route::currentRouteName() == 'buat_produk' ? 'text-[#DDBD7E]' : '' }}">
-                                                Dashboard</p>
+                                                Products</p>
+                                            <div
+                                                class="absolute md:w-full h-0.5 bg-[#DDBD7E] bottom-1 left-0 transform scale-x-0 origin-left transition-transform group-hover:scale-x-100 duration-300">
+                                            </div>
+                                        </a>
+                                    </li>
+                                @endif
+                                @if (Auth::user()->isAdmin() || Auth::user()->isClient())
+                                    <li class="group">
+                                        <a href="{{ route('projects') }}"
+                                            class="relative group text-base text-[#434240] lg:text-white hover:text-opacity-50 lg:hover:text-opacity-100 py-2 mx-4 group flex font-normal">
+                                            <p
+                                                class=" {{ Route::currentRouteName() == 'projects' ? 'text-[#DDBD7E]' : '' }}">
+                                                Projects</p>
                                             <div
                                                 class="absolute md:w-full h-0.5 bg-[#DDBD7E] bottom-1 left-0 transform scale-x-0 origin-left transition-transform group-hover:scale-x-100 duration-300">
                                             </div>
@@ -253,7 +266,7 @@
                                     </li>
                                 @endif
                                 <li class="group">
-                                    <div class="relative group text-base text-[#434240] lg:text-white hover:text-opacity-50 lg:hover:text-opacity-100 py-2 mx-8 group flex font-normal"
+                                    <div class="relative group text-base text-[#434240] lg:text-white hover:text-opacity-50 lg:hover:text-opacity-100 py-2 mx-4 group flex font-normal"
                                         aria-labelledby="navbarDropdown">
                                         <a class="dropdown-item" href="{{ route('logout') }}"
                                             onclick="event.preventDefault();

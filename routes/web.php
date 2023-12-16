@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\ProductController;
+use App\Http\Controllers\ProjectController;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Auth;
 /*
@@ -37,6 +38,8 @@ Route::get('/contact', function () {
 Auth::routes();
 
 Route::get('/buat-produk', [ProductController::class,'listProdukAdmin'])->middleware('auth')->name('buat_produk');
+
+Route::get('/projects', [ProjectController::class, 'indexProject'])->middleware('auth')->name('projects');
 
 Route::get('/tambah-produk', [ProductController::class,'tambahProduk'])->name('tambah_produk');
 Route::post('/simpan-produk', [ProductController::class,'simpanProduk'])->name('simpan_produk');

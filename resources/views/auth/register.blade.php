@@ -83,9 +83,9 @@
                         <div>
                             <label for="name" class="block mb-2 text-sm text-gray-600 dark:text-gray-200">Full
                                 Name</label>
-                            <input id="name" type="text"
+                            <input id="name" type="text" placeholder="Full Name"
                                 class=" @error('name') is-invalid @enderror block w-full px-5 py-3 mt-2 text-gray-700 placeholder-gray-400 bg-white border border-gray-200 rounded-lg dark:placeholder-[#b5a27d] dark:bg-[#434240] dark:text-gray-300 dark:border-[#DDBD7E] focus:border-blue-400 dark:focus:border-blue-400 focus:ring-blue-400 focus:outline-none focus:ring focus:ring-opacity-40"
-                                name="name" value="{{ old('name') }}" required autocomplete="name" autofocus>
+                                name="name" value="{{ old('name') }}" required autocomplete="name">
 
 
                             @error('name')
@@ -99,7 +99,7 @@
                             <label for="email" class="block mb-2 text-sm text-gray-600 dark:text-gray-200">Email
                                 address</label>
 
-                            <input id="email" type="email"
+                            <input id="email" type="email" placeholder="Email"
                                 class="@error('email') is-invalid @enderror block w-full px-5 py-3 mt-2 text-gray-700 placeholder-gray-400 bg-white border border-gray-200 rounded-lg dark:placeholder-[#b5a27d] dark:bg-[#434240] dark:text-gray-300 dark:border-[#DDBD7E] focus:border-blue-400 dark:focus:border-blue-400 focus:ring-blue-400 focus:outline-none focus:ring focus:ring-opacity-40"
                                 name="email" value="{{ old('email') }}" required autocomplete="email">
 
@@ -112,7 +112,7 @@
 
                         <div>
                             <label class="block mb-2 text-sm text-gray-600 dark:text-gray-200">Password</label>
-                            <input id="password" type="password"
+                            <input id="password" type="password" placeholder="Enter Your Password"
                                 class="@error('password') is-invalid @enderror block w-full px-5 py-3 mt-2 text-gray-700 placeholder-gray-400 bg-white border border-gray-200 rounded-lg dark:placeholder-[#b5a27d] dark:bg-[#434240] dark:text-gray-300 dark:border-[#DDBD7E] focus:border-blue-400 dark:focus:border-blue-400 focus:ring-blue-400 focus:outline-none focus:ring focus:ring-opacity-40"
                                 name="password" required autocomplete="new-password">
 
@@ -126,28 +126,28 @@
                         <div>
                             <label for="password-confirm"
                                 class="block mb-2 text-sm text-gray-600 dark:text-gray-200">Confirm password</label>
-                            <input id="password-confirm" type="password"
+                            <input id="password-confirm" type="password" placeholder="Enter Your Password"
                                 class="block w-full px-5 py-3 mt-2 text-gray-700 placeholder-gray-400 bg-white border border-gray-200 rounded-lg dark:placeholder-[#b5a27d] dark:bg-[#434240] dark:text-gray-300 dark:border-[#DDBD7E] focus:border-blue-400 dark:focus:border-blue-400 focus:ring-blue-400 focus:outline-none focus:ring focus:ring-opacity-40"
                                 name="password_confirmation" required autocomplete="new-password">
                         </div>
 
                         <button type="submit"
                             class="flex items-center justify-between w-full px-6 py-3 text-sm tracking-wide text-white capitalize transition duration-300 transform bg-[#ddbd7e] rounded-lg hover:opacity-50 focus:outline-none focus:ring focus:ring-blue-300 focus:ring-opacity-50">
-                            <span>Sign Up </span>
+                            <span class="text-black">Sign Up </span>
 
                             <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5 rtl:-scale-x-100" viewBox="0 0 20 20"
-                                fill="currentColor">
+                                fill="black">
                                 <path fill-rule="evenodd"
                                     d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z"
                                     clip-rule="evenodd" />
                             </svg>
                         </button>
-                        @if (Route::has('password.request'))
+                        {{-- @if (Route::has('password.request'))
                             <a class="flex md:justify-end block mt-2 text-sm font-medium text-gray-600 dark:text-gray-200"
                                 href="{{ route('password.request') }}">
                                 {{ __('Forgot Your Password?') }}
                             </a>
-                        @endif
+                        @endif --}}
                     </form>
                 </div>
             </div>

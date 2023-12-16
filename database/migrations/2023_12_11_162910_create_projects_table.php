@@ -17,7 +17,7 @@ return new class extends Migration
             $table->date('deadline');
             $table->text('deskripsi');
             $table->integer('harga');
-            $table->foreignId('user_id')->constrained('users')->cascadeOnUpdate()->cascadeOnDelete();
+            $table->foreignId('user_id')->constrained('users')->cascadeOnUpdate()->cascadeOnDelete()->nullable();
             $table->timestamps();
         });
     }

@@ -9,6 +9,14 @@ class Project extends Model
 {
     use HasFactory;
 
+    protected $fillable = [
+        'nama_proyek',
+        'deadline',
+        'deskripsi',
+        'harga',
+        'user_id',
+    ];  
+
     public function users()
     {
         return $this->belongsTo(User::class);
