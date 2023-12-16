@@ -39,13 +39,14 @@ Auth::routes();
 
 Route::get('/buat-produk', [ProductController::class,'listProdukAdmin'])->middleware('auth')->name('buat_produk');
 
-Route::get('/projects', [ProjectController::class, 'indexProject'])->middleware('auth')->name('projects');
 
 Route::get('/tambah-produk', [ProductController::class,'tambahProduk'])->name('tambah_produk');
 Route::post('/simpan-produk', [ProductController::class,'simpanProduk'])->name('simpan_produk');
 Route::get('/edit-produk/{product}', [ProductController::class,'editProduk'])->name('edit_produk');
 Route::put('/update-produk/{product}', [ProductController::class, 'updateProduk'])->name('update_produk');
 Route::delete('/delete-produk/{product}', [ProductController::class, 'deleteProduk'])->name('delete_produk');
+
+Route::get('/projects', [ProjectController::class, 'indexProject'])->middleware('auth')->name('projects');
 
 Route::get('/baru', function () {
     return view('baru');
