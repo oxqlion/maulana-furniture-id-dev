@@ -15,13 +15,13 @@ use Illuminate\Support\Facades\Auth;
 |
 */
 
-Route::get('/home', [ProductController::class,'produkPilihan'])->name('home');
+Route::get('/home', [ProductController::class, 'produkPilihan'])->name('home');
 
-Route::get('/katalog', [ProductController::class,'listProduk'])->name('katalog');
+Route::get('/katalog', [ProductController::class, 'listProduk'])->name('katalog');
 
-Route::get('/produk-detail/{product}', [ProductController::class,'detailProduk'])->name('produk_detail');
+Route::get('/produk-detail/{product}', [ProductController::class, 'detailProduk'])->name('produk_detail');
 
-Route::get('/kategori-produk/{category}', [ProductController::class,'kategoriProduk'])->name('kategori_produk');
+Route::get('/kategori-produk/{category}', [ProductController::class, 'kategoriProduk'])->name('kategori_produk');
 
 Route::get('/cara-pemesanan', function () {
     return view('cara_pemesanan');
@@ -37,16 +37,19 @@ Route::get('/contact', function () {
 
 Auth::routes();
 
-Route::get('/buat-produk', [ProductController::class,'listProdukAdmin'])->middleware('auth')->name('buat_produk');
+Route::get('/buat-produk', [ProductController::class, 'listProdukAdmin'])->middleware('auth')->name('buat_produk');
 
 
-Route::get('/tambah-produk', [ProductController::class,'tambahProduk'])->name('tambah_produk');
-Route::post('/simpan-produk', [ProductController::class,'simpanProduk'])->name('simpan_produk');
-Route::get('/edit-produk/{product}', [ProductController::class,'editProduk'])->name('edit_produk');
+Route::get('/tambah-produk', [ProductController::class, 'tambahProduk'])->name('tambah_produk');
+Route::post('/simpan-produk', [ProductController::class, 'simpanProduk'])->name('simpan_produk');
+Route::get('/edit-produk/{product}', [ProductController::class, 'editProduk'])->name('edit_produk');
 Route::put('/update-produk/{product}', [ProductController::class, 'updateProduk'])->name('update_produk');
 Route::delete('/delete-produk/{product}', [ProductController::class, 'deleteProduk'])->name('delete_produk');
 
 Route::get('/projects', [ProjectController::class, 'indexProject'])->middleware('auth')->name('projects');
+Route::get('/tambah-project', [ProjectController::class, 'tambahProject'])->middleware('auth')->name('tambah_project');
+Route::post('/simpan-project', [ProjectController::class, 'storeProject'])->middleware('auth')->name('store_project');
+Route::get('/detail-project/{id}', [ProjectController::class, 'projectDetail'])->middleware('auth')->name('detail_project');
 
 Route::get('/baru', function () {
     return view('baru');

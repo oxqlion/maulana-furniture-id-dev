@@ -1,1 +1,1 @@
-<h1>Halo ini project detail</h1>
+<h1>Halo ini project detail : {{ $project->id }}</h1>

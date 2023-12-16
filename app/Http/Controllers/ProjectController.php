@@ -5,19 +5,22 @@ namespace App\Http\Controllers;
 use App\Models\Project;
 use App\Models\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class ProjectController extends Controller
 {
     public function indexProject()
     {
         $projects = Project::all();
-        return view('projects', compact('projects'));
+        $user = Auth::user();
+        return view('projects', compact('projects', 'user'));
     }
 
     public function tambahProject()
     {
         $users = User::where('role_id', 2)->get();
-        return view('tambahProject', compact('users'));
+        $user = Auth::user();
+        return view('buat_project', compact('users', 'user'));
     }
 
     public function storeProject(Request $request)
@@ -29,17 +32,32 @@ class ProjectController extends Controller
             'harga' => 'required',
         ]);
 
-        $project = Project::create([
-            'nama_proyek' => $request->nama_proyek,
-            'deadline' => $request->deadline,
-            'deskripsi' => $request->deskripsi,
-            'harga' => $request->harga,
-            'user_id' => $request->user_ui,
-        ]);
+        if ($request->hasFile('gambar')) {
 
-        $projects = Project::all();
+            $thumbnail = $request->file('gambar');
+            $imageName = $thumbnail->getClientOriginalName();
+            $path = $thumbnail->storeAs('products', $imageName, 'public');
 
-        return view('projects', compact('projects'));
+            $project = Project::create([
+                'nama_proyek' => $request->nama_proyek,
+                'deadline' => $request->deadline,
+                'deskripsi' => $request->deskripsi,
+                'harga' => $request->harga,
+                'user_id' => $request->client,
+                'image_path' => $path,
+            ]);
+
+            $projects = Project::all();
+            $user = Auth::user();
+
+            // return view('projects', compact('projects', 'user'));
+            return redirect()->route('projects')->with(['projects' => $projects, 'user' => $user]);
+        }
+
+        $users = User::where('role_id', 2)->get();
+        $user = Auth::user();
+
+        return view('buat_project', compact('users', 'user'));
     }
 
     public function projectDetail($id)
