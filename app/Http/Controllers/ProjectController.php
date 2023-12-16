@@ -63,7 +63,9 @@ class ProjectController extends Controller
     public function projectDetail($id)
     {
         $project = Project::find($id);
+        $user = Auth::user();
 
-        return view('project_detail', compact('project'));
+        // return redirect()->route('detail_project', ['id' => $id])->with(['project' => $project, 'user' => $user]);
+        return view('project_detail')->with(['project' => $project, 'user' => $user]);;
     }
 }
