@@ -154,7 +154,7 @@
                                             {{ $pc->harga }}</td>
                                         <td
                                             class="px-6 py-4 text-sm text-gray-500 whitespace-nowrap overflow-hidden overflow-ellipsis max-w-[150px]">
-                                            {{ $pc->user_id }}</td>
+                                            {{ $pc->user->name }}</td>
                                         {{-- <td
                                                 class="px-6 py-4 text-sm text-gray-500 whitespace-nowrap overflow-hidden overflow-ellipsis max-w-[150px]">
                                                 {{ $pc->product->material }}</td> --}}
