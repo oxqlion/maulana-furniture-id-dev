@@ -44,4 +44,7 @@ Route::get('/edit-produk/{product}', [ProductController::class,'editProduk'])->n
 Route::put('/update-produk/{product}', [ProductController::class, 'updateProduk'])->name('update_produk');
 Route::delete('/delete-produk/{product}', [ProductController::class, 'deleteProduk'])->name('delete_produk');
 
+Route::get('/baru', function () {
+    return view('baru');
+})->name('baru');
 // Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');

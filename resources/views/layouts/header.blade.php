@@ -153,7 +153,7 @@
     </script>
 </head>
 
-<body>
+<body x-data="setup()" x-init="$refs.loading.classList.add('hidden')">
     <header class="bg-[#434240] fixed top-0 left-0 w-full flex items-center z-10 font-montserrat">
         <div class="w-full">
             <div class="flex items-center justify-between relative">
