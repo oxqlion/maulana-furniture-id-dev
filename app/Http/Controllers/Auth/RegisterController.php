@@ -78,6 +78,7 @@ class RegisterController extends Controller
         $this->validator($request->all())->validate();
 
         $user = $this->create($request->all());
+        
         // $client_project_relation = ClientProject::create([
         //     'user_id' => $user->id,
         //     'nama_project' => $request->project_name
