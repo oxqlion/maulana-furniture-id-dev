@@ -176,13 +176,14 @@
         x-transition:leave="transition transform duration-300"
         x-transition:leave-start="translate-x-0 opacity-100 ease-out"
         x-transition:leave-end="-translate-x-full opacity-0 ease-in"
-        class="fixed inset-y-0 z-10 flex flex-col flex-shrink-0 w-64 max-h-screen overflow-hidden transition-all transform bg-white border-r shadow-lg lg:z-auto lg:static lg:shadow-none"
+        class="fixed inset-y-0 z-10 flex flex-col flex-shrink-0 w-52 max-h-screen overflow-hidden transition-all transform bg-white border-r shadow-lg lg:z-auto lg:static lg:shadow-none"
         :class="{'-translate-x-full lg:translate-x-0 lg:w-20': !isSidebarOpen}"
       >
         <!-- sidebar header -->
-        <div class="flex items-center justify-between flex-shrink-0 p-2" :class="{'lg:justify-center': !isSidebarOpen}">
+        <div class="bg-[#434240] border-b border-white flex items-center justify-between flex-shrink-0 p-2" :class="{'lg:justify-center': !isSidebarOpen}">
           <span class="p-2 text-xl font-semibold leading-8 tracking-wider uppercase whitespace-nowrap">
-            K<span :class="{'lg:hidden': !isSidebarOpen}">-WD</span>
+            <span class="p-2 text-xl font-semibold leading-8 tracking-wider uppercase whitespace-nowrap">
+              <img src="{{ asset('images/logo-maulana.png') }}" alt="Logo Perusahaan" class="w-10 lg:w-40">
           </span>
           <button @click="toggleSidbarMenu()" class="p-2 rounded-md lg:hidden">
             <svg
@@ -197,31 +198,18 @@
           </button>
         </div>
         <!-- Sidebar links -->
-        <nav class="flex-1 overflow-hidden hover:overflow-y-auto">
+        <nav class="flex-1 bg-[#434240] overflow-hidden hover:overflow-y-auto">
           <ul class="p-2 overflow-hidden">
             <li>
               <a
-                href="#"
-                class="flex items-center p-2 space-x-2 rounded-md hover:bg-gray-100"
+                href="{{ route('buat_produk') }}"
+                class="flex items-center gap-2 p-2 space-x-2 rounded-md group hover:bg-gray-100"
                 :class="{'justify-center': !isSidebarOpen}"
               >
                 <span>
-                  <svg
-                    class="w-6 h-6 text-gray-400"
-                    xmlns="http://www.w3.org/2000/svg"
-                    fill="none"
-                    viewBox="0 0 24 24"
-                    stroke="currentColor"
-                  >
-                    <path
-                      stroke-linecap="round"
-                      stroke-linejoin="round"
-                      stroke-width="2"
-                      d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6"
-                    />
-                  </svg>
+                  <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" class="w-6 h-6 text-[#DDBD7E] group-hover:text-[#434240]" viewBox="0 0 576 512"><!--!Font Awesome Free 6.5.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2023 Fonticons, Inc.--><path d="M575.8 255.5c0 18-15 32.1-32 32.1h-32l.7 160.2c0 2.7-.2 5.4-.5 8.1V472c0 22.1-17.9 40-40 40H456c-1.1 0-2.2 0-3.3-.1c-1.4 .1-2.8 .1-4.2 .1H416 392c-22.1 0-40-17.9-40-40V448 384c0-17.7-14.3-32-32-32H256c-17.7 0-32 14.3-32 32v64 24c0 22.1-17.9 40-40 40H160 128.1c-1.5 0-3-.1-4.5-.2c-1.2 .1-2.4 .2-3.6 .2H104c-22.1 0-40-17.9-40-40V360c0-.9 0-1.9 .1-2.8V287.6H32c-18 0-32-14-32-32.1c0-9 3-17 10-24L266.4 8c7-7 15-8 22-8s15 2 21 7L564.8 231.5c8 7 12 15 11 24z"/></svg>
                 </span>
-                <span :class="{ 'lg:hidden': !isSidebarOpen }">Dashboard</span>
+                <span class="text-[#DDBD7E] group-hover:text-[#434240] font-semibold" :class="{ 'lg:hidden': !isSidebarOpen }">Dashboard</span>
               </a>
             </li>
             <!-- Sidebar Links... -->
@@ -255,7 +243,7 @@
 
       <div class="flex flex-col flex-1 h-full overflow-hidden">
         <!-- Navbar -->
-        <header class="flex-shrink-0 border-b">
+        <header class="flex-shrink-0 border-b-4 border-[#434240]">
           <div class="flex items-center justify-between p-2">
             <!-- Navbar left -->
             <div class="flex items-center space-x-3">
@@ -275,7 +263,7 @@
               </button>
             </div>
 
-            <!-- Mobile search box -->
+            {{-- <!-- Mobile search box -->
             <div
               x-show.transition="isSearchBoxOpen"
               class="fixed inset-0 z-10 bg-black bg-opacity-20"
@@ -285,7 +273,7 @@
                 @click.away="isSearchBoxOpen = false"
                 class="absolute inset-x-0 flex items-center justify-between p-2 bg-white shadow-md"
               >
-                <div class="flex items-center flex-1 px-2 space-x-2">
+                <div class="flex items-center flex-1 px-2 space-x-2 border-b border-slate-900">
                   <!-- search icon -->
                   <span>
                     <svg
@@ -322,10 +310,10 @@
                   </svg>
                 </button>
               </div>
-            </div>
+            </div> --}}
 
             <!-- Desktop search box -->
-            <div class="items-center hidden px-2 space-x-2 md:flex-1 md:flex md:mr-auto md:ml-5">
+            <div class="items-center hidden px-2 space-x-2 md:flex-1 md:flex md:mr-auto md:ml-5 ">
               <!-- search icon -->
               <span>
                 <svg
@@ -581,20 +569,17 @@
                   class="absolute mt-3 transform -translate-x-full bg-white rounded-md shadow-lg min-w-max"
                 >
                   <div class="flex flex-col p-4 space-y-1 font-medium border-b">
-                    <span class="text-gray-800">Ahmed Kamel</span>
-                    <span class="text-sm text-gray-400">ahmed.kamel@example.com</span>
+                    <span class="text-gray-800">{{ $user->name }}</span>
+                    <span class="text-sm text-gray-400">{{ $user->email }}</span>
                   </div>
                   <ul class="flex flex-col p-2 my-2 space-y-1">
                     <li>
-                      <a href="#" class="block px-2 py-1 transition rounded-md hover:bg-gray-100">Link</a>
+                      <a href="{{ route('home') }}" class="block px-2 py-1 transition rounded-md hover:bg-gray-100">Beranda</a>
                     </li>
                     <li>
-                      <a href="#" class="block px-2 py-1 transition rounded-md hover:bg-gray-100">Another Link</a>
+                      <a href="{{ route('logout') }}" class="block px-2 py-1 transition rounded-md hover:bg-gray-100">Logout</a>
                     </li>
                   </ul>
-                  <div class="flex items-center justify-center p-4 text-blue-700 underline border-t">
-                    <a href="#">Logout</a>
-                  </div>
                 </div>
               </div>
             </div>
@@ -602,19 +587,11 @@
         </header>
         @yield('content1')
         <!-- Main footer -->
-        <footer class="flex items-center justify-between flex-shrink-0 p-4 border-t max-h-14">
-          <div>K-WD &copy; 2020</div>
+        <footer class="flex items-center justify-center flex-shrink-0 p-4 border-t max-h-14">
           <div class="text-sm">
-            Made by
-            <a
-              class="text-blue-400 underline"
-              href="https://github.com/Kamona-WD"
-              target="_blank"
-              rel="noopener noreferrer"
-              >Ahmed Kamel</a
-            >
+            Copyrights © 2023 Maulana Furniture Indonesia.
           </div>
-          <div>
+          {{-- <div>
             <!-- Github svg -->
             <a
               href="https://github.com/Kamona-WD/starter-dashboard-layout"
@@ -629,8 +606,8 @@
               </svg>
               <span class="hidden text-sm md:block">View on Github</span>
             </a>
-          </div>
-        </footer>
+          </div> --}}
+        </footer> 
       </div>
 
       <!-- Setting panel button -->

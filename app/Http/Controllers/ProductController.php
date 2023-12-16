@@ -7,6 +7,7 @@ use App\Models\Product;
 use App\Models\Image;
 use App\Models\ProductCategory;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class ProductController extends Controller
 {
@@ -42,7 +43,9 @@ class ProductController extends Controller
     public function listProdukAdmin(){
         $product_category = ProductCategory::all();
         $categories = Category::all();
-        return view('buat_produk', compact('product_category', 'categories'));
+        $total_products = Product::count();
+        $user = Auth::user();
+        return view('buat_produk', compact('product_category', 'categories', 'total_products', 'user'));
     }
 
     public function tambahProduk(){
@@ -92,7 +95,9 @@ class ProductController extends Controller
 
         $product_category = ProductCategory::all();
         $categories = Category::all();
-        return view('buat_produk', compact('product_category', 'categories'));
+        $total_products = Product::count();
+        $user = Auth::user();
+        return view('buat_produk', compact('product_category', 'categories', 'total_products', 'user'));
     }
 
     public function editProduk(Product $product){
@@ -141,7 +146,9 @@ class ProductController extends Controller
 
         $product_category = ProductCategory::all();
         $categories = Category::all();
-        return view('buat_produk', compact('product_category', 'categories'));
+        $total_products = Product::count();
+        $user = Auth::user();
+        return view('buat_produk', compact('product_category', 'categories', 'total_products', 'user'));
     }
 
     public function deleteProduk(Product $product){
@@ -163,6 +170,8 @@ class ProductController extends Controller
 
         $product_category = ProductCategory::all();
         $categories = Category::all();
-        return view('buat_produk', compact('product_category', 'categories'));
+        $total_products = Product::count();
+        $user = Auth::user();
+        return view('buat_produk', compact('product_category', 'categories', 'total_products', 'user'));
     }
 }
