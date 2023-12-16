@@ -20,8 +20,13 @@
     <script defer src="https://use.fontawesome.com/releases/v5.15.4/js/fontawesome.js"
         integrity="sha384-dPBGbj4Uoy1OOpM4+aRGfAOc0W37JkROT+3uynUgTHZCHZNMHfGXsmmvYTffZjYO" crossorigin="anonymous">
     </script>
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.2.0/flowbite.min.css" rel="stylesheet" />
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.2.0/flowbite.min.js"></script>
+    {{-- <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous">
+    </script>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous"> --}}
+    {{-- <link href="https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.2.0/flowbite.min.css"  rel="stylesheet" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.2.0/flowbite.min.js"></script> --}}
 
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Gelasio:wght@700&family=Montserrat:wght@100;300;400;500;600;700;800;900&display=swap');
@@ -111,7 +116,7 @@
             } */
         }
 
-        .penutup123 {
+        .penutup {
             position: absolute;
             background-color: black;
             opacity: 60%;
@@ -149,367 +154,554 @@
 </head>
 
 <body>
-    <div class="md:flex sm:flex lg:flex flex">
-        <button data-drawer-target="default-sidebar" data-drawer-toggle="default-sidebar"
-            aria-controls="default-sidebar" type="button"
-            class="inline-flex items-center p-2 mt-2 ml-3 h-min text-sm text-gray-500 rounded-lg sm:hidden hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-200 dark:text-gray-400 dark:hover:bg-gray-700 dark:focus:ring-gray-600">
-            <span class="sr-only">Open sidebar</span>
-            <svg class="w-6 h-6" aria-hidden="true" fill="currentColor" viewBox="0 0 20 20"
-                xmlns="http://www.w3.org/2000/svg">
-                <path clip-rule="evenodd" fill-rule="evenodd"
-                    d="M2 4.75A.75.75 0 012.75 4h14.5a.75.75 0 010 1.5H2.75A.75.75 0 012 4.75zm0 10.5a.75.75 0 01.75-.75h7.5a.75.75 0 010 1.5h-7.5a.75.75 0 01-.75-.75zM2 10a.75.75 0 01.75-.75h14.5a.75.75 0 010 1.5H2.75A.75.75 0 012 10z">
-                </path>
-            </svg>
-        </button>
+    
 
-        <aside id="default-sidebar"
-            class="xs:fixed top-0 left-0 z-40 w-64 h-screen transition-transform -translate-x-full sm:translate-x-0"
-            aria-label="Sidenav">
-            <div
-                class="overflow-y-auto py-5 px-3 h-full bg-white border-r border-gray-200 dark:bg-gray-800 dark:border-gray-700">
-                <ul class="space-y-2">
-                    <li>
-                        <a href="#"
-                            class="flex items-center p-2 text-base font-normal text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700 group">
-                            <svg aria-hidden="true"
-                                class="w-6 h-6 text-gray-400 transition duration-75 dark:text-gray-400 group-hover:text-gray-900 dark:group-hover:text-white"
-                                fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
-                                <path d="M2 10a8 8 0 018-8v8h8a8 8 0 11-16 0z"></path>
-                                <path d="M12 2.252A8.014 8.014 0 0117.748 8H12V2.252z"></path>
-                            </svg>
-                            <span class="ml-3">Overview</span>
-                        </a>
-                    </li>
-                    <li>
-                        <button type="button"
-                            class="flex items-center p-2 w-full text-base font-normal text-gray-900 rounded-lg transition duration-75 group hover:bg-gray-100 dark:text-white dark:hover:bg-gray-700"
-                            aria-controls="dropdown-pages" data-collapse-toggle="dropdown-pages">
-                            <svg aria-hidden="true"
-                                class="flex-shrink-0 w-6 h-6 text-gray-400 transition duration-75 group-hover:text-gray-900 dark:text-gray-400 dark:group-hover:text-white"
-                                fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
-                                <path fill-rule="evenodd"
-                                    d="M4 4a2 2 0 012-2h4.586A2 2 0 0112 2.586L15.414 6A2 2 0 0116 7.414V16a2 2 0 01-2 2H6a2 2 0 01-2-2V4zm2 6a1 1 0 011-1h6a1 1 0 110 2H7a1 1 0 01-1-1zm1 3a1 1 0 100 2h6a1 1 0 100-2H7z"
-                                    clip-rule="evenodd"></path>
-                            </svg>
-                            <span class="flex-1 ml-3 text-left whitespace-nowrap">Pages</span>
-                            <svg aria-hidden="true" class="w-6 h-6" fill="currentColor" viewBox="0 0 20 20"
-                                xmlns="http://www.w3.org/2000/svg">
-                                <path fill-rule="evenodd"
-                                    d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z"
-                                    clip-rule="evenodd"></path>
-                            </svg>
-                        </button>
-                        <ul id="dropdown-pages" class="hidden py-2 space-y-2">
-                            <li>
-                                <a href="#"
-                                    class="flex items-center p-2 pl-11 w-full text-base font-normal text-gray-900 rounded-lg transition duration-75 group hover:bg-gray-100 dark:text-white dark:hover:bg-gray-700">Settings</a>
-                            </li>
-                            <li>
-                                <a href="#"
-                                    class="flex items-center p-2 pl-11 w-full text-base font-normal text-gray-900 rounded-lg transition duration-75 group hover:bg-gray-100 dark:text-white dark:hover:bg-gray-700">Kanban</a>
-                            </li>
-                            <li>
-                                <a href="#"
-                                    class="flex items-center p-2 pl-11 w-full text-base font-normal text-gray-900 rounded-lg transition duration-75 group hover:bg-gray-100 dark:text-white dark:hover:bg-gray-700">Calendar</a>
-                            </li>
-                        </ul>
-                    </li>
-                    <li>
-                        <button type="button"
-                            class="flex items-center p-2 w-full text-base font-normal text-gray-900 rounded-lg transition duration-75 group hover:bg-gray-100 dark:text-white dark:hover:bg-gray-700"
-                            aria-controls="dropdown-sales" data-collapse-toggle="dropdown-sales">
-                            <svg aria-hidden="true"
-                                class="flex-shrink-0 w-6 h-6 text-gray-400 transition duration-75 group-hover:text-gray-900 dark:text-gray-400 dark:group-hover:text-white"
-                                fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
-                                <path fill-rule="evenodd"
-                                    d="M10 2a4 4 0 00-4 4v1H5a1 1 0 00-.994.89l-1 9A1 1 0 004 18h12a1 1 0 00.994-1.11l-1-9A1 1 0 0015 7h-1V6a4 4 0 00-4-4zm2 5V6a2 2 0 10-4 0v1h4zm-6 3a1 1 0 112 0 1 1 0 01-2 0zm7-1a1 1 0 100 2 1 1 0 000-2z"
-                                    clip-rule="evenodd"></path>
-                            </svg>
-                            <span class="flex-1 ml-3 text-left whitespace-nowrap">Sales</span>
-                            <svg aria-hidden="true" class="w-6 h-6" fill="currentColor" viewBox="0 0 20 20"
-                                xmlns="http://www.w3.org/2000/svg">
-                                <path fill-rule="evenodd"
-                                    d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z"
-                                    clip-rule="evenodd"></path>
-                            </svg>
-                        </button>
-                        <ul id="dropdown-sales" class="hidden py-2 space-y-2">
-                            <li>
-                                <a href="#"
-                                    class="flex items-center p-2 pl-11 w-full text-base font-normal text-gray-900 rounded-lg transition duration-75 group hover:bg-gray-100 dark:text-white dark:hover:bg-gray-700">Products</a>
-                            </li>
-                            <li>
-                                <a href="#"
-                                    class="flex items-center p-2 pl-11 w-full text-base font-normal text-gray-900 rounded-lg transition duration-75 group hover:bg-gray-100 dark:text-white dark:hover:bg-gray-700">Billing</a>
-                            </li>
-                            <li>
-                                <a href="#"
-                                    class="flex items-center p-2 pl-11 w-full text-base font-normal text-gray-900 rounded-lg transition duration-75 group hover:bg-gray-100 dark:text-white dark:hover:bg-gray-700">Invoice</a>
-                            </li>
-                        </ul>
-                    </li>
-                    <li>
-                        <a href="#"
-                            class="flex items-center p-2 text-base font-normal text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700 group">
-                            <svg aria-hidden="true"
-                                class="flex-shrink-0 w-6 h-6 text-gray-400 transition duration-75 dark:text-gray-400 group-hover:text-gray-900 dark:group-hover:text-white"
-                                fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
-                                <path
-                                    d="M8.707 7.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l2-2a1 1 0 00-1.414-1.414L11 7.586V3a1 1 0 10-2 0v4.586l-.293-.293z">
-                                </path>
-                                <path
-                                    d="M3 5a2 2 0 012-2h1a1 1 0 010 2H5v7h2l1 2h4l1-2h2V5h-1a1 1 0 110-2h1a2 2 0 012 2v10a2 2 0 01-2 2H5a2 2 0 01-2-2V5z">
-                                </path>
-                            </svg>
-                            <span class="flex-1 ml-3 whitespace-nowrap">Messages</span>
-                            <span
-                                class="inline-flex justify-center items-center w-5 h-5 text-xs font-semibold rounded-full text-primary-800 bg-primary-100 dark:bg-primary-200 dark:text-primary-800">
-                                6
-                            </span>
-                        </a>
-                    </li>
-                    <li>
-                        <button type="button"
-                            class="flex items-center p-2 w-full text-base font-normal text-gray-900 rounded-lg transition duration-75 group hover:bg-gray-100 dark:text-white dark:hover:bg-gray-700"
-                            aria-controls="dropdown-authentication" data-collapse-toggle="dropdown-authentication">
-                            <svg aria-hidden="true"
-                                class="flex-shrink-0 w-6 h-6 text-gray-400 transition duration-75 group-hover:text-gray-900 dark:text-gray-400 dark:group-hover:text-white"
-                                fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
-                                <path fill-rule="evenodd"
-                                    d="M5 9V7a5 5 0 0110 0v2a2 2 0 012 2v5a2 2 0 01-2 2H5a2 2 0 01-2-2v-5a2 2 0 012-2zm8-2v2H7V7a3 3 0 016 0z"
-                                    clip-rule="evenodd"></path>
-                            </svg>
-                            <span class="flex-1 ml-3 text-left whitespace-nowrap">Authentication</span>
-                            <svg aria-hidden="true" class="w-6 h-6" fill="currentColor" viewBox="0 0 20 20"
-                                xmlns="http://www.w3.org/2000/svg">
-                                <path fill-rule="evenodd"
-                                    d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z"
-                                    clip-rule="evenodd"></path>
-                            </svg>
-                        </button>
-                        <ul id="dropdown-authentication" class="hidden py-2 space-y-2">
-                            <li>
-                                <a href="#"
-                                    class="flex items-center p-2 pl-11 w-full text-base font-normal text-gray-900 rounded-lg transition duration-75 group hover:bg-gray-100 dark:text-white dark:hover:bg-gray-700">Sign
-                                    In</a>
-                            </li>
-                            <li>
-                                <a href="#"
-                                    class="flex items-center p-2 pl-11 w-full text-base font-normal text-gray-900 rounded-lg transition duration-75 group hover:bg-gray-100 dark:text-white dark:hover:bg-gray-700">Sign
-                                    Up</a>
-                            </li>
-                            <li>
-                                <a href="#"
-                                    class="flex items-center p-2 pl-11 w-full text-base font-normal text-gray-900 rounded-lg transition duration-75 group hover:bg-gray-100 dark:text-white dark:hover:bg-gray-700">Forgot
-                                    Password</a>
-                            </li>
-                        </ul>
-                    </li>
-                </ul>
-                <ul class="pt-5 mt-5 space-y-2 border-t border-gray-200 dark:border-gray-700">
-                    <li>
-                        <a href="#"
-                            class="flex items-center p-2 text-base font-normal text-gray-900 rounded-lg transition duration-75 hover:bg-gray-100 dark:hover:bg-gray-700 dark:text-white group">
-                            <svg aria-hidden="true"
-                                class="flex-shrink-0 w-6 h-6 text-gray-400 transition duration-75 dark:text-gray-400 group-hover:text-gray-900 dark:group-hover:text-white"
-                                fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
-                                <path d="M9 2a1 1 0 000 2h2a1 1 0 100-2H9z"></path>
-                                <path fill-rule="evenodd"
-                                    d="M4 5a2 2 0 012-2 3 3 0 003 3h2a3 3 0 003-3 2 2 0 012 2v11a2 2 0 01-2 2H6a2 2 0 01-2-2V5zm3 4a1 1 0 000 2h.01a1 1 0 100-2H7zm3 0a1 1 0 000 2h3a1 1 0 100-2h-3zm-3 4a1 1 0 100 2h.01a1 1 0 100-2H7zm3 0a1 1 0 100 2h3a1 1 0 100-2h-3z"
-                                    clip-rule="evenodd"></path>
-                            </svg>
-                            <span class="ml-3">Docs</span>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="#"
-                            class="flex items-center p-2 text-base font-normal text-gray-900 rounded-lg transition duration-75 hover:bg-gray-100 dark:hover:bg-gray-700 dark:text-white group">
-                            <svg aria-hidden="true"
-                                class="flex-shrink-0 w-6 h-6 text-gray-400 transition duration-75 dark:text-gray-400 group-hover:text-gray-900 dark:group-hover:text-white"
-                                fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
-                                <path
-                                    d="M7 3a1 1 0 000 2h6a1 1 0 100-2H7zM4 7a1 1 0 011-1h10a1 1 0 110 2H5a1 1 0 01-1-1zM2 11a2 2 0 012-2h12a2 2 0 012 2v4a2 2 0 01-2 2H4a2 2 0 01-2-2v-4z">
-                                </path>
-                            </svg>
-                            <span class="ml-3">Components</span>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="#"
-                            class="flex items-center p-2 text-base font-normal text-gray-900 rounded-lg transition duration-75 hover:bg-gray-100 dark:hover:bg-gray-700 dark:text-white group">
-                            <svg aria-hidden="true"
-                                class="flex-shrink-0 w-6 h-6 text-gray-400 transition duration-75 dark:text-gray-400 group-hover:text-gray-900 dark:group-hover:text-white"
-                                fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
-                                <path fill-rule="evenodd"
-                                    d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-2 0c0 .993-.241 1.929-.668 2.754l-1.524-1.525a3.997 3.997 0 00.078-2.183l1.562-1.562C15.802 8.249 16 9.1 16 10zm-5.165 3.913l1.58 1.58A5.98 5.98 0 0110 16a5.976 5.976 0 01-2.516-.552l1.562-1.562a4.006 4.006 0 001.789.027zm-4.677-2.796a4.002 4.002 0 01-.041-2.08l-.08.08-1.53-1.533A5.98 5.98 0 004 10c0 .954.223 1.856.619 2.657l1.54-1.54zm1.088-6.45A5.974 5.974 0 0110 4c.954 0 1.856.223 2.657.619l-1.54 1.54a4.002 4.002 0 00-2.346.033L7.246 4.668zM12 10a2 2 0 11-4 0 2 2 0 014 0z"
-                                    clip-rule="evenodd"></path>
-                            </svg>
-                            <span class="ml-3">Help</span>
-                        </a>
-                    </li>
-                </ul>
-            </div>
-            <div
-                class="hidden absolute bottom-0 left-0 justify-center p-4 space-x-4 w-full lg:flex bg-white dark:bg-gray-800 z-20 border-r border-gray-200 dark:border-gray-700">
-                <a href="#"
-                    class="inline-flex justify-center p-2 text-gray-500 rounded cursor-pointer dark:text-gray-400 hover:text-gray-900 dark:hover:text-white hover:bg-gray-100 dark:hover:bg-gray-600">
-                    <svg aria-hidden="true" class="w-6 h-6" fill="currentColor" viewBox="0 0 20 20"
-                        xmlns="http://www.w3.org/2000/svg">
-                        <path
-                            d="M5 4a1 1 0 00-2 0v7.268a2 2 0 000 3.464V16a1 1 0 102 0v-1.268a2 2 0 000-3.464V4zM11 4a1 1 0 10-2 0v1.268a2 2 0 000 3.464V16a1 1 0 102 0V8.732a2 2 0 000-3.464V4zM16 3a1 1 0 011 1v7.268a2 2 0 010 3.464V16a1 1 0 11-2 0v-1.268a2 2 0 010-3.464V4a1 1 0 011-1z">
-                        </path>
-                    </svg>
-                </a>
-                <a href="#" data-tooltip-target="tooltip-settings"
-                    class="inline-flex justify-center p-2 text-gray-500 rounded cursor-pointer dark:text-gray-400 dark:hover:text-white hover:text-gray-900 hover:bg-gray-100 dark:hover:bg-gray-600">
-                    <svg aria-hidden="true" class="w-6 h-6" fill="currentColor" viewBox="0 0 20 20"
-                        xmlns="http://www.w3.org/2000/svg">
-                        <path fill-rule="evenodd"
-                            d="M11.49 3.17c-.38-1.56-2.6-1.56-2.98 0a1.532 1.532 0 01-2.286.948c-1.372-.836-2.942.734-2.106 2.106.54.886.061 2.042-.947 2.287-1.561.379-1.561 2.6 0 2.978a1.532 1.532 0 01.947 2.287c-.836 1.372.734 2.942 2.106 2.106a1.532 1.532 0 012.287.947c.379 1.561 2.6 1.561 2.978 0a1.533 1.533 0 012.287-.947c1.372.836 2.942-.734 2.106-2.106a1.533 1.533 0 01.947-2.287c1.561-.379 1.561-2.6 0-2.978a1.532 1.532 0 01-.947-2.287c.836-1.372-.734-2.942-2.106-2.106a1.532 1.532 0 01-2.287-.947zM10 13a3 3 0 100-6 3 3 0 000 6z"
-                            clip-rule="evenodd"></path>
-                    </svg>
-                </a>
-                <div id="tooltip-settings" role="tooltip"
-                    class="inline-block absolute invisible z-10 py-2 px-3 text-sm font-medium text-white bg-gray-900 rounded-lg shadow-sm opacity-0 transition-opacity duration-300 tooltip">
-                    Settings page
-                    <div class="tooltip-arrow" data-popper-arrow></div>
-                </div>
-                <button type="button" data-dropdown-toggle="language-dropdown"
-                    class="inline-flex justify-center p-2 text-gray-500 rounded cursor-pointer dark:hover:text-white dark:text-gray-400 hover:text-gray-900 hover:bg-gray-100 dark:hover:bg-gray-600">
-                    <svg aria-hidden="true" class="h-5 w-5 rounded-full mt-0.5" xmlns="http://www.w3.org/2000/svg"
-                        xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 3900 3900">
-                        <path fill="#b22234" d="M0 0h7410v3900H0z" />
-                        <path d="M0 450h7410m0 600H0m0 600h7410m0 600H0m0 600h7410m0 600H0" stroke="#fff"
-                            stroke-width="300" />
-                        <path fill="#3c3b6e" d="M0 0h2964v2100H0z" />
-                        <g fill="#fff">
-                            <g id="d">
-                                <g id="c">
-                                    <g id="e">
-                                        <g id="b">
-                                            <path id="a"
-                                                d="M247 90l70.534 217.082-184.66-134.164h228.253L176.466 307.082z" />
-                                            <use xlink:href="#a" y="420" />
-                                            <use xlink:href="#a" y="840" />
-                                            <use xlink:href="#a" y="1260" />
-                                        </g>
-                                        <use xlink:href="#a" y="1680" />
-                                    </g>
-                                    <use xlink:href="#b" x="247" y="210" />
-                                </g>
-                                <use xlink:href="#c" x="494" />
-                            </g>
-                            <use xlink:href="#d" x="988" />
-                            <use xlink:href="#c" x="1976" />
-                            <use xlink:href="#e" x="2470" />
-                        </g>
-                    </svg>
-                </button>
-                <!-- Dropdown -->
-                <div class="hidden z-50 my-4 text-base list-none bg-white rounded divide-y divide-gray-100 shadow dark:bg-gray-700"
-                    id="language-dropdown">
-                    <ul class="py-1" role="none">
-                        <li>
-                            <a href="#"
-                                class="block py-2 px-4 text-sm text-gray-700 hover:bg-gray-100 dark:hover:text-white dark:text-gray-300 dark:hover:bg-gray-600"
-                                role="menuitem">
-                                <div class="inline-flex items-center">
-                                    <svg aria-hidden="true" class="h-3.5 w-3.5 rounded-full mr-2"
-                                        xmlns="http://www.w3.org/2000/svg" id="flag-icon-css-us"
-                                        viewBox="0 0 512 512">
-                                        <g fill-rule="evenodd">
-                                            <g stroke-width="1pt">
-                                                <path fill="#bd3d44"
-                                                    d="M0 0h247v10H0zm0 20h247v10H0zm0 20h247v10H0zm0 20h247v10H0zm0 20h247v10H0zm0 20h247v10H0zm0 20h247v10H0z"
-                                                    transform="scale(3.9385)" />
-                                                <path fill="#fff"
-                                                    d="M0 10h247v10H0zm0 20h247v10H0zm0 20h247v10H0zm0 20h247v10H0zm0 20h247v10H0zm0 20h247v10H0z"
-                                                    transform="scale(3.9385)" />
-                                            </g>
-                                            <path fill="#192f5d" d="M0 0h98.8v70H0z" transform="scale(3.9385)" />
-                                            <path fill="#fff"
-                                                d="M8.2 3l1 2.8H12L9.7 7.5l.9 2.7-2.4-1.7L6 10.2l.9-2.7-2.4-1.7h3zm16.5 0l.9 2.8h2.9l-2.4 1.7 1 2.7-2.4-1.7-2.4 1.7 1-2.7-2.4-1.7h2.9zm16.5 0l.9 2.8H45l-2.4 1.7 1 2.7-2.4-1.7-2.4 1.7 1-2.7-2.4-1.7h2.9zm16.4 0l1 2.8h2.8l-2.3 1.7.9 2.7-2.4-1.7-2.3 1.7.9-2.7-2.4-1.7h3zm16.5 0l.9 2.8h2.9l-2.4 1.7 1 2.7L74 8.5l-2.3 1.7.9-2.7-2.4-1.7h2.9zm16.5 0l.9 2.8h2.9L92 7.5l1 2.7-2.4-1.7-2.4 1.7 1-2.7-2.4-1.7h2.9zm-74.1 7l.9 2.8h2.9l-2.4 1.7 1 2.7-2.4-1.7-2.4 1.7 1-2.7-2.4-1.7h2.9zm16.4 0l1 2.8h2.8l-2.3 1.7.9 2.7-2.4-1.7-2.3 1.7.9-2.7-2.4-1.7h3zm16.5 0l.9 2.8h2.9l-2.4 1.7 1 2.7-2.4-1.7-2.4 1.7 1-2.7-2.4-1.7h2.9zm16.5 0l.9 2.8h2.9l-2.4 1.7 1 2.7-2.4-1.7-2.4 1.7 1-2.7-2.4-1.7H65zm16.4 0l1 2.8H86l-2.3 1.7.9 2.7-2.4-1.7-2.3 1.7.9-2.7-2.4-1.7h3zm-74 7l.8 2.8h3l-2.4 1.7.9 2.7-2.4-1.7L6 24.2l.9-2.7-2.4-1.7h3zm16.4 0l.9 2.8h2.9l-2.3 1.7.9 2.7-2.4-1.7-2.3 1.7.9-2.7-2.4-1.7h2.9zm16.5 0l.9 2.8H45l-2.4 1.7 1 2.7-2.4-1.7-2.4 1.7 1-2.7-2.4-1.7h2.9zm16.4 0l1 2.8h2.8l-2.3 1.7.9 2.7-2.4-1.7-2.3 1.7.9-2.7-2.4-1.7h3zm16.5 0l.9 2.8h2.9l-2.3 1.7.9 2.7-2.4-1.7-2.3 1.7.9-2.7-2.4-1.7h2.9zm16.5 0l.9 2.8h2.9L92 21.5l1 2.7-2.4-1.7-2.4 1.7 1-2.7-2.4-1.7h2.9zm-74.1 7l.9 2.8h2.9l-2.4 1.7 1 2.7-2.4-1.7-2.4 1.7 1-2.7-2.4-1.7h2.9zm16.4 0l1 2.8h2.8l-2.3 1.7.9 2.7-2.4-1.7-2.3 1.7.9-2.7-2.4-1.7h3zm16.5 0l.9 2.8h2.9l-2.3 1.7.9 2.7-2.4-1.7-2.3 1.7.9-2.7-2.4-1.7h2.9zm16.5 0l.9 2.8h2.9l-2.4 1.7 1 2.7-2.4-1.7-2.4 1.7 1-2.7-2.4-1.7H65zm16.4 0l1 2.8H86l-2.3 1.7.9 2.7-2.4-1.7-2.3 1.7.9-2.7-2.4-1.7h3zm-74 7l.8 2.8h3l-2.4 1.7.9 2.7-2.4-1.7L6 38.2l.9-2.7-2.4-1.7h3zm16.4 0l.9 2.8h2.9l-2.3 1.7.9 2.7-2.4-1.7-2.3 1.7.9-2.7-2.4-1.7h2.9zm16.5 0l.9 2.8H45l-2.4 1.7 1 2.7-2.4-1.7-2.4 1.7 1-2.7-2.4-1.7h2.9zm16.4 0l1 2.8h2.8l-2.3 1.7.9 2.7-2.4-1.7-2.3 1.7.9-2.7-2.4-1.7h3zm16.5 0l.9 2.8h2.9l-2.3 1.7.9 2.7-2.4-1.7-2.3 1.7.9-2.7-2.4-1.7h2.9zm16.5 0l.9 2.8h2.9L92 35.5l1 2.7-2.4-1.7-2.4 1.7 1-2.7-2.4-1.7h2.9zm-74.1 7l.9 2.8h2.9l-2.4 1.7 1 2.7-2.4-1.7-2.4 1.7 1-2.7-2.4-1.7h2.9zm16.4 0l1 2.8h2.8l-2.3 1.7.9 2.7-2.4-1.7-2.3 1.7.9-2.7-2.4-1.7h3zm16.5 0l.9 2.8h2.9l-2.3 1.7.9 2.7-2.4-1.7-2.3 1.7.9-2.7-2.4-1.7h2.9zm16.5 0l.9 2.8h2.9l-2.4 1.7 1 2.7-2.4-1.7-2.4 1.7 1-2.7-2.4-1.7H65zm16.4 0l1 2.8H86l-2.3 1.7.9 2.7-2.4-1.7-2.3 1.7.9-2.7-2.4-1.7h3zm-74 7l.8 2.8h3l-2.4 1.7.9 2.7-2.4-1.7L6 52.2l.9-2.7-2.4-1.7h3zm16.4 0l.9 2.8h2.9l-2.3 1.7.9 2.7-2.4-1.7-2.3 1.7.9-2.7-2.4-1.7h2.9zm16.5 0l.9 2.8H45l-2.4 1.7 1 2.7-2.4-1.7-2.4 1.7 1-2.7-2.4-1.7h2.9zm16.4 0l1 2.8h2.8l-2.3 1.7.9 2.7-2.4-1.7-2.3 1.7.9-2.7-2.4-1.7h3zm16.5 0l.9 2.8h2.9l-2.3 1.7.9 2.7-2.4-1.7-2.3 1.7.9-2.7-2.4-1.7h2.9zm16.5 0l.9 2.8h2.9L92 49.5l1 2.7-2.4-1.7-2.4 1.7 1-2.7-2.4-1.7h2.9zm-74.1 7l.9 2.8h2.9l-2.4 1.7 1 2.7-2.4-1.7-2.4 1.7 1-2.7-2.4-1.7h2.9zm16.4 0l1 2.8h2.8l-2.3 1.7.9 2.7-2.4-1.7-2.3 1.7.9-2.7-2.4-1.7h3zm16.5 0l.9 2.8h2.9l-2.3 1.7.9 2.7-2.4-1.7-2.3 1.7.9-2.7-2.4-1.7h2.9zm16.5 0l.9 2.8h2.9l-2.4 1.7 1 2.7-2.4-1.7-2.4 1.7 1-2.7-2.4-1.7H65zm16.4 0l1 2.8H86l-2.3 1.7.9 2.7-2.4-1.7-2.3 1.7.9-2.7-2.4-1.7h3zm-74 7l.8 2.8h3l-2.4 1.7.9 2.7-2.4-1.7L6 66.2l.9-2.7-2.4-1.7h3zm16.4 0l.9 2.8h2.9l-2.3 1.7.9 2.7-2.4-1.7-2.3 1.7.9-2.7-2.4-1.7h2.9zm16.5 0l.9 2.8H45l-2.4 1.7 1 2.7-2.4-1.7-2.4 1.7 1-2.7-2.4-1.7h2.9zm16.4 0l1 2.8h2.8l-2.3 1.7.9 2.7-2.4-1.7-2.3 1.7.9-2.7-2.4-1.7h3zm16.5 0l.9 2.8h2.9l-2.3 1.7.9 2.7-2.4-1.7-2.3 1.7.9-2.7-2.4-1.7h2.9zm16.5 0l.9 2.8h2.9L92 63.5l1 2.7-2.4-1.7-2.4 1.7 1-2.7-2.4-1.7h2.9z"
-                                                transform="scale(3.9385)" />
-                                        </g>
-                                    </svg>
-                                    English (US)
-                                </div>
-                            </a>
-                        </li>
-                        <li>
-                            <a href="#"
-                                class="block py-2 px-4 text-sm text-gray-700 hover:bg-gray-100 dark:text-gray-300 dark:hover:text-white dark:hover:bg-gray-600"
-                                role="menuitem">
-                                <div class="inline-flex items-center">
-                                    <svg aria-hidden="true" class="h-3.5 w-3.5 rounded-full mr-2"
-                                        xmlns="http://www.w3.org/2000/svg" id="flag-icon-css-de"
-                                        viewBox="0 0 512 512">
-                                        <path fill="#ffce00" d="M0 341.3h512V512H0z" />
-                                        <path d="M0 0h512v170.7H0z" />
-                                        <path fill="#d00" d="M0 170.7h512v170.6H0z" />
-                                    </svg>
-                                    Deutsch
-                                </div>
-                            </a>
-                        </li>
-                        <li>
-                            <a href="#"
-                                class="block py-2 px-4 text-sm text-gray-700 hover:bg-gray-100 dark:text-gray-300 dark:hover:text-white dark:hover:bg-gray-600"
-                                role="menuitem">
-                                <div class="inline-flex items-center">
-                                    <svg aria-hidden="true" class="h-3.5 w-3.5 rounded-full mr-2"
-                                        xmlns="http://www.w3.org/2000/svg" id="flag-icon-css-it"
-                                        viewBox="0 0 512 512">
-                                        <g fill-rule="evenodd" stroke-width="1pt">
-                                            <path fill="#fff" d="M0 0h512v512H0z" />
-                                            <path fill="#009246" d="M0 0h170.7v512H0z" />
-                                            <path fill="#ce2b37" d="M341.3 0H512v512H341.3z" />
-                                        </g>
-                                    </svg>
-                                    Italiano
-                                </div>
-                            </a>
-                        </li>
-                        <li>
-                            <a href="#"
-                                class="block py-2 px-4 text-sm text-gray-700 hover:bg-gray-100 dark:hover:text-white dark:text-gray-300 dark:hover:bg-gray-600"
-                                role="menuitem">
-                                <div class="inline-flex items-center">
-                                    <svg aria-hidden="true" class="h-3.5 w-3.5 rounded-full mr-2"
-                                        xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
-                                        id="flag-icon-css-cn" viewBox="0 0 512 512">
-                                        <defs>
-                                            <path id="a" fill="#ffde00" d="M1-.3L-.7.8 0-1 .6.8-1-.3z" />
-                                        </defs>
-                                        <path fill="#de2910" d="M0 0h512v512H0z" />
-                                        <use width="30" height="20" transform="matrix(76.8 0 0 76.8 128 128)"
-                                            xlink:href="#a" />
-                                        <use width="30" height="20"
-                                            transform="rotate(-121 142.6 -47) scale(25.5827)" xlink:href="#a" />
-                                        <use width="30" height="20"
-                                            transform="rotate(-98.1 198 -82) scale(25.6)" xlink:href="#a" />
-                                        <use width="30" height="20"
-                                            transform="rotate(-74 272.4 -114) scale(25.6137)" xlink:href="#a" />
-                                        <use width="30" height="20"
-                                            transform="matrix(16 -19.968 19.968 16 256 230.4)" xlink:href="#a" />
-                                    </svg>
-                                    中文 (繁體)
-                                </div>
-                            </a>
-                        </li>
-                    </ul>
-                </div>
-            </div>
-        </aside>
-        @yield('content')
-    </div>
-    {{-- <section>
-        <div class="relative">
-            <div class="" id="penutup"></div>
-            @yield('content')
+    <!-- component -->
+<div>
+    <div class="flex h-screen overflow-y-hidden bg-white" x-data="setup()">
+      
+
+      <!-- Sidebar backdrop -->
+      <div
+        x-show.in.out.opacity="isSidebarOpen"
+        class="fixed inset-0 z-10 bg-black bg-opacity-20 lg:hidden"
+        style="backdrop-filter: blur(14px); -webkit-backdrop-filter: blur(14px)"
+      ></div>
+
+      <!-- Sidebar -->
+      <aside
+        x-transition:enter="transition transform duration-300"
+        x-transition:enter-start="-translate-x-full opacity-30  ease-in"
+        x-transition:enter-end="translate-x-0 opacity-100 ease-out"
+        x-transition:leave="transition transform duration-300"
+        x-transition:leave-start="translate-x-0 opacity-100 ease-out"
+        x-transition:leave-end="-translate-x-full opacity-0 ease-in"
+        class="fixed inset-y-0 z-10 flex flex-col flex-shrink-0 w-64 max-h-screen overflow-hidden transition-all transform bg-white border-r shadow-lg lg:z-auto lg:static lg:shadow-none"
+        :class="{'-translate-x-full lg:translate-x-0 lg:w-20': !isSidebarOpen}"
+      >
+        <!-- sidebar header -->
+        <div class="flex items-center justify-between flex-shrink-0 p-2" :class="{'lg:justify-center': !isSidebarOpen}">
+          <span class="p-2 text-xl font-semibold leading-8 tracking-wider uppercase whitespace-nowrap">
+            K<span :class="{'lg:hidden': !isSidebarOpen}">-WD</span>
+          </span>
+          <button @click="toggleSidbarMenu()" class="p-2 rounded-md lg:hidden">
+            <svg
+              class="w-6 h-6 text-gray-600"
+              xmlns="http://www.w3.org/2000/svg"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke="currentColor"
+            >
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+            </svg>
+          </button>
         </div>
-    </section> --}}
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.2.0/flowbite.min.js"></script>
+        <!-- Sidebar links -->
+        <nav class="flex-1 overflow-hidden hover:overflow-y-auto">
+          <ul class="p-2 overflow-hidden">
+            <li>
+              <a
+                href="#"
+                class="flex items-center p-2 space-x-2 rounded-md hover:bg-gray-100"
+                :class="{'justify-center': !isSidebarOpen}"
+              >
+                <span>
+                  <svg
+                    class="w-6 h-6 text-gray-400"
+                    xmlns="http://www.w3.org/2000/svg"
+                    fill="none"
+                    viewBox="0 0 24 24"
+                    stroke="currentColor"
+                  >
+                    <path
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      stroke-width="2"
+                      d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6"
+                    />
+                  </svg>
+                </span>
+                <span :class="{ 'lg:hidden': !isSidebarOpen }">Dashboard</span>
+              </a>
+            </li>
+            <!-- Sidebar Links... -->
+          </ul>
+        </nav>
+        <!-- Sidebar footer -->
+        <div class="flex-shrink-0 p-2 border-t max-h-14">
+          <button
+            class="flex items-center justify-center w-full px-4 py-2 space-x-1 font-medium tracking-wider uppercase bg-gray-100 border rounded-md focus:outline-none focus:ring"
+          >
+            <span>
+              <svg
+                class="w-6 h-6"
+                xmlns="http://www.w3.org/2000/svg"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke="currentColor"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  d="M17 16l4-4m0 0l-4-4m4 4H7m6 4v1a3 3 0 01-3 3H6a3 3 0 01-3-3V7a3 3 0 013-3h4a3 3 0 013 3v1"
+                />
+              </svg>
+            </span>
+            <span :class="{'lg:hidden': !isSidebarOpen}"> Logout </span>
+          </button>
+        </div>
+      </aside>
+
+      <div class="flex flex-col flex-1 h-full overflow-hidden">
+        <!-- Navbar -->
+        <header class="flex-shrink-0 border-b">
+          <div class="flex items-center justify-between p-2">
+            <!-- Navbar left -->
+            <div class="flex items-center space-x-3">
+              <span class="p-2 text-xl font-semibold tracking-wider uppercase lg:hidden">K-WD</span>
+              <!-- Toggle sidebar button -->
+              <button @click="toggleSidbarMenu()" class="p-2 rounded-md focus:outline-none focus:ring">
+                <svg
+                  class="w-4 h-4 text-gray-600"
+                  :class="{'transform transition-transform -rotate-180': isSidebarOpen}"
+                  xmlns="http://www.w3.org/2000/svg"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  stroke="currentColor"
+                >
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 5l7 7-7 7M5 5l7 7-7 7" />
+                </svg>
+              </button>
+            </div>
+
+            <!-- Mobile search box -->
+            <div
+              x-show.transition="isSearchBoxOpen"
+              class="fixed inset-0 z-10 bg-black bg-opacity-20"
+              style="backdrop-filter: blur(14px); -webkit-backdrop-filter: blur(14px)"
+            >
+              <div
+                @click.away="isSearchBoxOpen = false"
+                class="absolute inset-x-0 flex items-center justify-between p-2 bg-white shadow-md"
+              >
+                <div class="flex items-center flex-1 px-2 space-x-2">
+                  <!-- search icon -->
+                  <span>
+                    <svg
+                      class="w-6 h-6 text-gray-500"
+                      xmlns="http://www.w3.org/2000/svg"
+                      fill="none"
+                      viewBox="0 0 24 24"
+                      stroke="currentColor"
+                    >
+                      <path
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        stroke-width="2"
+                        d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"
+                      />
+                    </svg>
+                  </span>
+                  <input
+                    type="text"
+                    placeholder="Search"
+                    class="w-full px-4 py-3 text-gray-600 rounded-md focus:bg-gray-100 focus:outline-none"
+                  />
+                </div>
+                <!-- close button -->
+                <button @click="isSearchBoxOpen = false" class="flex-shrink-0 p-4 rounded-md">
+                  <svg
+                    class="w-4 h-4 text-gray-500"
+                    xmlns="http://www.w3.org/2000/svg"
+                    fill="none"
+                    viewBox="0 0 24 24"
+                    stroke="currentColor"
+                  >
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+                  </svg>
+                </button>
+              </div>
+            </div>
+
+            <!-- Desktop search box -->
+            <div class="items-center hidden px-2 space-x-2 md:flex-1 md:flex md:mr-auto md:ml-5">
+              <!-- search icon -->
+              <span>
+                <svg
+                  class="w-5 h-5 text-gray-500"
+                  xmlns="http://www.w3.org/2000/svg"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  stroke="currentColor"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2"
+                    d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"
+                  />
+                </svg>
+              </span>
+              <input
+                type="text"
+                placeholder="Search"
+                class="px-4 py-3 rounded-md hover:bg-gray-100 lg:max-w-sm md:py-2 md:flex-1 focus:outline-none md:focus:bg-gray-100 md:focus:shadow md:focus:border"
+              />
+            </div>
+
+            <!-- Navbar right -->
+            <div class="relative flex items-center space-x-3">
+              <!-- Search button -->
+              <button
+                @click="isSearchBoxOpen = true"
+                class="p-2 bg-gray-100 rounded-full md:hidden focus:outline-none focus:ring hover:bg-gray-200"
+              >
+                <svg
+                  class="w-6 h-6 text-gray-500"
+                  xmlns="http://www.w3.org/2000/svg"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  stroke="currentColor"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2"
+                    d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"
+                  />
+                </svg>
+              </button>
+
+              <div class="items-center hidden space-x-3 md:flex">
+                <!-- Notification Button -->
+                <div class="relative" x-data="{ isOpen: false }">
+                  <!-- red dot -->
+                  <div class="absolute right-0 p-1 bg-red-400 rounded-full animate-ping"></div>
+                  <div class="absolute right-0 p-1 bg-red-400 border rounded-full"></div>
+                  <button
+                    @click="isOpen = !isOpen"
+                    class="p-2 bg-gray-100 rounded-full hover:bg-gray-200 focus:outline-none focus:ring"
+                  >
+                    <svg
+                      class="w-6 h-6 text-gray-500"
+                      xmlns="http://www.w3.org/2000/svg"
+                      fill="none"
+                      viewBox="0 0 24 24"
+                      stroke="currentColor"
+                    >
+                      <path
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        stroke-width="2"
+                        d="M15 17h5l-1.405-1.405A2.032 2.032 0 0118 14.158V11a6.002 6.002 0 00-4-5.659V5a2 2 0 10-4 0v.341C7.67 6.165 6 8.388 6 11v3.159c0 .538-.214 1.055-.595 1.436L4 17h5m6 0v1a3 3 0 11-6 0v-1m6 0H9"
+                      />
+                    </svg>
+                  </button>
+
+                  <!-- Dropdown card -->
+                  <div
+                    @click.away="isOpen = false"
+                    x-show.transition.opacity="isOpen"
+                    class="absolute w-48 max-w-md mt-3 transform bg-white rounded-md shadow-lg -translate-x-3/4 min-w-max"
+                  >
+                    <div class="p-4 font-medium border-b">
+                      <span class="text-gray-800">Notification</span>
+                    </div>
+                    <ul class="flex flex-col p-2 my-2 space-y-1">
+                      <li>
+                        <a href="#" class="block px-2 py-1 transition rounded-md hover:bg-gray-100">Link</a>
+                      </li>
+                      <li>
+                        <a href="#" class="block px-2 py-1 transition rounded-md hover:bg-gray-100">Another Link</a>
+                      </li>
+                    </ul>
+                    <div class="flex items-center justify-center p-4 text-blue-700 underline border-t">
+                      <a href="#">See All</a>
+                    </div>
+                  </div>
+                </div>
+
+                <!-- Services Button -->
+                <div x-data="{ isOpen: false }">
+                  <button
+                    @click="isOpen = !isOpen"
+                    class="p-2 bg-gray-100 rounded-full hover:bg-gray-200 focus:outline-none focus:ring"
+                  >
+                    <svg
+                      class="w-6 h-6 text-gray-500"
+                      xmlns="http://www.w3.org/2000/svg"
+                      fill="none"
+                      viewBox="0 0 24 24"
+                      stroke="currentColor"
+                    >
+                      <path
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        stroke-width="2"
+                        d="M4 6a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2H6a2 2 0 01-2-2V6zM14 6a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2V6zM4 16a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2H6a2 2 0 01-2-2v-2zM14 16a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2v-2z"
+                      />
+                    </svg>
+                  </button>
+
+                  <!-- Dropdown -->
+                  <div
+                    @click.away="isOpen = false"
+                    @keydown.escape="isOpen = false"
+                    x-show.transition.opacity="isOpen"
+                    class="absolute mt-3 transform bg-white rounded-md shadow-lg -translate-x-3/4 min-w-max"
+                  >
+                    <div class="p-4 text-lg font-medium border-b">Web apps & services</div>
+                    <ul class="flex flex-col p-2 my-3 space-y-3">
+                      <li>
+                        <a href="#" class="flex items-start px-2 py-1 space-x-2 rounded-md hover:bg-gray-100">
+                          <span class="block mt-1">
+                            <svg
+                              class="w-6 h-6 text-gray-500"
+                              xmlns="http://www.w3.org/2000/svg"
+                              fill="none"
+                              viewBox="0 0 24 24"
+                              stroke="currentColor"
+                            >
+                              <path fill="#fff" d="M12 14l9-5-9-5-9 5 9 5z" />
+                              <path
+                                fill="#fff"
+                                d="M12 14l6.16-3.422a12.083 12.083 0 01.665 6.479A11.952 11.952 0 0012 20.055a11.952 11.952 0 00-6.824-2.998 12.078 12.078 0 01.665-6.479L12 14z"
+                              />
+                              <path
+                                stroke-linecap="round"
+                                stroke-linejoin="round"
+                                stroke-width="2"
+                                d="M12 14l9-5-9-5-9 5 9 5zm0 0l6.16-3.422a12.083 12.083 0 01.665 6.479A11.952 11.952 0 0012 20.055a11.952 11.952 0 00-6.824-2.998 12.078 12.078 0 01.665-6.479L12 14zm-4 6v-7.5l4-2.222"
+                              />
+                            </svg>
+                          </span>
+                          <span class="flex flex-col">
+                            <span class="text-lg">Atlassian</span>
+                            <span class="text-sm text-gray-400">Lorem ipsum dolor sit.</span>
+                          </span>
+                        </a>
+                      </li>
+                      <li>
+                        <a href="#" class="flex items-start px-2 py-1 space-x-2 rounded-md hover:bg-gray-100">
+                          <span class="block mt-1">
+                            <svg
+                              class="w-6 h-6 text-gray-500"
+                              xmlns="http://www.w3.org/2000/svg"
+                              fill="none"
+                              viewBox="0 0 24 24"
+                              stroke="currentColor"
+                            >
+                              <path
+                                stroke-linecap="round"
+                                stroke-linejoin="round"
+                                stroke-width="2"
+                                d="M16 12a4 4 0 10-8 0 4 4 0 008 0zm0 0v1.5a2.5 2.5 0 005 0V12a9 9 0 10-9 9m4.5-1.206a8.959 8.959 0 01-4.5 1.207"
+                              />
+                            </svg>
+                          </span>
+                          <span class="flex flex-col">
+                            <span class="text-lg">Slack</span>
+                            <span class="text-sm text-gray-400"
+                              >Lorem ipsum, dolor sit amet consectetur adipisicing elit.</span
+                            >
+                          </span>
+                        </a>
+                      </li>
+                    </ul>
+                    <div class="flex items-center justify-center p-4 text-blue-700 underline border-t">
+                      <a href="#">Show all apps</a>
+                    </div>
+                  </div>
+                </div>
+
+                <!-- Options Button -->
+                <div class="relative" x-data="{ isOpen: false }">
+                  <button
+                    @click="isOpen = !isOpen"
+                    class="p-2 bg-gray-100 rounded-full hover:bg-gray-200 focus:outline-none focus:ring"
+                  >
+                    <svg
+                      class="w-6 h-6 text-gray-500"
+                      xmlns="http://www.w3.org/2000/svg"
+                      fill="none"
+                      viewBox="0 0 24 24"
+                      stroke="currentColor"
+                    >
+                      <path
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        stroke-width="2"
+                        d="M12 6V4m0 2a2 2 0 100 4m0-4a2 2 0 110 4m-6 8a2 2 0 100-4m0 4a2 2 0 110-4m0 4v2m0-6V4m6 6v10m6-2a2 2 0 100-4m0 4a2 2 0 110-4m0 4v2m0-6V4"
+                      />
+                    </svg>
+                  </button>
+
+                  <!-- Dropdown card -->
+                  <div
+                    @click.away="isOpen = false"
+                    x-show.transition.opacity="isOpen"
+                    class="absolute w-40 max-w-sm mt-3 transform bg-white rounded-md shadow-lg -translate-x-3/4 min-w-max"
+                  >
+                    <div class="p-4 font-medium border-b">
+                      <span class="text-gray-800">Options</span>
+                    </div>
+                    <ul class="flex flex-col p-2 my-2 space-y-1">
+                      <li>
+                        <a href="#" class="block px-2 py-1 transition rounded-md hover:bg-gray-100">Link</a>
+                      </li>
+                      <li>
+                        <a href="#" class="block px-2 py-1 transition rounded-md hover:bg-gray-100">Another Link</a>
+                      </li>
+                    </ul>
+                    <div class="flex items-center justify-center p-4 text-blue-700 underline border-t">
+                      <a href="#">See All</a>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <!-- avatar button -->
+              <div class="relative" x-data="{ isOpen: false }">
+                <button @click="isOpen = !isOpen" class="p-1 bg-gray-200 rounded-full focus:outline-none focus:ring">
+                  <img
+                    class="object-cover w-8 h-8 rounded-full"
+                    src="https://avatars0.githubusercontent.com/u/57622665?s=460&u=8f581f4c4acd4c18c33a87b3e6476112325e8b38&v=4"
+                    alt="Ahmed Kamel"
+                  />
+                </button>
+                <!-- green dot -->
+                <div class="absolute right-0 p-1 bg-green-400 rounded-full bottom-3 animate-ping"></div>
+                <div class="absolute right-0 p-1 bg-green-400 border border-white rounded-full bottom-3"></div>
+
+                <!-- Dropdown card -->
+                <div
+                  @click.away="isOpen = false"
+                  x-show.transition.opacity="isOpen"
+                  class="absolute mt-3 transform -translate-x-full bg-white rounded-md shadow-lg min-w-max"
+                >
+                  <div class="flex flex-col p-4 space-y-1 font-medium border-b">
+                    <span class="text-gray-800">Ahmed Kamel</span>
+                    <span class="text-sm text-gray-400">ahmed.kamel@example.com</span>
+                  </div>
+                  <ul class="flex flex-col p-2 my-2 space-y-1">
+                    <li>
+                      <a href="#" class="block px-2 py-1 transition rounded-md hover:bg-gray-100">Link</a>
+                    </li>
+                    <li>
+                      <a href="#" class="block px-2 py-1 transition rounded-md hover:bg-gray-100">Another Link</a>
+                    </li>
+                  </ul>
+                  <div class="flex items-center justify-center p-4 text-blue-700 underline border-t">
+                    <a href="#">Logout</a>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </header>
+        @yield('content1')
+        <!-- Main footer -->
+        <footer class="flex items-center justify-between flex-shrink-0 p-4 border-t max-h-14">
+          <div>K-WD &copy; 2020</div>
+          <div class="text-sm">
+            Made by
+            <a
+              class="text-blue-400 underline"
+              href="https://github.com/Kamona-WD"
+              target="_blank"
+              rel="noopener noreferrer"
+              >Ahmed Kamel</a
+            >
+          </div>
+          <div>
+            <!-- Github svg -->
+            <a
+              href="https://github.com/Kamona-WD/starter-dashboard-layout"
+              target="_blank"
+              class="flex items-center space-x-1"
+            >
+              <svg class="w-6 h-6 text-gray-400" viewBox="0 0 16 16" fill="currentColor" aria-hidden="true">
+                <path
+                  fill-rule="evenodd"
+                  d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z"
+                ></path>
+              </svg>
+              <span class="hidden text-sm md:block">View on Github</span>
+            </a>
+          </div>
+        </footer>
+      </div>
+
+      <!-- Setting panel button -->
+      <div>
+        <button
+          @click="isSettingsPanelOpen = true"
+          class="fixed right-0 px-4 py-2 text-sm font-medium text-white uppercase transform rotate-90 translate-x-8 bg-gray-600 top-1/2 rounded-b-md"
+        >
+          Settings
+        </button>
+      </div>
+
+      <!-- Settings panel -->
+      <div
+        x-show="isSettingsPanelOpen"
+        @click.away="isSettingsPanelOpen = false"
+        x-transition:enter="transition transform duration-300"
+        x-transition:enter-start="translate-x-full opacity-30  ease-in"
+        x-transition:enter-end="translate-x-0 opacity-100 ease-out"
+        x-transition:leave="transition transform duration-300"
+        x-transition:leave-start="translate-x-0 opacity-100 ease-out"
+        x-transition:leave-end="translate-x-full opacity-0 ease-in"
+        class="fixed inset-y-0 right-0 flex flex-col bg-white shadow-lg bg-opacity-20 w-80"
+        style="backdrop-filter: blur(14px); -webkit-backdrop-filter: blur(14px)"
+      >
+        <div class="flex items-center justify-between flex-shrink-0 p-2">
+          <h6 class="p-2 text-lg">Settings</h6>
+          <button @click="isSettingsPanelOpen = false" class="p-2 rounded-md focus:outline-none focus:ring">
+            <svg
+              class="w-6 h-6 text-gray-600"
+              xmlns="http://www.w3.org/2000/svg"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke="currentColor"
+            >
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+            </svg>
+          </button>
+        </div>
+        <div class="flex-1 max-h-full p-4 overflow-hidden hover:overflow-y-scroll">
+          <span>Settings Content</span>
+          <!-- Settings Panel Content ... -->
+        </div>
+      </div>
+    </div>
+    <script src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.7.3/dist/alpine.min.js" defer></script>
+    <script>
+      const setup = () => {
+        return {
+          loading: true,
+          isSidebarOpen: false,
+          toggleSidbarMenu() {
+            this.isSidebarOpen = !this.isSidebarOpen
+          },
+          isSettingsPanelOpen: false,
+          isSearchBoxOpen: false,
+        }
+      }
+    </script>
+</div>
+
+    <script>
+        const hamburger = document.querySelector("#hamburger");
+        const navMenu = document.querySelector("#nav-menu");
+        const penutup = document.querySelector("#penutup");
+        hamburger.addEventListener("click", function() {
+            hamburger.classList.toggle("hamburger-active");
+            navMenu.classList.toggle("hidden");
+            penutup.classList.toggle("penutup");
+        });
+    </script>
     <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
     <script>
         AOS.init();
