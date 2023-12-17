@@ -9,12 +9,19 @@ class Progress extends Model
 {
     use HasFactory;
 
+    protected $fillable = [
+        'gambar',
+        'deskripsi',
+        'project_id'
+    ];
+
     public function project()
     {
         return $this->belongsTo(Project::class);
     }
 
-    public function comments() {
+    public function comments()
+    {
         return $this->hasMany(Comment::class);
     }
 }

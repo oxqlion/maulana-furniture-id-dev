@@ -2,6 +2,10 @@
 
 @section('content1')
     <div class="w-full h-full overflow-y-scroll">
+        <a href="{{ route('projects') }}">
+            <p class="text-gray-500 font-medium text-sm mx-8 mt-8 cursor-pointer hover:text-gray-900">
+                < Projects</p>
+        </a>
         <form method="POST" action="{{ route('store_project') }}" class="bg-white p-8" enctype="multipart/form-data">
             @csrf
 
