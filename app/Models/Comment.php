@@ -9,11 +9,19 @@ class Comment extends Model
 {
     use HasFactory;
 
-    public function user() {
+    protected $fillable = [
+        'user_id',
+        'progress_id',
+        'komen'
+    ];
+
+    public function user()
+    {
         return $this->belongsTo(User::class);
     }
 
-    public function progress() {
+    public function progress()
+    {
         return $this->belongsTo(Progress::class);
     }
 }

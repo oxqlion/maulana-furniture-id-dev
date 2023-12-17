@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Comment;
 use App\Models\Progress;
 use App\Models\Project;
 use App\Models\User;
@@ -14,7 +15,8 @@ class ProjectController extends Controller
     {
         $projects = Project::all();
         $user = Auth::user();
-        return view('projects', compact('projects', 'user'));
+        $clients = User::where('role_id', 2)->get();
+        return view('projects', compact('projects', 'user', 'clients'));
     }
 
     public function tambahProject()
@@ -39,12 +41,18 @@ class ProjectController extends Controller
             $imageName = $thumbnail->getClientOriginalName();
             $path = $thumbnail->storeAs('products', $imageName, 'public');
 
+            if ($request->client == "") {
+                $user_id = $request->client;
+            } else {
+                $user_id = null;
+            }
+
             $project = Project::create([
                 'nama_proyek' => $request->nama_proyek,
                 'deadline' => $request->deadline,
                 'deskripsi' => $request->deskripsi,
                 'harga' => $request->harga,
-                'user_id' => $request->client,
+                'user_id' => $user_id,
                 'image_path' => $path,
             ]);
 
@@ -64,11 +72,21 @@ class ProjectController extends Controller
     public function projectDetail($id)
     {
         $project = Project::find($id);
-        // $progress = Progress::where('project_id', $id)->orderBy('created_at', 'desc')->get();
-        $progress = Progress::where('project_id', $id)->get();
+        $comments = Comment::with('progress')->get();
+        $progress = Progress::where('project_id', $id)->orderBy('created_at', 'desc')->get();
+        // $progress = Progress::where('project_id', $id)->get();
         $user = Auth::user();
 
         // return redirect()->route('detail_project', ['id' => $id])->with(['project' => $project, 'user' => $user]);
-        return view('project_detail')->with(['project' => $project, 'user' => $user, 'progress' => $progress]);
+        return view('project_detail')->with(['project' => $project, 'user' => $user, 'progress' => $progress, 'comments' => $comments]);
+    }
+
+    public function assignClient(Project $project, Request $request)
+    {
+        $project->update([
+            'user_id' => $request->user
+        ]);
+
+        return redirect()->back();
     }
 }

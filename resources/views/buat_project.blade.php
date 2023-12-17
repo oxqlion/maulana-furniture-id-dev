@@ -35,6 +35,7 @@
                     @foreach ($users as $user)
                         <option value="{{ $user->id }}">{{ $user->name }}</option>
                     @endforeach
+                    <option value="">Belum ada</option>
                 </select>
             </div>
 
