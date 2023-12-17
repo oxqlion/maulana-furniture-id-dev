@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\CommentController;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\ProgressController;
 use App\Http\Controllers\ProjectController;
@@ -40,7 +41,6 @@ Auth::routes();
 
 Route::get('/buat-produk', [ProductController::class, 'listProdukAdmin'])->middleware('auth')->name('buat_produk');
 
-
 Route::get('/tambah-produk', [ProductController::class, 'tambahProduk'])->name('tambah_produk');
 Route::post('/simpan-produk', [ProductController::class, 'simpanProduk'])->name('simpan_produk');
 Route::get('/edit-produk/{product}', [ProductController::class, 'editProduk'])->name('edit_produk');
@@ -51,8 +51,11 @@ Route::get('/projects', [ProjectController::class, 'indexProject'])->middleware(
 Route::get('/tambah-project', [ProjectController::class, 'tambahProject'])->middleware('auth')->name('tambah_project');
 Route::post('/simpan-project', [ProjectController::class, 'storeProject'])->middleware('auth')->name('store_project');
 Route::get('/detail-project/{id}', [ProjectController::class, 'projectDetail'])->middleware('auth')->name('detail_project');
+Route::put('/assign-client/{project}', [ProjectController::class, 'assignClient'])->middleware('admin')->name('assign_client');
 
 Route::post('/add-progress', [ProgressController::class, 'addProgress'])->middleware('admin')->name('add_progress');
+
+Route::post('/add-comment', [CommentController::class, 'addComment'])->middleware('auth')->name('add_comment');
 
 Route::get('/baru', function () {
     return view('baru');

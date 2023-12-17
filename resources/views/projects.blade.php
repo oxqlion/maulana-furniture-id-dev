@@ -154,7 +154,21 @@
                                             {{ $pc->harga }}</td>
                                         <td
                                             class="px-6 py-4 text-sm text-gray-500 whitespace-nowrap overflow-hidden overflow-ellipsis max-w-[150px]">
-                                            {{ $pc->user->name }}</td>
+                                            @if (!$pc->user)
+                                                <form action="{{ route('assign_client', $pc) }}" method="POST">
+                                                    @method('put')
+                                                    @csrf
+                                                    <select name="user" id="user">
+                                                        @foreach ($clients as $cl)
+                                                            <option value="{{ $cl->id }}">{{ $cl->name }}</option>
+                                                        @endforeach
+                                                    </select>
+                                                    <button type="submit">Save</button>
+                                                </form>
+                                            @else
+                                                {{ $pc->user->name }}
+                                            @endif
+                                        </td>
                                         {{-- <td
                                                 class="px-6 py-4 text-sm text-gray-500 whitespace-nowrap overflow-hidden overflow-ellipsis max-w-[150px]">
                                                 {{ $pc->product->material }}</td> --}}

@@ -36,11 +36,13 @@ class User extends Authenticatable
         return $this->hasMany(Project::class);
     }
 
-    public function comments() {
+    public function comments()
+    {
         return $this->hasMany(Comment::class);
     }
 
-    public function client_project() {
+    public function client_project()
+    {
         return $this->belongsTo(Project::class);
     }
 
@@ -64,30 +66,33 @@ class User extends Authenticatable
         'password' => 'hashed',
     ];
 
-    public function isAdmin(): bool {
-        
-        if($this->role_id == 1) {
+    public function isAdmin(): bool
+    {
+
+        if ($this->role_id == 1) {
             return true;
         }
-        
+
         return false;
     }
 
-    public function isClient(): bool {
-        
-        if($this->role_id == 2) {
+    public function isClient(): bool
+    {
+
+        if ($this->role_id == 2) {
             return true;
         }
-        
+
         return false;
     }
 
-    public function isVisitor(): bool {
-        
-        if($this->role_id == 3) {
+    public function isVisitor(): bool
+    {
+
+        if ($this->role_id == 3) {
             return true;
         }
-        
+
         return false;
     }
 }

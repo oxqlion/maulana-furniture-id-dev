@@ -120,12 +120,24 @@
                                     {{ $pr->deskripsi }}
                                 </p>
 
-                                <div class="inline-flex w-full mt-6 sm:w-auto">
-                                    <a href="#"
-                                        class="inline-flex items-center justify-center w-full px-6 py-2 text-sm text-white duration-300 bg-gray-800 rounded-lg hover:bg-gray-700 focus:ring focus:ring-gray-300 focus:ring-opacity-80">
-                                        Start Now
-                                    </a>
-                                </div>
+                                @foreach ($comments as $cm)
+                                    @if ($cm->progress_id == $pr->id)
+                                        <p>{{ $cm->komen }}</p>
+                                    @endif
+                                @endforeach
+
+                                <form action="{{ route('add_comment') }}" method="POST" class="">
+                                    @csrf
+                                    <input type="text" name="komen" id="komen" placeholder="Beri komentar">
+                                    <input type="hidden" name="user" id="user" value="{{ Auth::id() }}">
+                                    <input type="hidden" name="progress" id="progress" value="{{ $pr->id }}">
+                                    <div class="inline-flex w-full mt-6 sm:w-auto">
+                                        <button href="#" type="submit"
+                                            class="inline-flex items-center justify-center w-full px-6 py-2 text-sm text-white duration-300 bg-gray-800 rounded-lg hover:bg-gray-700 focus:ring focus:ring-gray-300 focus:ring-opacity-80">
+                                            Start Now
+                                        </button>
+                                    </div>
+                                </form>
                             </div>
                         </div>
                     @endforeach
