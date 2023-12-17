@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\ProductController;
+use App\Http\Controllers\ProgressController;
 use App\Http\Controllers\ProjectController;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Auth;
@@ -50,6 +51,8 @@ Route::get('/projects', [ProjectController::class, 'indexProject'])->middleware(
 Route::get('/tambah-project', [ProjectController::class, 'tambahProject'])->middleware('auth')->name('tambah_project');
 Route::post('/simpan-project', [ProjectController::class, 'storeProject'])->middleware('auth')->name('store_project');
 Route::get('/detail-project/{id}', [ProjectController::class, 'projectDetail'])->middleware('auth')->name('detail_project');
+
+Route::post('/add-progress', [ProgressController::class, 'addProgress'])->middleware('admin')->name('add_progress');
 
 Route::get('/baru', function () {
     return view('baru');

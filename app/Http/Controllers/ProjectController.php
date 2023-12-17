@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Progress;
 use App\Models\Project;
 use App\Models\User;
 use Illuminate\Http\Request;
@@ -63,9 +64,11 @@ class ProjectController extends Controller
     public function projectDetail($id)
     {
         $project = Project::find($id);
+        // $progress = Progress::where('project_id', $id)->orderBy('created_at', 'desc')->get();
+        $progress = Progress::where('project_id', $id)->get();
         $user = Auth::user();
 
         // return redirect()->route('detail_project', ['id' => $id])->with(['project' => $project, 'user' => $user]);
-        return view('project_detail')->with(['project' => $project, 'user' => $user]);;
+        return view('project_detail')->with(['project' => $project, 'user' => $user, 'progress' => $progress]);
     }
 }
