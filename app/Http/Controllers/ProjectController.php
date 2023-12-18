@@ -11,9 +11,13 @@ use Illuminate\Support\Facades\Auth;
 
 class ProjectController extends Controller
 {
-    public function indexProject()
+    public function indexProject(Request $request)
     {
-        $projects = Project::all();
+        if($request->has('search')){
+            $projects = Project::where('nama_proyek', 'like','%'. $request->search .'%')->get();
+        }else{
+            $projects = Project::all();
+        }
         $user = Auth::user();
         $clients = User::where('role_id', 2)->get();
         return view('projects', compact('projects', 'user', 'clients'));
@@ -37,7 +41,8 @@ class ProjectController extends Controller
 
         if ($request->hasFile('gambar')) {
 
-        // return view('projects', compact('projects', 'user'));
+
+            // return view('projects', compact('projects', 'user'));
             $thumbnail = $request->file('gambar');
             $imageName = $thumbnail->getClientOriginalName();
             $path = $thumbnail->storeAs('products', $imageName, 'public');

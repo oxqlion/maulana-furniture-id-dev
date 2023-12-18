@@ -1,7 +1,7 @@
 @extends('layouts.sidebar')
 
 @section('content1')
-<section class="bg-white dark:bg-gray-900">
+<section class="bg-white dark:bg-gray-900 overflow-y-scroll">
     <div class="py-8 px-4 mx-auto max-w-6xl lg:py-16">
         <h2 class="mb-4 text-xl font-bold text-gray-900 dark:text-white">Add a new product</h2>
         <form action="{{ route('simpan_produk') }}"  method="POST" enctype="multipart/form-data">

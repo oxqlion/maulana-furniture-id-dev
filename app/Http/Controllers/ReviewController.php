@@ -20,8 +20,8 @@ class ReviewController extends Controller
         ]);
 
         $review = Review::create([
-            'ulasan' => $request->ulasan,
-            'rating' => $request->rating,
+            'ulasan' => $validateData['ulasan'],
+            'rating' => $validateData['rating'],
             'project_id' => 1
         ]);
 
