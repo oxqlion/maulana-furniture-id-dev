@@ -1,164 +1,107 @@
-@extends('layouts.sidebar')
+@extends('layouts.header')
 
-@section('content1')
-  <!-- Main content -->
-  <main class="flex-1 max-h-full p-5 overflow-hidden overflow-y-scroll">
-    <!-- Main content header -->
-    <div
-      class="flex flex-col items-start justify-between pb-6 space-y-4 border-b lg:items-center lg:space-y-0 lg:flex-row"
-    >
-      <h1 class="text-2xl font-semibold whitespace-nowrap">Dashboard</h1>
-      <div class="space-y-6 md:space-x-2 md:space-y-0">
-        <a
-        href="https://github.com/Kamona-WD/starter-dashboard-layout"
-        target="_blank"
-        class="inline-flex items-center justify-center px-4 py-1 space-x-1 bg-gray-200 rounded-md shadow hover:bg-opacity-20"
-      >
-        <span>
-          <svg class="w-4 h-4 text-gray-500" viewBox="0 0 16 16" fill="currentColor" aria-hidden="true">
-            <path
-              fill-rule="evenodd"
-              d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z"
-            ></path>
-          </svg>
-        </span>
-        <span>View on Github</span>
-      </a>
-      </div>
-    </div>
+@section('content')
+<link href="https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.2.0/flowbite.min.css"  rel="stylesheet" />
+<script src="https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.2.0/flowbite.min.js"></script>
+  <!-- Modal toggle -->
+<div class="flex justify-center m-5 mt-24">
+  <button id="defaultModalButton" data-modal-target="defaultModal" data-modal-toggle="defaultModal" class="block text-white bg-red-700 hover:bg-primary-800 focus:ring-4 focus:outline-none focus:ring-primary-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-primary-600 dark:hover:bg-primary-700 dark:focus:ring-primary-800" type="button">
+  Create product
+  </button>
+</div>
 
-    <!-- Start Content -->
-    <div class="grid grid-cols-1 gap-5 mt-6 sm:grid-cols-2 lg:grid-cols-4">
-      <template x-for="i in 4" :key="i">
-        <div class="p-4 transition-shadow border rounded-lg shadow-sm hover:shadow-lg">
-          <div class="flex items-start justify-between">
-            <div class="flex flex-col space-y-2">
-              <span class="text-gray-400">Total Users</span>
-              <span class="text-lg font-semibold">100,221</span>
+<!-- Main modal -->
+<div id="defaultModal" tabindex="-1" aria-hidden="true" class="hidden overflow-y-auto overflow-x-hidden fixed top-0 right-0 left-0 z-50 justify-center items-center w-full md:inset-0 h-modal md:h-full">
+  <div class="relative p-4 w-full max-w-2xl h-full md:h-auto">
+      <!-- Modal content -->
+      <div class="relative p-4 bg-white rounded-lg shadow dark:bg-gray-800 sm:p-5">
+          <!-- Modal header -->
+          <div class="flex justify-between items-center pb-4 mb-4 rounded-t border-b sm:mb-5 dark:border-gray-600">
+              <h3 class="text-lg font-semibold text-gray-900 dark:text-white">
+                  Rate Your Experience
+              </h3>
+              <button type="button" class="text-gray-400 bg-transparent hover:bg-gray-200 hover:text-gray-900 rounded-lg text-sm p-1.5 ml-auto inline-flex items-center dark:hover:bg-gray-600 dark:hover:text-white" data-modal-toggle="defaultModal">
+                  <svg aria-hidden="true" class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z" clip-rule="evenodd"></path></svg>
+                  <span class="sr-only">Close modal</span>
+              </button>
+          </div>
+          <!-- Modal body -->
+          <form action="{{ route('simpan_review') }}"  method="POST" enctype="multipart/form-data">
+            @csrf
+            <div class="mx-auto w-full">
+              <div class='rating flex flex-row justify-center gap-3'>
+                <svg class="h-12 transition-all duration-100 fill-gray-400  fill-yellow-200  cursor-pointer"
+                  viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg"
+                  xmlns:xlink="http://www.w3.org/1999/xlink">
+                  <path
+                    d="M575.852903 115.426402L661.092435 288.054362c10.130509 20.465674 29.675227 34.689317 52.289797 37.963825l190.433097 27.62866c56.996902 8.288598 79.7138 78.281203 38.475467 118.496253l-137.836314 134.35715c-16.372539 15.963226-23.84251 38.987109-19.954032 61.49935l32.540421 189.716799c9.721195 56.792245-49.833916 100.077146-100.793444 73.267113L545.870691 841.446188a69.491196 69.491196 0 0 0-64.67153 0l-170.376737 89.537324c-50.959528 26.810033-110.51464-16.474868-100.793444-73.267113L242.569401 667.9996c3.888478-22.512241-3.581493-45.536125-19.954032-61.49935L84.779055 472.245428c-41.238333-40.215049-18.521435-110.207655 38.475467-118.496252l190.433097-27.62866c22.61457-3.274508 42.159288-17.498151 52.289797-37.963826L451.319277 115.426402c25.479764-51.675827 99.053862-51.675827 124.533626 0z"
+                    ></path>
+                </svg>
+                <svg class="h-12 transition-all duration-100 fill-gray-400  cursor-pointer"
+                  viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg"
+                  xmlns:xlink="http://www.w3.org/1999/xlink">
+                  <path
+                    d="M575.852903 115.426402L661.092435 288.054362c10.130509 20.465674 29.675227 34.689317 52.289797 37.963825l190.433097 27.62866c56.996902 8.288598 79.7138 78.281203 38.475467 118.496253l-137.836314 134.35715c-16.372539 15.963226-23.84251 38.987109-19.954032 61.49935l32.540421 189.716799c9.721195 56.792245-49.833916 100.077146-100.793444 73.267113L545.870691 841.446188a69.491196 69.491196 0 0 0-64.67153 0l-170.376737 89.537324c-50.959528 26.810033-110.51464-16.474868-100.793444-73.267113L242.569401 667.9996c3.888478-22.512241-3.581493-45.536125-19.954032-61.49935L84.779055 472.245428c-41.238333-40.215049-18.521435-110.207655 38.475467-118.496252l190.433097-27.62866c22.61457-3.274508 42.159288-17.498151 52.289797-37.963826L451.319277 115.426402c25.479764-51.675827 99.053862-51.675827 124.533626 0z"
+                    ></path>
+                </svg>
+                <svg class="h-12 transition-all duration-100 fill-gray-400  cursor-pointer"
+                  viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg"
+                  xmlns:xlink="http://www.w3.org/1999/xlink">
+                  <path
+                    d="M575.852903 115.426402L661.092435 288.054362c10.130509 20.465674 29.675227 34.689317 52.289797 37.963825l190.433097 27.62866c56.996902 8.288598 79.7138 78.281203 38.475467 118.496253l-137.836314 134.35715c-16.372539 15.963226-23.84251 38.987109-19.954032 61.49935l32.540421 189.716799c9.721195 56.792245-49.833916 100.077146-100.793444 73.267113L545.870691 841.446188a69.491196 69.491196 0 0 0-64.67153 0l-170.376737 89.537324c-50.959528 26.810033-110.51464-16.474868-100.793444-73.267113L242.569401 667.9996c3.888478-22.512241-3.581493-45.536125-19.954032-61.49935L84.779055 472.245428c-41.238333-40.215049-18.521435-110.207655 38.475467-118.496252l190.433097-27.62866c22.61457-3.274508 42.159288-17.498151 52.289797-37.963826L451.319277 115.426402c25.479764-51.675827 99.053862-51.675827 124.533626 0z"
+                    ></path>
+                </svg>
+                <svg class="h-12 transition-all duration-100 fill-gray-400  cursor-pointer"
+                  viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg"
+                  xmlns:xlink="http://www.w3.org/1999/xlink">
+                  <path
+                    d="M575.852903 115.426402L661.092435 288.054362c10.130509 20.465674 29.675227 34.689317 52.289797 37.963825l190.433097 27.62866c56.996902 8.288598 79.7138 78.281203 38.475467 118.496253l-137.836314 134.35715c-16.372539 15.963226-23.84251 38.987109-19.954032 61.49935l32.540421 189.716799c9.721195 56.792245-49.833916 100.077146-100.793444 73.267113L545.870691 841.446188a69.491196 69.491196 0 0 0-64.67153 0l-170.376737 89.537324c-50.959528 26.810033-110.51464-16.474868-100.793444-73.267113L242.569401 667.9996c3.888478-22.512241-3.581493-45.536125-19.954032-61.49935L84.779055 472.245428c-41.238333-40.215049-18.521435-110.207655 38.475467-118.496252l190.433097-27.62866c22.61457-3.274508 42.159288-17.498151 52.289797-37.963826L451.319277 115.426402c25.479764-51.675827 99.053862-51.675827 124.533626 0z"
+                    ></path>
+                </svg>
+                <svg class="h-12 transition-all duration-100 fill-gray-400  cursor-pointer"
+                  viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg"
+                  xmlns:xlink="http://www.w3.org/1999/xlink">
+                  <path
+                    d="M575.852903 115.426402L661.092435 288.054362c10.130509 20.465674 29.675227 34.689317 52.289797 37.963825l190.433097 27.62866c56.996902 8.288598 79.7138 78.281203 38.475467 118.496253l-137.836314 134.35715c-16.372539 15.963226-23.84251 38.987109-19.954032 61.49935l32.540421 189.716799c9.721195 56.792245-49.833916 100.077146-100.793444 73.267113L545.870691 841.446188a69.491196 69.491196 0 0 0-64.67153 0l-170.376737 89.537324c-50.959528 26.810033-110.51464-16.474868-100.793444-73.267113L242.569401 667.9996c3.888478-22.512241-3.581493-45.536125-19.954032-61.49935L84.779055 472.245428c-41.238333-40.215049-18.521435-110.207655 38.475467-118.496252l190.433097-27.62866c22.61457-3.274508 42.159288-17.498151 52.289797-37.963826L451.319277 115.426402c25.479764-51.675827 99.053862-51.675827 124.533626 0z"></path>
+                </svg>
+              </div> 
+
             </div>
-            <div class="p-10 bg-gray-200 rounded-md"></div>
-          </div>
-          <div>
-            <span class="inline-block px-2 text-sm text-white bg-green-300 rounded">14%</span>
-            <span>from 2019</span>
-          </div>
-        </div>
-      </template>
-    </div>
-
-    <!-- Table see (https://tailwindui.com/components/application-ui/lists/tables) -->
-    <div class="flex mt-6 gap-4">
-      <h3 class=" text-xl">Products</h3>
-      <a href="{{ route('tambah_produk') }}">
-        <button type="button" class="flex items-center justify-center text-white bg-red-800 hover:bg-primary-800 focus:ring-4 focus:ring-primary-300 font-medium rounded-lg text-sm px-4 py-2 dark:bg-primary-600 dark:hover:bg-primary-700 focus:outline-none dark:focus:ring-primary-800">
-            <svg class="h-3.5 w-3.5 mr-2" fill="currentColor" viewbox="0 0 20 20" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-                <path clip-rule="evenodd" fill-rule="evenodd" d="M10 3a1 1 0 011 1v5h5a1 1 0 110 2h-5v5a1 1 0 11-2 0v-5H4a1 1 0 110-2h5V4a1 1 0 011-1z" />
-            </svg>
-            Add product
-        </button>
-    </a>
-    </div>
-    <div class="flex flex-col mt-6">
-      <div class="-my-2 overflow-x-auto sm:-mx-6 lg:-mx-8">
-        <div class="inline-block min-w-full py-2 align-middle sm:px-6 lg:px-8">
-          <div class="overflow-hidden border-b border-gray-200 rounded-md shadow-md">
-            <table class="min-w-full overflow-x-scroll divide-y divide-gray-200">
-              <thead class="bg-gray-50">
-                <tr>
-                  <th
-                    scope="col"
-                    class="px-6 py-3 text-xs font-medium tracking-wider text-left text-gray-500 uppercase"
-                  >
-                    Name
-                  </th>
-                  <th
-                    scope="col"
-                    class="px-6 py-3 text-xs font-medium tracking-wider text-left text-gray-500 uppercase"
-                  >
-                    Title
-                  </th>
-                  <th
-                    scope="col"
-                    class="px-6 py-3 text-xs font-medium tracking-wider text-left text-gray-500 uppercase"
-                  >
-                    Status
-                  </th>
-                  <th
-                    scope="col"
-                    class="px-6 py-3 text-xs font-medium tracking-wider text-left text-gray-500 uppercase"
-                  >
-                    p
-                  </th>
-                  <th
-                    scope="col"
-                    class="px-6 py-3 text-xs font-medium tracking-wider text-left text-gray-500 uppercase"
-                  >
-                    Role
-                  </th>
-                  <th
-                    scope="col"
-                    class="px-6 py-3 text-xs font-medium tracking-wider text-left text-gray-500 uppercase"
-                  >
-                    Action
-                  </th>
-                  
-                </tr>
-              </thead>
-              <tbody class="bg-white divide-y divide-gray-200">
-                <template x-for="i in 1" :key="i">
-                  <tr class="transition-all hover:bg-gray-100 hover:shadow-lg">
-                    <td class="px-6 py-4 whitespace-nowrap">
-                      <div class="flex items-center">
-                        <div class="flex-shrink-0 w-10 h-10">
-                          <img
-                            class="w-10 h-10 rounded-full"
-                            src="https://avatars0.githubusercontent.com/u/57622665?s=460&u=8f581f4c4acd4c18c33a87b3e6476112325e8b38&v=4"
-                            alt=""
-                          />
-                        </div>
-                        <div class="ml-4">
-                          <div class="text-sm font-medium text-gray-900">Ahmed Kamel</div>
-                          <div class="text-sm text-gray-500">ahmed.kamel@example.com</div>
-                        </div>
-                      </div>
-                    </td>
-                    <td class="px-6 py-4 whitespace-nowrap">
-                      <div class="text-sm text-gray-900">Regional Paradigm Technician</div>
-                      <div class="text-sm text-gray-500">Optimization</div>
-                    </td>
-                    <td class="px-6 py-4 whitespace-nowrap">
-                      <span
-                        class="inline-flex px-2 text-xs font-semibold leading-5 text-green-800 bg-green-100 rounded-full"
-                      >
-                        Active
-                      </span>
-                    </td>
-                    <td class="px-6 py-4 text-sm text-gray-500 whitespace-nowrap">Kiw</td>
-                    <td class="px-6 py-4 text-sm text-gray-500 whitespace-nowrap">Admin</td>
-                    <td class="px-6 py-4 whitespace-nowrap">
-                      <div class="flex gap-2">
-                        <button type="button" class="flex items-center text-red-700 hover:text-white border border-red-700 hover:bg-red-800 focus:ring-4 focus:outline-none focus:ring-red-300 font-medium rounded-lg text-sm px-3 py-2 text-center dark:border-red-500 dark:text-red-500 dark:hover:text-white dark:hover:bg-red-600 dark:focus:ring-red-900">
-                          <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 mr-2 -ml-0.5" viewbox="0 0 20 20" fill="currentColor" aria-hidden="true">
-                              <path fill-rule="evenodd" d="M9 2a1 1 0 00-.894.553L7.382 4H4a1 1 0 000 2v10a2 2 0 002 2h8a2 2 0 002-2V6a1 1 0 100-2h-3.382l-.724-1.447A1 1 0 0011 2H9zM7 8a1 1 0 012 0v6a1 1 0 11-2 0V8zm5-1a1 1 0 00-1 1v6a1 1 0 102 0V8a1 1 0 00-1-1z" clip-rule="evenodd" />
-                          </svg>
-                          Delete
-                        </button>
-                        <button type="button" class="flex items-center text-red-700 hover:text-white border border-red-700 hover:bg-red-800 focus:ring-4 focus:outline-none focus:ring-red-300 font-medium rounded-lg text-sm px-3 py-2 text-center dark:border-red-500 dark:text-red-500 dark:hover:text-white dark:hover:bg-red-600 dark:focus:ring-red-900">
-                          <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 mr-2 -ml-0.5" viewbox="0 0 20 20" fill="currentColor" aria-hidden="true">
-                              <path d="M17.414 2.586a2 2 0 00-2.828 0L7 10.172V13h2.828l7.586-7.586a2 2 0 000-2.828z" />
-                              <path fill-rule="evenodd" d="M2 6a2 2 0 012-2h4a1 1 0 010 2H4v10h10v-4a1 1 0 112 0v4a2 2 0 01-2 2H4a2 2 0 01-2-2V6z" clip-rule="evenodd" />
-                          </svg>
-                          Edit
-                        </button>
-                      </div>
-                    </td>
-                  </tr>
-                </template>
-              </tbody>
-            </table>
-          </div>
-        </div>
+            <div class="sm:col-span-2">
+                <label for="ulasan" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Ulasan</label>
+                <textarea id="ulasan" name="ulasan" rows="4" class="block p-2.5 w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-primary-500 focus:border-primary-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500" placeholder="Write product description here"></textarea>                    
+            </div>
+            <input type="hidden" id="selectedRating" name="rating" value="0">
+              <button type="submit" class="mt-4 text-white inline-flex items-center bg-red-700 hover:bg-red-800 focus:ring-4 focus:outline-none focus:ring-primary-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-primary-600 dark:hover:bg-primary-700 dark:focus:ring-primary-800">
+                  Submit
+              </button>
+          </form>
       </div>
-    </div>
-  </main>
+  </div>
+</div>
+
+<script>
+  document.addEventListener("DOMContentLoaded", function(event) {
+    document.getElementById('defaultModalButton').click();
+});
+</script>
+
+<script>
+  const svgs = document.querySelector('.rating').children;
+  const ratingInput = document.getElementById('selectedRating');
+
+  for (let i = 0; i < svgs.length; i++) {
+    svgs[i].onclick = () => {
+      // Set the selected rating in the hidden input field
+      ratingInput.value = i + 1;
+
+      for (let j = 0; j <= i; j++) {
+        svgs[j].classList.add("fill-yellow-200");
+      }
+      for (let k = i + 1; k < svgs.length; k++) {
+        svgs[k].classList.remove("fill-yellow-200");
+      }
+    }
+  }
+</script>
 @endsection
