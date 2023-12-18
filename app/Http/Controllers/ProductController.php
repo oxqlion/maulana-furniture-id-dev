@@ -46,7 +46,7 @@ class ProductController extends Controller
         if($request->has('search')){
             $products = Product::where('nama', 'like','%'. $request->search .'%')->get();
         }else{
-            $products = Product::all();
+            $products = Product::paginate(2);
         }
         $categories = Category::all();
         $total_products = Product::count();
