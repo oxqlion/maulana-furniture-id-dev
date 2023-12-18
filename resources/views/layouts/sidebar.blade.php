@@ -166,7 +166,8 @@
                 style="backdrop-filter: blur(14px); -webkit-backdrop-filter: blur(14px)"></div>
 
             <!-- Sidebar -->
-            <aside x-transition:enter="transition transform duration-300"
+            <aside 
+                x-transition:enter="transition transform duration-300"
                 x-transition:enter-start="-translate-x-full opacity-30  ease-in"
                 x-transition:enter-end="translate-x-0 opacity-100 ease-out"
                 x-transition:leave="transition transform duration-300"
@@ -211,6 +212,20 @@
                         </li>
                         <!-- Sidebar Links... -->
                     </ul>
+                    <ul class="p-2 overflow-hidden">
+                      <li>
+                          <a href="{{ route('projects') }}"
+                              class="flex items-center gap-2 p-2 space-x-2 rounded-md group hover:bg-gray-100"
+                              :class="{ 'justify-center': !isSidebarOpen }">
+                              <span>
+                                <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" class="w-6 h-6 text-[#DDBD7E] group-hover:text-[#434240]" viewBox="0 0 576 512"><!--!Font Awesome Free 6.5.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2023 Fonticons, Inc.--><path d="M0 80C0 53.5 21.5 32 48 32h96c26.5 0 48 21.5 48 48V96H384V80c0-26.5 21.5-48 48-48h96c26.5 0 48 21.5 48 48v96c0 26.5-21.5 48-48 48H432c-26.5 0-48-21.5-48-48V160H192v16c0 1.7-.1 3.4-.3 5L272 288h96c26.5 0 48 21.5 48 48v96c0 26.5-21.5 48-48 48H272c-26.5 0-48-21.5-48-48V336c0-1.7 .1-3.4 .3-5L144 224H48c-26.5 0-48-21.5-48-48V80z"/></svg>
+                              </span>
+                              <span class="text-[#DDBD7E] group-hover:text-[#434240] font-semibold"
+                                  :class="{ 'lg:hidden': !isSidebarOpen }">Projects</span>
+                          </a>
+                      </li>
+                      <!-- Sidebar Links... -->
+                  </ul>
                 </nav>
                 <!-- Sidebar footer -->
                 <div class="flex-shrink-0 p-2 border-t max-h-14">
@@ -296,7 +311,7 @@
               </div>
             </div> --}}
             <!-- Desktop search box -->
-            <div class="items-center hidden px-2 space-x-2 md:flex-1 md:flex md:mr-auto md:ml-5 ">
+            {{-- <div class="items-center hidden px-2 space-x-2 md:flex-1 md:flex md:mr-auto md:ml-5 ">
               <!-- search icon -->
               <span>
                 <svg
@@ -314,12 +329,16 @@
                   />
                 </svg>
               </span>
-              <input
-                type="text"
-                placeholder="Search"
-                class="px-4 py-3 rounded-md hover:bg-gray-100 lg:max-w-sm md:py-2 md:flex-1 focus:outline-none md:focus:bg-gray-100 md:focus:shadow md:focus:border"
-              />
-            </div>
+              <form action="{{ route('buat_produk') }}" method="GET">
+                <input
+                  type="text"
+                  name="search"
+                  placeholder="Search"
+                  class="px-4 py-3 rounded-md hover:bg-gray-100 lg:max-w-sm md:py-2 md:flex-1 focus:outline-none md:focus:bg-gray-100 md:focus:shadow md:focus:border"
+                />
+                <input type="submit" style="display:none;" />
+              </form>
+            </div> --}}
 
             <!-- Navbar right -->
             <div class="relative flex items-center space-x-3">
@@ -626,10 +645,6 @@
                     <!-- Settings Panel Content ... -->
                 </div>
             </div>
-        </div>
-        <div class="flex-1 max-h-full p-4 overflow-hidden hover:overflow-y-scroll">
-          <span>Settings Content</span>
-          <!-- Settings Panel Content ... -->
         </div>
       </div>
     </div>

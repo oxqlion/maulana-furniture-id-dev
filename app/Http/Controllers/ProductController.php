@@ -6,8 +6,10 @@ use App\Models\Category;
 use App\Models\Product;
 use App\Models\Image;
 use App\Models\ProductCategory;
+use Database\Seeders\ProductSeeder;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+
 
 class ProductController extends Controller
 {
@@ -40,12 +42,16 @@ class ProductController extends Controller
         return view('homepage', compact('products'));
     }
 
-    public function listProdukAdmin(){
-        $product_category = ProductCategory::all();
+    public function listProdukAdmin(Request $request){
+        if($request->has('search')){
+            $products = Product::where('nama', 'like','%'. $request->search .'%')->get();
+        }else{
+            $products = Product::all();
+        }
         $categories = Category::all();
         $total_products = Product::count();
         $user = Auth::user();
-        return view('buat_produk', compact('product_category', 'categories', 'total_products', 'user'));
+        return view('buat_produk', compact('products', 'categories', 'total_products', 'user'));
     }
 
     public function tambahProduk(){
@@ -55,10 +61,17 @@ class ProductController extends Controller
     }
 
     public function simpanProduk(Request $request){
-        $validateData = $request->validate([
-            'nama' => 'required',
-            'harga' => 'required',
-        ]);
+        // $request->validate([
+        //     'nama' => 'required|unique:products',
+        //     'harga' => 'required',
+        //     'kondisi' => 'required',
+        //     'waktu_preorder' => 'required',
+        //     'minimal_pemesanan' => 'required',
+        //     'kategori' => 'required',
+        //     'material' => 'required',
+        //     'furnish' => 'required',
+        //     'ukruan' => 'required',
+        // ]);
 
         $product = Product::create([
             'nama' => $request->nama,
@@ -94,11 +107,15 @@ class ProductController extends Controller
             'product_id' => $newlyCreatedProduct->id
         ]);
 
-        $product_category = ProductCategory::all();
+        if($request->has('search')){
+            $products = Product::where('nama', 'like','%'. $request->search .'%')->get();
+        }else{
+            $products = Product::all();
+        }
         $categories = Category::all();
         $total_products = Product::count();
         $user = Auth::user();
-        return view('buat_produk', compact('product_category', 'categories', 'total_products', 'user'));
+        return view('buat_produk', compact('products', 'categories', 'total_products', 'user'));
     }
 
     public function editProduk(Product $product){
@@ -145,14 +162,18 @@ class ProductController extends Controller
             }
         }
 
-        $product_category = ProductCategory::all();
+        if($request->has('search')){
+            $products = Product::where('nama', 'like','%'. $request->search .'%')->get();
+        }else{
+            $products = Product::all();
+        }
         $categories = Category::all();
         $total_products = Product::count();
         $user = Auth::user();
-        return view('buat_produk', compact('product_category', 'categories', 'total_products', 'user'));
+        return view('buat_produk', compact('products', 'categories', 'total_products', 'user'));
     }
 
-    public function deleteProduk(Product $product){
+    public function deleteProduk(Request $request, Product $product){
         $images = Image::where('product_id', $product->id)->get();
 
         $oldImagePaths = [];
@@ -169,10 +190,14 @@ class ProductController extends Controller
 
         $product->delete();
 
-        $product_category = ProductCategory::all();
+        if($request->has('search')){
+            $products = Product::where('nama', 'like','%'. $request->search .'%')->get();
+        }else{
+            $products = Product::all();
+        }
         $categories = Category::all();
         $total_products = Product::count();
         $user = Auth::user();
-        return view('buat_produk', compact('product_category', 'categories', 'total_products', 'user'));
+        return view('buat_produk', compact('products', 'categories', 'total_products', 'user'));
     }
 }
