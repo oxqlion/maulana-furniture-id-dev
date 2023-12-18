@@ -50,7 +50,8 @@ class ProductController extends Controller
 
     public function tambahProduk(){
         $categories = Category::all();
-        return view('tambah_produk', compact('categories'));
+        $user = Auth::user();
+        return view('tambah_produk', compact('categories', 'user'));
     }
 
     public function simpanProduk(Request $request){

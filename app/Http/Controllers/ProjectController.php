@@ -5,13 +5,15 @@ namespace App\Http\Controllers;
 use App\Models\Project;
 use App\Models\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class ProjectController extends Controller
 {
     public function indexProject()
     {
         $projects = Project::all();
-        return view('projects', compact('projects'));
+        $user = Auth::user();
+        return view('projects', compact('projects', 'user'));
     }
 
     public function tambahProject()
@@ -38,14 +40,15 @@ class ProjectController extends Controller
         ]);
 
         $projects = Project::all();
+        $user = Auth::user();
 
-        return view('projects', compact('projects'));
+        return view('projects', compact('projects', 'user'));
     }
 
     public function projectDetail($id)
     {
         $project = Project::find($id);
-
-        return view('project_detail', compact('project'));
+        $user = Auth::user();
+        return view('project_detail', compact('project', 'user'));
     }
 }
