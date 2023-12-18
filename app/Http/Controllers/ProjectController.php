@@ -37,7 +37,7 @@ class ProjectController extends Controller
 
         if ($request->hasFile('gambar')) {
 
-        return view('projects', compact('projects', 'user'));
+        // return view('projects', compact('projects', 'user'));
             $thumbnail = $request->file('gambar');
             $imageName = $thumbnail->getClientOriginalName();
             $path = $thumbnail->storeAs('products', $imageName, 'public');
@@ -72,7 +72,7 @@ class ProjectController extends Controller
 
     public function projectDetail($id)
     {
-        $project = Project::find($id)
+        $project = Project::find($id);
         $comments = Comment::with('progress')->get();
         $progress = Progress::where('project_id', $id)->orderBy('created_at', 'desc')->get();
         // $progress = Progress::where('project_id', $id)->get();
