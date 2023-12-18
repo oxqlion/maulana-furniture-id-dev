@@ -154,116 +154,100 @@
 </head>
 
 <body>
-    
+
 
     <!-- component -->
-<div>
-    <div class="flex h-screen overflow-y-hidden bg-white" x-data="setup()">
-      
+    <div>
+        <div class="flex h-screen overflow-y-hidden bg-white" x-data="setup()">
 
-      <!-- Sidebar backdrop -->
-      <div
-        x-show.in.out.opacity="isSidebarOpen"
-        class="fixed inset-0 z-10 bg-black bg-opacity-20 lg:hidden"
-        style="backdrop-filter: blur(14px); -webkit-backdrop-filter: blur(14px)"
-      ></div>
 
-      <!-- Sidebar -->
-      <aside
-        x-transition:enter="transition transform duration-300"
-        x-transition:enter-start="-translate-x-full opacity-30  ease-in"
-        x-transition:enter-end="translate-x-0 opacity-100 ease-out"
-        x-transition:leave="transition transform duration-300"
-        x-transition:leave-start="translate-x-0 opacity-100 ease-out"
-        x-transition:leave-end="-translate-x-full opacity-0 ease-in"
-        class="fixed inset-y-0 z-10 flex flex-col flex-shrink-0 w-52 max-h-screen overflow-hidden transition-all transform bg-white border-r shadow-lg lg:z-auto lg:static lg:shadow-none"
-        :class="{'-translate-x-full lg:translate-x-0 lg:w-20': !isSidebarOpen}"
-      >
-        <!-- sidebar header -->
-        <div class="bg-[#434240] border-b border-white flex items-center justify-between flex-shrink-0 p-2" :class="{'lg:justify-center': !isSidebarOpen}">
-          <span class="p-2 text-xl font-semibold leading-8 tracking-wider uppercase whitespace-nowrap">
-            <span class="p-2 text-xl font-semibold leading-8 tracking-wider uppercase whitespace-nowrap">
-              <img src="{{ asset('images/logo-maulana.png') }}" alt="Logo Perusahaan" class="w-10 lg:w-40">
-          </span>
-          <button @click="toggleSidbarMenu()" class="p-2 rounded-md lg:hidden">
-            <svg
-              class="w-6 h-6 text-gray-600"
-              xmlns="http://www.w3.org/2000/svg"
-              fill="none"
-              viewBox="0 0 24 24"
-              stroke="currentColor"
-            >
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
-            </svg>
-          </button>
-        </div>
-        <!-- Sidebar links -->
-        <nav class="flex-1 bg-[#434240] overflow-hidden hover:overflow-y-auto">
-          <ul class="p-2 overflow-hidden">
-            <li>
-              <a
-                href="{{ route('buat_produk') }}"
-                class="flex items-center gap-2 p-2 space-x-2 rounded-md group hover:bg-gray-100"
-                :class="{'justify-center': !isSidebarOpen}"
-              >
-                <span>
-                  <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" class="w-6 h-6 text-[#DDBD7E] group-hover:text-[#434240]" viewBox="0 0 576 512"><!--!Font Awesome Free 6.5.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2023 Fonticons, Inc.--><path d="M575.8 255.5c0 18-15 32.1-32 32.1h-32l.7 160.2c0 2.7-.2 5.4-.5 8.1V472c0 22.1-17.9 40-40 40H456c-1.1 0-2.2 0-3.3-.1c-1.4 .1-2.8 .1-4.2 .1H416 392c-22.1 0-40-17.9-40-40V448 384c0-17.7-14.3-32-32-32H256c-17.7 0-32 14.3-32 32v64 24c0 22.1-17.9 40-40 40H160 128.1c-1.5 0-3-.1-4.5-.2c-1.2 .1-2.4 .2-3.6 .2H104c-22.1 0-40-17.9-40-40V360c0-.9 0-1.9 .1-2.8V287.6H32c-18 0-32-14-32-32.1c0-9 3-17 10-24L266.4 8c7-7 15-8 22-8s15 2 21 7L564.8 231.5c8 7 12 15 11 24z"/></svg>
-                </span>
-                <span class="text-[#DDBD7E] group-hover:text-[#434240] font-semibold" :class="{ 'lg:hidden': !isSidebarOpen }">Dashboard</span>
-              </a>
-            </li>
-            <!-- Sidebar Links... -->
-          </ul>
-        </nav>
-        <!-- Sidebar footer -->
-        <div class="flex-shrink-0 p-2 border-t max-h-14">
-          <button
-            class="flex items-center justify-center w-full px-4 py-2 space-x-1 font-medium tracking-wider uppercase bg-gray-100 border rounded-md focus:outline-none focus:ring"
-          >
-            <span>
-              <svg
-                class="w-6 h-6"
-                xmlns="http://www.w3.org/2000/svg"
-                fill="none"
-                viewBox="0 0 24 24"
-                stroke="currentColor"
-              >
-                <path
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                  stroke-width="2"
-                  d="M17 16l4-4m0 0l-4-4m4 4H7m6 4v1a3 3 0 01-3 3H6a3 3 0 01-3-3V7a3 3 0 013-3h4a3 3 0 013 3v1"
-                />
-              </svg>
-            </span>
-            <span :class="{'lg:hidden': !isSidebarOpen}"> Logout </span>
-          </button>
-        </div>
-      </aside>
+            <!-- Sidebar backdrop -->
+            <div x-show.in.out.opacity="isSidebarOpen" class="fixed inset-0 z-10 bg-black bg-opacity-20 lg:hidden"
+                style="backdrop-filter: blur(14px); -webkit-backdrop-filter: blur(14px)"></div>
 
-      <div class="flex flex-col flex-1 h-full overflow-hidden">
-        <!-- Navbar -->
-        <header class="flex-shrink-0 border-b-4 border-[#434240]">
-          <div class="flex items-center justify-between p-2">
-            <!-- Navbar left -->
-            <div class="flex items-center space-x-3">
-              <span class="p-2 text-xl font-semibold tracking-wider uppercase lg:hidden">K-WD</span>
-              <!-- Toggle sidebar button -->
-              <button @click="toggleSidbarMenu()" class="p-2 rounded-md focus:outline-none focus:ring">
-                <svg
-                  class="w-4 h-4 text-gray-600"
-                  :class="{'transform transition-transform -rotate-180': isSidebarOpen}"
-                  xmlns="http://www.w3.org/2000/svg"
-                  fill="none"
-                  viewBox="0 0 24 24"
-                  stroke="currentColor"
-                >
-                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 5l7 7-7 7M5 5l7 7-7 7" />
-                </svg>
-              </button>
-            </div>
+            <!-- Sidebar -->
+            <aside x-transition:enter="transition transform duration-300"
+                x-transition:enter-start="-translate-x-full opacity-30  ease-in"
+                x-transition:enter-end="translate-x-0 opacity-100 ease-out"
+                x-transition:leave="transition transform duration-300"
+                x-transition:leave-start="translate-x-0 opacity-100 ease-out"
+                x-transition:leave-end="-translate-x-full opacity-0 ease-in"
+                class="fixed inset-y-0 z-10 flex flex-col flex-shrink-0 w-52 max-h-screen overflow-hidden transition-all transform bg-white border-r shadow-lg lg:z-auto lg:static lg:shadow-none"
+                :class="{ '-translate-x-full lg:translate-x-0 lg:w-20': !isSidebarOpen }">
+                <!-- sidebar header -->
+                <div class="bg-[#434240] border-b border-white flex items-center justify-between flex-shrink-0 p-2"
+                    :class="{ 'lg:justify-center': !isSidebarOpen }">
+                    <span class="p-2 text-xl font-semibold leading-8 tracking-wider uppercase whitespace-nowrap">
+                        <span class="p-2 text-xl font-semibold leading-8 tracking-wider uppercase whitespace-nowrap">
+                            <img src="{{ asset('images/logo-maulana.png') }}" alt="Logo Perusahaan"
+                                class="w-10 lg:w-40">
+                        </span>
+                        <button @click="toggleSidbarMenu()" class="p-2 rounded-md lg:hidden">
+                            <svg class="w-6 h-6 text-gray-600" xmlns="http://www.w3.org/2000/svg" fill="none"
+                                viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M6 18L18 6M6 6l12 12" />
+                            </svg>
+                        </button>
+                </div>
+                <!-- Sidebar links -->
+                <nav class="flex-1 bg-[#434240] overflow-hidden hover:overflow-y-auto">
+                    <ul class="p-2 overflow-hidden">
+                        <li>
+                            <a href="{{ route('buat_produk') }}"
+                                class="flex items-center gap-2 p-2 space-x-2 rounded-md group hover:bg-gray-100"
+                                :class="{ 'justify-center': !isSidebarOpen }">
+                                <span>
+                                    <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor"
+                                        class="w-6 h-6 text-[#DDBD7E] group-hover:text-[#434240]"
+                                        viewBox="0 0 576 512"><!--!Font Awesome Free 6.5.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2023 Fonticons, Inc.-->
+                                        <path
+                                            d="M575.8 255.5c0 18-15 32.1-32 32.1h-32l.7 160.2c0 2.7-.2 5.4-.5 8.1V472c0 22.1-17.9 40-40 40H456c-1.1 0-2.2 0-3.3-.1c-1.4 .1-2.8 .1-4.2 .1H416 392c-22.1 0-40-17.9-40-40V448 384c0-17.7-14.3-32-32-32H256c-17.7 0-32 14.3-32 32v64 24c0 22.1-17.9 40-40 40H160 128.1c-1.5 0-3-.1-4.5-.2c-1.2 .1-2.4 .2-3.6 .2H104c-22.1 0-40-17.9-40-40V360c0-.9 0-1.9 .1-2.8V287.6H32c-18 0-32-14-32-32.1c0-9 3-17 10-24L266.4 8c7-7 15-8 22-8s15 2 21 7L564.8 231.5c8 7 12 15 11 24z" />
+                                    </svg>
+                                </span>
+                                <span class="text-[#DDBD7E] group-hover:text-[#434240] font-semibold"
+                                    :class="{ 'lg:hidden': !isSidebarOpen }">Dashboard</span>
+                            </a>
+                        </li>
+                        <!-- Sidebar Links... -->
+                    </ul>
+                </nav>
+                <!-- Sidebar footer -->
+                <div class="flex-shrink-0 p-2 border-t max-h-14">
+                    <button
+                        class="flex items-center justify-center w-full px-4 py-2 space-x-1 font-medium tracking-wider uppercase bg-gray-100 border rounded-md focus:outline-none focus:ring">
+                        <span>
+                            <svg class="w-6 h-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
+                                stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M17 16l4-4m0 0l-4-4m4 4H7m6 4v1a3 3 0 01-3 3H6a3 3 0 01-3-3V7a3 3 0 013-3h4a3 3 0 013 3v1" />
+                            </svg>
+                        </span>
+                        <span :class="{ 'lg:hidden': !isSidebarOpen }"> Logout </span>
+                    </button>
+                </div>
+            </aside>
 
-            {{-- <!-- Mobile search box -->
+            <div class="flex flex-col flex-1 h-full overflow-hidden">
+                <!-- Navbar -->
+                <header class="flex-shrink-0 border-b-4 border-[#434240]">
+                    <div class="flex items-center justify-between p-2">
+                        <!-- Navbar left -->
+                        <div class="flex items-center space-x-3">
+                            <span class="p-2 text-xl font-semibold tracking-wider uppercase lg:hidden">K-WD</span>
+                            <!-- Toggle sidebar button -->
+                            <button @click="toggleSidbarMenu()" class="p-2 rounded-md focus:outline-none focus:ring">
+                                <svg class="w-4 h-4 text-gray-600"
+                                    :class="{ 'transform transition-transform -rotate-180': isSidebarOpen }"
+                                    xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
+                                    stroke="currentColor">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                        d="M13 5l7 7-7 7M5 5l7 7-7 7" />
+                                </svg>
+                            </button>
+                        </div>
+
+                        {{-- <!-- Mobile search box -->
             <div
               x-show.transition="isSearchBoxOpen"
               class="fixed inset-0 z-10 bg-black bg-opacity-20"
@@ -311,7 +295,6 @@
                 </button>
               </div>
             </div> --}}
-
             <!-- Desktop search box -->
             <div class="items-center hidden px-2 space-x-2 md:flex-1 md:flex md:mr-auto md:ml-5 ">
               <!-- search icon -->
@@ -607,45 +590,42 @@
               <span class="hidden text-sm md:block">View on Github</span>
             </a>
           </div> --}}
-        </footer> 
-      </div>
+                </footer>
+            </div>
 
-      <!-- Setting panel button -->
-      <div>
-        <button
-          @click="isSettingsPanelOpen = true"
-          class="fixed right-0 px-4 py-2 text-sm font-medium text-white uppercase transform rotate-90 translate-x-8 bg-gray-600 top-1/2 rounded-b-md"
-        >
-          Settings
-        </button>
-      </div>
+            <!-- Setting panel button -->
+            <div>
+                <button @click="isSettingsPanelOpen = true"
+                    class="fixed right-0 px-4 py-2 text-sm font-medium text-white uppercase transform rotate-90 translate-x-8 bg-gray-600 top-1/2 rounded-b-md">
+                    Settings
+                </button>
+            </div>
 
-      <!-- Settings panel -->
-      <div
-        x-show="isSettingsPanelOpen"
-        @click.away="isSettingsPanelOpen = false"
-        x-transition:enter="transition transform duration-300"
-        x-transition:enter-start="translate-x-full opacity-30  ease-in"
-        x-transition:enter-end="translate-x-0 opacity-100 ease-out"
-        x-transition:leave="transition transform duration-300"
-        x-transition:leave-start="translate-x-0 opacity-100 ease-out"
-        x-transition:leave-end="translate-x-full opacity-0 ease-in"
-        class="fixed inset-y-0 right-0 flex flex-col bg-white shadow-lg bg-opacity-20 w-80"
-        style="backdrop-filter: blur(14px); -webkit-backdrop-filter: blur(14px)"
-      >
-        <div class="flex items-center justify-between flex-shrink-0 p-2">
-          <h6 class="p-2 text-lg">Settings</h6>
-          <button @click="isSettingsPanelOpen = false" class="p-2 rounded-md focus:outline-none focus:ring">
-            <svg
-              class="w-6 h-6 text-gray-600"
-              xmlns="http://www.w3.org/2000/svg"
-              fill="none"
-              viewBox="0 0 24 24"
-              stroke="currentColor"
-            >
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
-            </svg>
-          </button>
+            <!-- Settings panel -->
+            <div x-show="isSettingsPanelOpen" @click.away="isSettingsPanelOpen = false"
+                x-transition:enter="transition transform duration-300"
+                x-transition:enter-start="translate-x-full opacity-30  ease-in"
+                x-transition:enter-end="translate-x-0 opacity-100 ease-out"
+                x-transition:leave="transition transform duration-300"
+                x-transition:leave-start="translate-x-0 opacity-100 ease-out"
+                x-transition:leave-end="translate-x-full opacity-0 ease-in"
+                class="fixed inset-y-0 right-0 flex flex-col bg-white shadow-lg bg-opacity-20 w-80"
+                style="backdrop-filter: blur(14px); -webkit-backdrop-filter: blur(14px)">
+                <div class="flex items-center justify-between flex-shrink-0 p-2">
+                    <h6 class="p-2 text-lg">Settings</h6>
+                    <button @click="isSettingsPanelOpen = false" class="p-2 rounded-md focus:outline-none focus:ring">
+                        <svg class="w-6 h-6 text-gray-600" xmlns="http://www.w3.org/2000/svg" fill="none"
+                            viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M6 18L18 6M6 6l12 12" />
+                        </svg>
+                    </button>
+                </div>
+                <div class="flex-1 max-h-full p-4 overflow-hidden hover:overflow-y-scroll">
+                    <span>Settings Content</span>
+                    <!-- Settings Panel Content ... -->
+                </div>
+            </div>
         </div>
         <div class="flex-1 max-h-full p-4 overflow-hidden hover:overflow-y-scroll">
           <span>Settings Content</span>

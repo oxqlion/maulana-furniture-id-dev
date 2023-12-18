@@ -80,7 +80,7 @@
         <!-- Table see (https://tailwindui.com/components/application-ui/lists/tables) -->
         <div class="flex mt-6 gap-4">
             <h3 class=" text-xl">Projects</h3>
-            <a href="{{ route('tambah_produk') }}">
+            <a href="{{ route('tambah_project') }}">
                 <button type="button"
                     class="flex items-center justify-center text-white bg-red-800 hover:bg-primary-800 focus:ring-4 focus:ring-primary-300 font-medium rounded-lg text-sm px-4 py-2 dark:bg-primary-600 dark:hover:bg-primary-700 focus:outline-none dark:focus:ring-primary-800">
                     <svg class="h-3.5 w-3.5 mr-2" fill="currentColor" viewbox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"
@@ -137,8 +137,7 @@
                                             <div class="flex items-center">
                                                 <div class="flex-shrink-0 w-10 h-10">
                                                     <img class="w-10 h-10 rounded-md"
-                                                        src="{{ asset('storage/products/' . $pc->id . '_1.png') }}"
-                                                        alt="" />
+                                                        src="{{ asset('storage/' . $pc->image_path) }}" alt="" />
                                                 </div>
                                                 <div class="ml-4">
                                                     <div class="text-sm font-medium text-gray-900">
@@ -148,20 +147,34 @@
                                             </div>
                                         </td>
                                         <td class="px-6 py-4 text-sm text-gray-500 whitespace-nowrap">
-                                            {{ $pc->Deadline }}</td>
+                                            {{ $pc->deadline }}</td>
                                         <td class="px-6 py-4 text-sm text-gray-500 whitespace-nowrap">
-                                            {{ $pc->Deskripsi }}</td>
+                                            {{ $pc->deskripsi }}</td>
                                         <td class="px-6 py-4 text-sm text-gray-500 whitespace-nowrap">
-                                            {{ $pc->Harga }}</td>
+                                            {{ $pc->harga }}</td>
                                         <td
                                             class="px-6 py-4 text-sm text-gray-500 whitespace-nowrap overflow-hidden overflow-ellipsis max-w-[150px]">
-                                            {{ $pc->Klien }}</td>
+                                            @if (!$pc->user)
+                                                <form action="{{ route('assign_client', $pc) }}" method="POST">
+                                                    @method('put')
+                                                    @csrf
+                                                    <select name="user" id="user">
+                                                        @foreach ($clients as $cl)
+                                                            <option value="{{ $cl->id }}">{{ $cl->name }}</option>
+                                                        @endforeach
+                                                    </select>
+                                                    <button type="submit">Save</button>
+                                                </form>
+                                            @else
+                                                {{ $pc->user->name }}
+                                            @endif
+                                        </td>
                                         {{-- <td
                                                 class="px-6 py-4 text-sm text-gray-500 whitespace-nowrap overflow-hidden overflow-ellipsis max-w-[150px]">
                                                 {{ $pc->product->material }}</td> --}}
                                         <td class="px-6 py-4 whitespace-nowrap">
                                             <div class="flex gap-2">
-                                                <a href="{{ route('edit_produk', $pc->id) }}">
+                                                <a href="{{ route('detail_project', $pc->id) }}">
                                                     <button type="button"
                                                         class="flex items-center text-yellow-600 hover:text-white border border-yellow-600 hover:bg-yellow-600 focus:ring-4 focus:outline-none focus:ring-yellow-600 font-medium rounded-lg text-sm px-3 py-2 text-center dark:border-yellow-600 dark:text-yellow-600 dark:hover:text-white dark:hover:bg-yellow-600 dark:focus:ring-yellow-600">
                                                         <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 mr-2 -ml-0.5"
@@ -172,23 +185,26 @@
                                                                 d="M2 6a2 2 0 012-2h4a1 1 0 010 2H4v10h10v-4a1 1 0 112 0v4a2 2 0 01-2 2H4a2 2 0 01-2-2V6z"
                                                                 clip-rule="evenodd" />
                                                         </svg>
-                                                        Edit
+                                                        Detail
                                                     </button>
                                                 </a>
-                                                <form action="{{ route('delete_produk', $pc->id) }}" method="POST">
-                                                    @method('delete')
-                                                    @csrf
-                                                    <button type="submit"
-                                                        class="flex items-center text-red-700 hover:text-white border border-red-700 hover:bg-red-800 focus:ring-4 focus:outline-none focus:ring-red-300 font-medium rounded-lg text-sm px-3 py-2 text-center dark:border-red-500 dark:text-red-500 dark:hover:text-white dark:hover:bg-red-600 dark:focus:ring-red-900">
-                                                        <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 mr-2 -ml-0.5"
-                                                            viewbox="0 0 20 20" fill="currentColor" aria-hidden="true">
-                                                            <path fill-rule="evenodd"
-                                                                d="M9 2a1 1 0 00-.894.553L7.382 4H4a1 1 0 000 2v10a2 2 0 002 2h8a2 2 0 002-2V6a1 1 0 100-2h-3.382l-.724-1.447A1 1 0 0011 2H9zM7 8a1 1 0 012 0v6a1 1 0 11-2 0V8zm5-1a1 1 0 00-1 1v6a1 1 0 102 0V8a1 1 0 00-1-1z"
-                                                                clip-rule="evenodd" />
-                                                        </svg>
-                                                        Delete
-                                                    </button>
-                                                </form>
+                                                @if (Auth::user()->isAdmin())
+                                                    <form action="{{ route('delete_produk', $pc->id) }}" method="POST">
+                                                        @method('delete')
+                                                        @csrf
+                                                        <button type="submit"
+                                                            class="flex items-center text-green-700 hover:text-white border border-green-700 hover:bg-green-800 focus:ring-4 focus:outline-none focus:ring-red-300 font-medium rounded-lg text-sm px-3 py-2 text-center dark:border-red-500 dark:text-red-500 dark:hover:text-white dark:hover:bg-red-600 dark:focus:ring-red-900">
+                                                            <svg xmlns="http://www.w3.org/2000/svg"
+                                                                class="h-4 w-4 mr-2 -ml-0.5" viewbox="0 0 20 20"
+                                                                fill="currentColor" aria-hidden="true">
+                                                                <path fill-rule="evenodd"
+                                                                    d="M9 2a1 1 0 00-.894.553L7.382 4H4a1 1 0 000 2v10a2 2 0 002 2h8a2 2 0 002-2V6a1 1 0 100-2h-3.382l-.724-1.447A1 1 0 0011 2H9zM7 8a1 1 0 012 0v6a1 1 0 11-2 0V8zm5-1a1 1 0 00-1 1v6a1 1 0 102 0V8a1 1 0 00-1-1z"
+                                                                    clip-rule="evenodd" />
+                                                            </svg>
+                                                            Done
+                                                        </button>
+                                                    </form>
+                                                @endif
                                             </div>
                                         </td>
                                     </tr>
