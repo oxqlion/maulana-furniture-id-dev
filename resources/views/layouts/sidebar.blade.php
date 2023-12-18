@@ -178,18 +178,19 @@
                 <!-- sidebar header -->
                 <div class="bg-[#434240] border-b border-white flex items-center justify-between flex-shrink-0 p-2"
                     :class="{ 'lg:justify-center': !isSidebarOpen }">
-                    <span class="p-2 text-xl font-semibold leading-8 tracking-wider uppercase whitespace-nowrap">
+                    <span class="flex p-2 text-xl font-semibold leading-8 tracking-wider uppercase whitespace-nowrap">
                         <span class="p-2 text-xl font-semibold leading-8 tracking-wider uppercase whitespace-nowrap">
                             <img src="{{ asset('images/logo-maulana.png') }}" alt="Logo Perusahaan"
-                                class="w-10 lg:w-40">
+                                class="w-40">
                         </span>
                         <button @click="toggleSidbarMenu()" class="p-2 rounded-md lg:hidden">
-                            <svg class="w-6 h-6 text-gray-600" xmlns="http://www.w3.org/2000/svg" fill="none"
-                                viewBox="0 0 24 24" stroke="currentColor">
+                            <svg class="w-6 h-6 text-gray-600" xmlns="http://www.w3.org/2000/svg" fill="white"
+                                viewBox="0 0 24 24" stroke="white">
                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
                                     d="M6 18L18 6M6 6l12 12" />
                             </svg>
                         </button>
+                      </span>
                 </div>
                 <!-- Sidebar links -->
                 <nav class="flex-1 bg-[#434240] overflow-hidden hover:overflow-y-auto">
@@ -613,7 +614,7 @@
             </div>
 
             <!-- Setting panel button -->
-            <div>
+            {{-- <div>
                 <button @click="isSettingsPanelOpen = true"
                     class="fixed right-0 px-4 py-2 text-sm font-medium text-white uppercase transform rotate-90 translate-x-8 bg-gray-600 top-1/2 rounded-b-md">
                     Settings
@@ -644,7 +645,7 @@
                     <span>Settings Content</span>
                     <!-- Settings Panel Content ... -->
                 </div>
-            </div>
+            </div> --}}
         </div>
       </div>
     </div>
@@ -653,7 +654,7 @@
       const setup = () => {
         return {
           loading: true,
-          isSidebarOpen: false,
+          isSidebarOpen: true,
           toggleSidbarMenu() {
             this.isSidebarOpen = !this.isSidebarOpen
           },
