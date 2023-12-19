@@ -13,9 +13,10 @@ return new class extends Migration
     {
         Schema::create('payments', function (Blueprint $table) {
             $table->id();
-            $table->string('gambar');
+            $table->string('gambar')->nullable();
             $table->bigInteger('jumlah');
             $table->text('deskripsi');
+            $table->boolean('is_paid')->default(false);
             $table->foreignId('project_id')->constrained('projects')->cascadeOnUpdate()->cascadeOnDelete();
             $table->timestamps();
         });
