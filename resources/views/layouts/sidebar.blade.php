@@ -208,7 +208,7 @@
                                     </svg>
                                 </span>
                                 <span class="text-[#DDBD7E] group-hover:text-[#434240] font-semibold"
-                                    :class="{ 'lg:hidden': !isSidebarOpen }">Dashboard</span>
+                                    :class="{ 'lg:hidden': !isSidebarOpen }">Products</span>
                             </a>
                         </li>
                         <!-- Sidebar Links... -->

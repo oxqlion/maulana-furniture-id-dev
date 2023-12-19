@@ -88,7 +88,7 @@
                     <svg xmlns="http://www.w3.org/2000/svg" class="w-10 h-10 text-white" fill="white" viewBox="0 0 576 512"><!--!Font Awesome Free 6.5.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2023 Fonticons, Inc.--><path d="M0 80C0 53.5 21.5 32 48 32h96c26.5 0 48 21.5 48 48V96H384V80c0-26.5 21.5-48 48-48h96c26.5 0 48 21.5 48 48v96c0 26.5-21.5 48-48 48H432c-26.5 0-48-21.5-48-48V160H192v16c0 1.7-.1 3.4-.3 5L272 288h96c26.5 0 48 21.5 48 48v96c0 26.5-21.5 48-48 48H272c-26.5 0-48-21.5-48-48V336c0-1.7 .1-3.4 .3-5L144 224H48c-26.5 0-48-21.5-48-48V80z"/></svg>
                 </div>
               <div class="flex flex-col space-y-2">
-                <span class="text-4xl font-semibold">100,221</span>
+                <span class="text-4xl font-semibold">{{ $total_projects }}</span>
                 <span class="text-gray-400">Current Projects</span>
               </div>
             </div>

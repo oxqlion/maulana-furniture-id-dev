@@ -6,6 +6,7 @@ use App\Models\Category;
 use App\Models\Product;
 use App\Models\Image;
 use App\Models\ProductCategory;
+use App\Models\Project;
 use Database\Seeders\ProductSeeder;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -50,8 +51,9 @@ class ProductController extends Controller
         }
         $categories = Category::all();
         $total_products = Product::count();
+        $total_projects = Project::count();
         $user = Auth::user();
-        return view('buat_produk', compact('products', 'categories', 'total_products', 'user'));
+        return view('buat_produk', compact('products', 'categories', 'total_products', 'user', 'total_projects'));
     }
 
     public function tambahProduk(){

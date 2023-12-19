@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use App\Models\Comment;
+use App\Models\Payment;
+use App\Models\Product;
 use App\Models\Progress;
 use App\Models\Project;
 use App\Models\User;
@@ -19,8 +21,10 @@ class ProjectController extends Controller
             $projects = Project::all();
         }
         $user = Auth::user();
+        $total_products = Product::count();
+        $total_projects = Project::count();
         $clients = User::where('role_id', 2)->get();
-        return view('projects', compact('projects', 'user', 'clients'));
+        return view('projects', compact('projects', 'user', 'clients', 'total_products', 'total_projects'));
     }
 
     public function tambahProject()
@@ -80,11 +84,12 @@ class ProjectController extends Controller
         $project = Project::find($id);
         $comments = Comment::with('progress')->get();
         $progress = Progress::where('project_id', $id)->orderBy('created_at', 'desc')->get();
+        $paid = Payment::where('project_id', $id)->where('is_paid', 1)->sum('jumlah');
         // $progress = Progress::where('project_id', $id)->get();
         $user = Auth::user();
 
         // return redirect()->route('detail_project', ['id' => $id])->with(['project' => $project, 'user' => $user]);
-        return view('project_detail')->with(['project' => $project, 'user' => $user, 'progress' => $progress, 'comments' => $comments]);
+        return view('project_detail')->with(['project' => $project, 'user' => $user, 'progress' => $progress, 'comments' => $comments, 'paid' => $paid]);
     }
 
     public function assignClient(Project $project, Request $request)

@@ -16,7 +16,7 @@
                             d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
                     </svg>
                 </span>
-                <form action="{{ route('buat_produk') }}" method="GET">
+                <form action="{{ route('pembayaran') }}" method="GET">
                     <input type="text" name="search" placeholder="Search"
                         class="px-4 py-3 rounded-md hover:bg-gray-100 lg:max-w-sm md:py-2 md:flex-1 focus:outline-none md:focus:bg-gray-100 md:focus:shadow md:focus:border" />
                     <input type="submit" style="display:none;" />
@@ -67,7 +67,7 @@
                         </svg>
                     </div>
                     <div class="flex flex-col space-y-2">
-                        {{-- <span class="text-4xl font-semibold">{{ $total_products }}</span> --}}
+                        <span class="text-4xl font-semibold">{{ $total_products }}</span>
                         <span class="text-gray-400">Total Products</span>
                     </div>
                 </div>
@@ -82,7 +82,7 @@
                         </svg>
                     </div>
                     <div class="flex flex-col space-y-2">
-                        <span class="text-4xl font-semibold">100,221</span>
+                        <span class="text-4xl font-semibold">{{ $total_projects }}</span>
                         <span class="text-gray-400">Current Projects</span>
                     </div>
                 </div>
@@ -102,7 +102,11 @@
                                 <tr>
                                     <th scope="col"
                                         class="px-6 py-3 text-xs font-medium tracking-wider text-left text-gray-500 uppercase">
-                                        Project
+                                        Nama Proyek
+                                    </th>
+                                    <th scope="col"
+                                        class="px-6 py-3 text-xs font-medium tracking-wider text-left text-gray-500 uppercase">
+                                        Tanggal
                                     </th>
                                     <th scope="col"
                                         class="px-6 py-3 text-xs font-medium tracking-wider text-left text-gray-500 uppercase">
@@ -111,10 +115,6 @@
                                     <th scope="col"
                                         class="px-6 py-3 text-xs font-medium tracking-wider text-left text-gray-500 uppercase">
                                         Deskripsi
-                                    </th>
-                                    <th scope="col"
-                                        class="px-6 py-3 text-xs font-medium tracking-wider text-left text-gray-500 uppercase">
-                                        Tanggal
                                     </th>
                                     <th scope="col"
                                         class="px-6 py-3 text-xs font-medium tracking-wider text-left text-gray-500 uppercase">
@@ -132,23 +132,19 @@
                                     <tr class="transition-all hover:bg-gray-100 hover:shadow-lg">
                                         <td class="px-6 py-4 whitespace-nowrap">
                                             <div class="flex items-center">
-                                                <div class="flex-shrink-0 w-10 h-10">
-                                                    <img class="w-10 h-10 rounded-md"
-                                                        src="{{ asset('storage/payments/' . $pc->id . '.png') }}"
-                                                        alt="" />
-                                                </div>
                                                 <div class="ml-4">
                                                     <div class="text-sm font-medium text-gray-900">
                                                         {{ $pc->project->nama_proyek }}</div>
                                                 </div>
                                             </div>
                                         </td>
+                                        <td class="px-6 py-4 text-sm text-gray-500 whitespace-nowrap">
+                                            {{ $pc->created_at->format('Y-m-d') }}</td>
                                         <td class="px-6 py-4 text-sm text-gray-500 whitespace-nowrap">{{ $pc->jumlah }}
                                         </td>
                                         <td class="px-6 py-4 text-sm text-gray-500 whitespace-nowrap">{{ $pc->deskripsi }}
                                         </td>
-                                        <td class="px-6 py-4 text-sm text-gray-500 whitespace-nowrap">
-                                            {{ $pc->created_at->format('Y-m-d') }}</td>
+                                        
                                         <td class="px-6 py-4 text-sm text-gray-500 whitespace-nowrap">
                                             @if ($pc->is_paid == 1)
                                                 <div class="text-sm font-medium text-green-600">Paid</div>
@@ -213,9 +209,9 @@
                 </div>
             </div>
         </div>
-        {{-- <div class="mt-4">
-      {{ $products->links() }}
-    </div> --}}
+        <div class="mt-4">
+      {{ $payments->links() }}
+    </div>
     </main>
     <script>
         function openLightbox(imageSrc) {
