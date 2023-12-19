@@ -16,7 +16,7 @@ return new class extends Migration
             $table->string('gambar')->nullable();
             $table->bigInteger('jumlah');
             $table->text('deskripsi');
-            $table->boolean('is_paid')->default(false);
+            $table->integer('is_paid')->default(0);
             $table->foreignId('project_id')->constrained('projects')->cascadeOnUpdate()->cascadeOnDelete();
             $table->timestamps();
         });

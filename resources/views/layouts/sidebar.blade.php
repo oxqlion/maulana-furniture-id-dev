@@ -379,7 +379,7 @@
               </button>
 
               <div class="items-center hidden space-x-3 md:flex">
-                <!-- Notification Button -->
+                {{-- <!-- Notification Button -->
                 <div class="relative" x-data="{ isOpen: false }">
                   <!-- red dot -->
                   <div class="absolute right-0 p-1 bg-red-400 rounded-full animate-ping"></div>
@@ -402,10 +402,10 @@
                         d="M15 17h5l-1.405-1.405A2.032 2.032 0 0118 14.158V11a6.002 6.002 0 00-4-5.659V5a2 2 0 10-4 0v.341C7.67 6.165 6 8.388 6 11v3.159c0 .538-.214 1.055-.595 1.436L4 17h5m6 0v1a3 3 0 11-6 0v-1m6 0H9"
                       />
                     </svg>
-                  </button>
+                  </button> --}}
 
                   <!-- Dropdown card -->
-                  <div
+                  {{-- <div
                     @click.away="isOpen = false"
                     x-show.transition.opacity="isOpen"
                     class="absolute w-48 max-w-md mt-3 transform bg-white rounded-md shadow-lg -translate-x-3/4 min-w-max"
@@ -425,10 +425,10 @@
                       <a href="#">See All</a>
                     </div>
                   </div>
-                </div>
+                </div> --}}
 
                 <!-- Services Button -->
-                <div x-data="{ isOpen: false }">
+                {{-- <div x-data="{ isOpen: false }">
                   <button
                     @click="isOpen = !isOpen"
                     class="p-2 bg-gray-100 rounded-full hover:bg-gray-200 focus:outline-none focus:ring"
@@ -447,10 +447,10 @@
                         d="M4 6a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2H6a2 2 0 01-2-2V6zM14 6a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2V6zM4 16a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2H6a2 2 0 01-2-2v-2zM14 16a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2v-2z"
                       />
                     </svg>
-                  </button>
+                  </button> --}}
 
                   <!-- Dropdown -->
-                  <div
+                  {{-- <div
                     @click.away="isOpen = false"
                     @keydown.escape="isOpen = false"
                     x-show.transition.opacity="isOpen"
@@ -518,10 +518,10 @@
                       <a href="#">Show all apps</a>
                     </div>
                   </div>
-                </div>
+                </div> --}}
 
                 <!-- Options Button -->
-                <div class="relative" x-data="{ isOpen: false }">
+                {{-- <div class="relative" x-data="{ isOpen: false }">
                   <button
                     @click="isOpen = !isOpen"
                     class="p-2 bg-gray-100 rounded-full hover:bg-gray-200 focus:outline-none focus:ring"
@@ -563,7 +563,7 @@
                       <a href="#">See All</a>
                     </div>
                   </div>
-                </div>
+                </div> --}}
               </div>
 
               <!-- avatar button -->

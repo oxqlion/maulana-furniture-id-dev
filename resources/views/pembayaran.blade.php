@@ -114,6 +114,14 @@
                                     </th>
                                     <th scope="col"
                                         class="px-6 py-3 text-xs font-medium tracking-wider text-left text-gray-500 uppercase">
+                                        Tanggal
+                                    </th>
+                                    <th scope="col"
+                                        class="px-6 py-3 text-xs font-medium tracking-wider text-left text-gray-500 uppercase">
+                                        Status
+                                    </th>
+                                    <th scope="col"
+                                        class="px-6 py-3 text-xs font-medium tracking-wider text-left text-gray-500 uppercase">
                                         Action
                                     </th>
 
@@ -130,20 +138,27 @@
                                                         alt="" />
                                                 </div>
                                                 <div class="ml-4">
-                                                    <div class="text-sm font-medium text-gray-900">{{ $pc->project->nama_proyek }}</div>
+                                                    <div class="text-sm font-medium text-gray-900">
+                                                        {{ $pc->project->nama_proyek }}</div>
                                                 </div>
                                             </div>
                                         </td>
-                                        <td class="px-6 py-4 text-sm text-gray-500 whitespace-nowrap">{{ $pc->jumlah }}</td>
-                                        <td class="px-6 py-4 text-sm text-gray-500 whitespace-nowrap">{{ $pc->deskripsi }}</td>
-                                        <td class="px-6 py-4 text-sm text-gray-500 whitespace-nowrap">
-                                            @if ($pc->is_paid)
-                                            <div class="text-sm font-medium text-green-600">Paid</div>
-                                        @else
-                                            <div class="text-sm font-medium text-red-600">Unpaid</div>
-                                        @endif
+                                        <td class="px-6 py-4 text-sm text-gray-500 whitespace-nowrap">{{ $pc->jumlah }}
                                         </td>
-                                        
+                                        <td class="px-6 py-4 text-sm text-gray-500 whitespace-nowrap">{{ $pc->deskripsi }}
+                                        </td>
+                                        <td class="px-6 py-4 text-sm text-gray-500 whitespace-nowrap">
+                                            {{ $pc->created_at->format('Y-m-d') }}</td>
+                                        <td class="px-6 py-4 text-sm text-gray-500 whitespace-nowrap">
+                                            @if ($pc->is_paid == 1)
+                                                <div class="text-sm font-medium text-green-600">Paid</div>
+                                            @elseif ($pc->is_paid == 2)
+                                                <div class="text-sm font-medium text-red-600">Decline</div>
+                                            @elseif ($pc->is_paid == 0)
+                                                <div class="text-sm font-medium text-red-600">Unpaid</div>
+                                            @endif
+                                        </td>
+
                                         <td class="px-6 py-4 whitespace-nowrap">
                                             <div class="flex gap-2">
                                                 <form action="{{ route('konfirmasi_pembayaran', $pc) }}" method="POST">
@@ -160,6 +175,34 @@
                                                         Confirm
                                                     </button>
                                                 </form>
+                                                <form action="{{ route('penolakan_pembayaran', $pc) }}" method="POST">
+                                                    @csrf
+                                                    <button type="submit"
+                                                        class="flex items-center text-red-700 hover:text-white border border-red-700 hover:bg-red-800 focus:ring-4 focus:outline-none focus:ring-red-300 font-medium rounded-lg text-sm px-3 py-2 text-center dark:border-red-500 dark:text-red-500 dark:hover:text-white dark:hover:bg-red-600 dark:focus:ring-red-900">
+                                                        <svg xmlns="http://www.w3.org/2000/svg"
+                                                            class="h-4 w-4 mr-2 -ml-0.5" viewbox="0 0 20 20"
+                                                            fill="currentColor" aria-hidden="true">
+                                                            <path fill-rule="evenodd"
+                                                                d="M9 2a1 1 0 00-.894.553L7.382 4H4a1 1 0 000 2v10a2 2 0 002 2h8a2 2 0 002-2V6a1 1 0 100-2h-3.382l-.724-1.447A1 1 0 0011 2H9zM7 8a1 1 0 012 0v6a1 1 0 11-2 0V8zm5-1a1 1 0 00-1 1v6a1 1 0 102 0V8a1 1 0 00-1-1z"
+                                                                clip-rule="evenodd" />
+                                                        </svg>
+                                                        Reject
+                                                    </button>
+                                                </form>
+                                                <div class="relative group">
+                                                    <button onclick="openLightbox('{{ asset('storage/payments/' . $pc->id . '.png') }}')"
+                                                        class="flex items-center text-red-700 hover:text-white border border-red-700 hover:bg-red-800 focus:ring-4 focus:outline-none focus:ring-red-300 font-medium rounded-lg text-sm px-3 py-2 text-center dark:border-red-500 dark:text-red-500 dark:hover:text-white dark:hover:bg-red-600 dark:focus:ring-red-900">
+                                                        Open
+                                                    </button>
+                                                    <div id="lightbox" class="hidden fixed top-0 left-0 w-full h-full bg-black bg-opacity-75 z-50">
+                                                        <div class="absolute top-4 right-4">
+                                                            <button onclick="closeLightbox()" class="text-white focus:outline-none">X</button>
+                                                        </div>
+                                                        <div class="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2">
+                                                            <img src="" alt="Lightbox Image" id="lightbox-image" class="max-w-md max-h-full mx-auto" />
+                                                        </div>
+                                                    </div>
+                                                </div>
                                             </div>
                                         </td>
                                     </tr>
@@ -174,4 +217,14 @@
       {{ $products->links() }}
     </div> --}}
     </main>
+    <script>
+        function openLightbox(imageSrc) {
+            document.getElementById('lightbox-image').src = imageSrc;
+            document.getElementById('lightbox').classList.remove('hidden');
+        }
+    
+        function closeLightbox() {
+            document.getElementById('lightbox').classList.add('hidden');
+        }
+    </script>
 @endsection

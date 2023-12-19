@@ -17,7 +17,16 @@ class PaymentController extends Controller
 
     public function konfirmasiPembayaran(Payment $payment){
         $payment->update([
-            'is_paid' => true
+            'is_paid' => 1
+        ]);
+        $payments = Payment::all();
+        $user = Auth::user();
+        return view('pembayaran', compact('payments', 'user'));
+    }
+
+    public function penolakanPembayaran(Payment $payment){
+        $payment->update([
+            'is_paid' => 2
         ]);
         $payments = Payment::all();
         $user = Auth::user();
