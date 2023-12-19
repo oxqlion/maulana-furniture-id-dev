@@ -61,28 +61,28 @@ class ProductController extends Controller
     }
 
     public function simpanProduk(Request $request){
-        // $request->validate([
-        //     'nama' => 'required|unique:products',
-        //     'harga' => 'required',
-        //     'kondisi' => 'required',
-        //     'waktu_preorder' => 'required',
-        //     'minimal_pemesanan' => 'required',
-        //     'kategori' => 'required',
-        //     'material' => 'required',
-        //     'furnish' => 'required',
-        //     'ukruan' => 'required',
-        // ]);
+        $validateData = $request->validate([
+            'nama' => 'required|unique:products',
+            'harga' => 'required',
+            'kondisi' => 'required',
+            'waktu_preorder' => 'required',
+            'minimal_pemesanan' => 'required',
+            'kategori' => 'required',
+            'material' => 'required',
+            'furnish' => 'required',
+            'ukuran' => 'required',
+        ]);
 
         $product = Product::create([
-            'nama' => $request->nama,
-            'harga' => $request->harga,
-            'kondisi' => $request->kondisi,
-            'waktu_preorder' => $request->waktu_preorder,
-            'minimal_pemesanan' => $request->minimal_pemesanan,
-            'kategori' => $request->kategori,
-            'material' => $request->material,
-            'furnish' => $request->furnish,
-            'ukuran' => $request->ukuran
+            'nama' => $validateData['nama'],
+            'harga' => $validateData['harga'],
+            'kondisi' => $validateData['kondisi'],
+            'waktu_preorder' => $validateData['waktu_preorder'],
+            'minimal_pemesanan' => $validateData['minimal_pemesanan'],
+            'kategori' => $validateData['kategori'],
+            'material' => $validateData['material'],
+            'furnish' => $validateData['furnish'],
+            'ukuran' => $validateData['ukuran']
         ]);
 
         $files = $request->file('gambar');
@@ -106,16 +106,8 @@ class ProductController extends Controller
             'category_id' => $newlyCreatedProduct->kategori,
             'product_id' => $newlyCreatedProduct->id
         ]);
-
-        if($request->has('search')){
-            $products = Product::where('nama', 'like','%'. $request->search .'%')->paginate(10)->withQueryString();
-        }else{
-            $products = Product::all()->paginate(10);
-        }
-        $categories = Category::all();
-        $total_products = Product::count();
-        $user = Auth::user();
-        return view('buat_produk', compact('products', 'categories', 'total_products', 'user'));
+        return redirect()->route('buat_produk');
+        // return view('buat_produk', compact('products', 'categories', 'total_products', 'user'));
     }
 
     public function editProduk(Product $product){
@@ -162,15 +154,7 @@ class ProductController extends Controller
             }
         }
 
-        if($request->has('search')){
-            $products = Product::where('nama', 'like','%'. $request->search .'%')->paginate(10)->withQueryString();
-        }else{
-            $products = Product::all()->paginate(10);
-        }
-        $categories = Category::all();
-        $total_products = Product::count();
-        $user = Auth::user();
-        return view('buat_produk', compact('products', 'categories', 'total_products', 'user'));
+        return redirect()->route('buat_produk');
     }
 
     public function deleteProduk(Request $request, Product $product){
@@ -190,14 +174,6 @@ class ProductController extends Controller
 
         $product->delete();
 
-        if($request->has('search')){
-            $products = Product::where('nama', 'like','%'. $request->search .'%')->paginate(10)->withQueryString();
-        }else{
-            $products = Product::all()->paginate(10);
-        }
-        $categories = Category::all();
-        $total_products = Product::count();
-        $user = Auth::user();
-        return view('buat_produk', compact('products', 'categories', 'total_products', 'user'));
+        return redirect()->route('buat_produk');
     }
 }

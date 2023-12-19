@@ -227,6 +227,20 @@
                       </li>
                       <!-- Sidebar Links... -->
                   </ul>
+                  <ul class="p-2 overflow-hidden">
+                    <li>
+                        <a href="{{ route('pembayaran') }}"
+                            class="flex items-center gap-2 p-2 space-x-2 rounded-md group hover:bg-gray-100"
+                            :class="{ 'justify-center': !isSidebarOpen }">
+                            <span>
+                              <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" class="w-6 h-6 text-[#DDBD7E] group-hover:text-[#434240]" viewBox="0 0 576 512"><!--!Font Awesome Free 6.5.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2023 Fonticons, Inc.--><path d="M64 64C28.7 64 0 92.7 0 128V384c0 35.3 28.7 64 64 64H512c35.3 0 64-28.7 64-64V128c0-35.3-28.7-64-64-64H64zm64 320H64V320c35.3 0 64 28.7 64 64zM64 192V128h64c0 35.3-28.7 64-64 64zM448 384c0-35.3 28.7-64 64-64v64H448zm64-192c-35.3 0-64-28.7-64-64h64v64zM288 160a96 96 0 1 1 0 192 96 96 0 1 1 0-192z"/></svg>
+                            </span>
+                            <span class="text-[#DDBD7E] group-hover:text-[#434240] font-semibold"
+                                :class="{ 'lg:hidden': !isSidebarOpen }">Payment</span>
+                        </a>
+                    </li>
+                    <!-- Sidebar Links... -->
+                </ul>
                 </nav>
                 <!-- Sidebar footer -->
                 <div class="flex-shrink-0 p-2 border-t max-h-14">

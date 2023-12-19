@@ -9,17 +9,19 @@ use Illuminate\Support\Facades\Auth;
 
 class PaymentController extends Controller
 {
-    public function listPembayaran(Project $project){
-        $payment = Payment::where('project_id', $project->id)->get();
-
-        return view('', compact('payment'));
+    public function listPembayaran(){
+        $payments = Payment::all();
+        $user = Auth::user();
+        return view('pembayaran', compact('payments', 'user'));
     }
+
     public function konfirmasiPembayaran(Payment $payment){
         $payment->update([
             'is_paid' => true
         ]);
-
-        return view('', compact(''));
+        $payments = Payment::all();
+        $user = Auth::user();
+        return view('pembayaran', compact('payments', 'user'));
     }
 
     public function simpanPembayaran(Request $request)
