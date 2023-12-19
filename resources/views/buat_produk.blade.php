@@ -208,12 +208,12 @@
                     @endforeach
               </tbody>
             </table>
-            <div>
-              {{$products->links()}}
-          </div>
           </div>
         </div>
       </div>
+    </div>
+    <div class="mt-4">
+      {{ $products->links() }}
     </div>
   </main>
 @endsection

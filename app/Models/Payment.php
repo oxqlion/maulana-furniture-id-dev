@@ -9,6 +9,13 @@ class Payment extends Model
 {
     use HasFactory;
 
+    protected $fillable = [
+        'jumlah',
+        'deskripsi',
+        'is_paid',
+        'project_id',
+        'gambar'
+    ];
     public function projects()
     {
         return $this->belongsTo(Project::class);

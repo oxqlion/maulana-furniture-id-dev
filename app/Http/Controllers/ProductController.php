@@ -44,9 +44,9 @@ class ProductController extends Controller
 
     public function listProdukAdmin(Request $request){
         if($request->has('search')){
-            $products = Product::where('nama', 'like','%'. $request->search .'%')->get();
+            $products = Product::where('nama', 'like','%'. $request->search .'%')->paginate(10)->withQueryString();
         }else{
-            $products = Product::paginate(2);
+            $products = Product::paginate(10);
         }
         $categories = Category::all();
         $total_products = Product::count();
@@ -108,9 +108,9 @@ class ProductController extends Controller
         ]);
 
         if($request->has('search')){
-            $products = Product::where('nama', 'like','%'. $request->search .'%')->get();
+            $products = Product::where('nama', 'like','%'. $request->search .'%')->paginate(10)->withQueryString();
         }else{
-            $products = Product::all();
+            $products = Product::all()->paginate(10);
         }
         $categories = Category::all();
         $total_products = Product::count();
@@ -163,9 +163,9 @@ class ProductController extends Controller
         }
 
         if($request->has('search')){
-            $products = Product::where('nama', 'like','%'. $request->search .'%')->get();
+            $products = Product::where('nama', 'like','%'. $request->search .'%')->paginate(10)->withQueryString();
         }else{
-            $products = Product::all();
+            $products = Product::all()->paginate(10);
         }
         $categories = Category::all();
         $total_products = Product::count();
@@ -191,9 +191,9 @@ class ProductController extends Controller
         $product->delete();
 
         if($request->has('search')){
-            $products = Product::where('nama', 'like','%'. $request->search .'%')->get();
+            $products = Product::where('nama', 'like','%'. $request->search .'%')->paginate(10)->withQueryString();
         }else{
-            $products = Product::all();
+            $products = Product::all()->paginate(10);
         }
         $categories = Category::all();
         $total_products = Product::count();

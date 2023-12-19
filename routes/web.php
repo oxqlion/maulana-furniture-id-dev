@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\CommentController;
+use App\Http\Controllers\PaymentController;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\ProgressController;
 use App\Http\Controllers\ProjectController;
@@ -57,3 +58,6 @@ Route::get('/baru', function () {
     return view('baru');
 })->name('baru');
 // Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+
+
+Route::post('/simpan-pembayaran', [PaymentController::class, 'simpanPembayaran'])->middleware('auth')->name('simpan_pembayaran');
