@@ -16,7 +16,7 @@ class Payment extends Model
         'project_id',
         'gambar'
     ];
-    public function projects()
+    public function project()
     {
         return $this->belongsTo(Project::class);
     }
