@@ -1,8 +1,8 @@
 @extends('layouts.sidebar')
 
 @section('content1')
-<link href="https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.2.0/flowbite.min.css"  rel="stylesheet" />
-<script src="https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.2.0/flowbite.min.js"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.2.0/flowbite.min.css" rel="stylesheet" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.2.0/flowbite.min.js"></script>
     <div class="overflow-y-scroll">
         <section class="bg-white dark:bg-gray-900">
             <div class="w-full px-6 pb-10 mt-8">
@@ -13,9 +13,10 @@
                                 < Projects</p>
                         </a>
                         <p class="text-3xl font-bold text-[#434240] ">{{ $project->nama_proyek }}</p>
-    
+
                         <p class="text-md font-medium text-gray-500 opacity-50 mt-2">{{ $project->user->name }}</p>
-                        <p class="text-md font-medium text-gray-500 opacity-50 mt-2">{{ $paid }}/{{ $project->harga }}</p>
+                        <p class="text-md font-medium text-gray-500 opacity-50 mt-2">
+                            {{ $paid }}/{{ $project->harga }}</p>
                         <h1 class="mt-2 text-md font-medium text-gray-500 capitalize lg:text-lg dark:text-white">
                             {{ $project->deskripsi }}
                         </h1>
@@ -23,13 +24,14 @@
                     <div>
                         <!-- Modal toggle -->
                         <div class="flex justify-center m-5">
-                            <button id="defaultModalButton" data-modal-target="defaultModal" data-modal-toggle="defaultModal"
+                            <button id="defaultModalButton" data-modal-target="defaultModal"
+                                data-modal-toggle="defaultModal"
                                 class="block text-white bg-red-700 hover:bg-primary-800 focus:ring-4 focus:outline-none focus:ring-primary-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-primary-600 dark:hover:bg-primary-700 dark:focus:ring-primary-800"
                                 type="button">
                                 Payment
                             </button>
                         </div>
-    
+
                         <!-- Main modal -->
                         <div id="defaultModal" tabindex="-1" aria-hidden="true"
                             class="hidden overflow-y-auto overflow-x-hidden fixed top-0 right-0 left-0 z-50 justify-center items-center w-full md:inset-0 h-modal md:h-full">
@@ -40,7 +42,7 @@
                                     <div
                                         class="flex justify-between items-center pb-4 mb-4 rounded-t border-b sm:mb-5 dark:border-gray-600">
                                         <h3 class="text-lg font-semibold text-gray-900 dark:text-white">
-                                            Add Product
+                                            Add Payment
                                         </h3>
                                         <button type="button"
                                             class="text-gray-400 bg-transparent hover:bg-gray-200 hover:text-gray-900 rounded-lg text-sm p-1.5 ml-auto inline-flex items-center dark:hover:bg-gray-600 dark:hover:text-white"
@@ -55,12 +57,16 @@
                                         </button>
                                     </div>
                                     <!-- Modal body -->
-                                    <form action="{{ route('simpan_pembayaran') }}" method="POST" enctype="multipart/form-data">
+                                    <form action="{{ route('simpan_pembayaran') }}" method="POST"
+                                        enctype="multipart/form-data">
                                         @csrf
                                         <div class="flex flex-col gap-4 gap-4 mb-4 sm:grid-cols-2">
                                             <div class="w-full">
-                                                <label for="jumlah" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Jumlah</label>
-                                                <input type="number" name="jumlah" id="jumlah" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500" placeholder="$2999" required="">
+                                                <label for="jumlah"
+                                                    class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Jumlah</label>
+                                                <input type="number" name="jumlah" id="jumlah"
+                                                    class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500"
+                                                    placeholder="$2999" required="">
                                             </div>
                                             <div class="sm:col-span-2">
                                                 <label for="deskripsi"
@@ -70,10 +76,15 @@
                                                     placeholder="Write product deskripsi here"></textarea>
                                             </div>
                                             <div class="sm:col-span-1">
-                                                <label for="gambar" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Bukti Pembayaran</label>
-                                                <input type="file" name="gambar"  id="gambar" accept="gambar/*" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500" multiple required="">
+                                                <label for="gambar"
+                                                    class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Bukti
+                                                    Pembayaran</label>
+                                                <input type="file" name="gambar" id="gambar" accept="gambar/*"
+                                                    class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500"
+                                                    multiple required="">
                                             </div>
-                                            <input type="hidden" id="selectedRating" name="project_id" value="{{ $project->id }}">
+                                            <input type="hidden" id="selectedRating" name="project_id"
+                                                value="{{ $project->id }}">
                                         </div>
                                         <button type="submit"
                                             class="text-white inline-flex items-center bg-red-700 hover:bg-primary-800 focus:ring-4 focus:outline-none focus:ring-primary-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-primary-600 dark:hover:bg-primary-700 dark:focus:ring-primary-800">
@@ -83,7 +94,7 @@
                                                     d="M10 5a1 1 0 011 1v3h3a1 1 0 110 2h-3v3a1 1 0 11-2 0v-3H6a1 1 0 110-2h3V6a1 1 0 011-1z"
                                                     clip-rule="evenodd"></path>
                                             </svg>
-                                            Add new product
+                                            Add new payment
                                         </button>
                                     </form>
                                 </div>
@@ -107,8 +118,7 @@
                         x-transition:leave-end="translate-y-4 opacity-0 sm:translate-y-0 sm:scale-95"
                         class="fixed inset-0 z-50 overflow-y-auto" aria-labelledby="modal-title" role="dialog"
                         aria-modal="true">
-                        <div
-                            class="flex items-end justify-center min-h-screen px-4 pt-4 pb-20 text-center sm:block sm:p-0">
+                        <div class="flex items-end justify-center min-h-screen px-4 pt-4 pb-20 text-center sm:block sm:p-0">
                             <span class="hidden sm:inline-block sm:h-screen sm:align-middle"
                                 aria-hidden="true">&#8203;</span>
 
@@ -147,7 +157,7 @@
                                     <input type="file" name="gambar" id="gambar"
                                         class="block w-full px-4 py-3 text-sm text-gray-700 bg-white border border-gray-200 rounded-md focus:border-blue-400 focus:outline-none focus:ring focus:ring-blue-300 focus:ring-opacity-40 dark:border-gray-600 dark:bg-gray-900 dark:text-gray-300 dark:focus:border-blue-300" />
 
-                                    <input type="hidden" name="project_id" id="project" value="{{ $project->id }}">
+                                    <input type="hidden" name="project" id="project" value="{{ $project->id }}">
                                     {{-- <button type="button"
                                     class="mt-2 flex items-center rounded py-1.5 px-2 text-sm text-blue-600 transition-colors duration-300 hover:text-blue-400 focus:outline-none dark:text-blue-400 dark:hover:text-blue-500">
                                     <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4" fill="none"

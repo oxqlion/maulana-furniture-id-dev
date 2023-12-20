@@ -9,31 +9,18 @@
             <div class="flex items-center gap-2">
                 <!-- search icon -->
                 <span>
-                  <svg
-                    class="w-5 h-5 text-gray-500"
-                    xmlns="http://www.w3.org/2000/svg"
-                    fill="none"
-                    viewBox="0 0 24 24"
-                    stroke="currentColor"
-                  >
-                    <path
-                      stroke-linecap="round"
-                      stroke-linejoin="round"
-                      stroke-width="2"
-                      d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"
-                    />
-                  </svg>
+                    <svg class="w-5 h-5 text-gray-500" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
+                        stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                            d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
+                    </svg>
                 </span>
                 <form action="{{ route('projects') }}" method="GET">
-                  <input
-                    type="text"
-                    name="search"
-                    placeholder="Search"
-                    class="px-4 py-3 rounded-md hover:bg-gray-100 lg:max-w-sm md:py-2 md:flex-1 focus:outline-none md:focus:bg-gray-100 md:focus:shadow md:focus:border"
-                  />
-                  <input type="submit" style="display:none;" />
+                    <input type="text" name="search" placeholder="Search"
+                        class="px-4 py-3 rounded-md hover:bg-gray-100 lg:max-w-sm md:py-2 md:flex-1 focus:outline-none md:focus:bg-gray-100 md:focus:shadow md:focus:border" />
+                    <input type="submit" style="display:none;" />
                 </form>
-              </div>
+            </div>
         </div>
 
         <!-- Start Content -->
@@ -184,7 +171,8 @@
                                                     @csrf
                                                     <select name="user" id="user">
                                                         @foreach ($clients as $cl)
-                                                            <option value="{{ $cl->id }}">{{ $cl->name }}</option>
+                                                            <option value="{{ $cl->id }}">{{ $cl->name }}
+                                                            </option>
                                                         @endforeach
                                                     </select>
                                                     <button type="submit">Save</button>
@@ -198,20 +186,39 @@
                                                 {{ $pc->product->material }}</td> --}}
                                         <td class="px-6 py-4 whitespace-nowrap">
                                             <div class="flex gap-2">
-                                                <a href="{{ route('detail_project', $pc->id) }}">
-                                                    <button type="button"
-                                                        class="flex items-center text-yellow-600 hover:text-white border border-yellow-600 hover:bg-yellow-600 focus:ring-4 focus:outline-none focus:ring-yellow-600 font-medium rounded-lg text-sm px-3 py-2 text-center dark:border-yellow-600 dark:text-yellow-600 dark:hover:text-white dark:hover:bg-yellow-600 dark:focus:ring-yellow-600">
-                                                        <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 mr-2 -ml-0.5"
-                                                            viewbox="0 0 20 20" fill="currentColor" aria-hidden="true">
-                                                            <path
-                                                                d="M17.414 2.586a2 2 0 00-2.828 0L7 10.172V13h2.828l7.586-7.586a2 2 0 000-2.828z" />
-                                                            <path fill-rule="evenodd"
-                                                                d="M2 6a2 2 0 012-2h4a1 1 0 010 2H4v10h10v-4a1 1 0 112 0v4a2 2 0 01-2 2H4a2 2 0 01-2-2V6z"
-                                                                clip-rule="evenodd" />
-                                                        </svg>
-                                                        Detail
-                                                    </button>
-                                                </a>
+                                                @if (!$pc->user)
+                                                    <a href="">
+                                                        <button type="button" disabled
+                                                            class="cursor-not-allowed flex items-center text-yellow-600 border border-yellow-600 focus:ring-4 focus:outline-none focus:ring-yellow-600 font-medium rounded-lg text-sm px-3 py-2 text-center dark:border-yellow-600 dark:text-yellow-600 dark:focus:ring-yellow-600">
+                                                            <svg xmlns="http://www.w3.org/2000/svg"
+                                                                class="h-4 w-4 mr-2 -ml-0.5" viewbox="0 0 20 20"
+                                                                fill="currentColor" aria-hidden="true">
+                                                                <path
+                                                                    d="M17.414 2.586a2 2 0 00-2.828 0L7 10.172V13h2.828l7.586-7.586a2 2 0 000-2.828z" />
+                                                                <path fill-rule="evenodd"
+                                                                    d="M2 6a2 2 0 012-2h4a1 1 0 010 2H4v10h10v-4a1 1 0 112 0v4a2 2 0 01-2 2H4a2 2 0 01-2-2V6z"
+                                                                    clip-rule="evenodd" />
+                                                            </svg>
+                                                            Detail
+                                                        </button>
+                                                    </a>
+                                                @else
+                                                    <a href="{{ route('detail_project', $pc->id) }}">
+                                                        <button type="button"
+                                                            class="flex items-center text-yellow-600 hover:text-white border border-yellow-600 hover:bg-yellow-600 focus:ring-4 focus:outline-none focus:ring-yellow-600 font-medium rounded-lg text-sm px-3 py-2 text-center dark:border-yellow-600 dark:text-yellow-600 dark:hover:text-white dark:hover:bg-yellow-600 dark:focus:ring-yellow-600">
+                                                            <svg xmlns="http://www.w3.org/2000/svg"
+                                                                class="h-4 w-4 mr-2 -ml-0.5" viewbox="0 0 20 20"
+                                                                fill="currentColor" aria-hidden="true">
+                                                                <path
+                                                                    d="M17.414 2.586a2 2 0 00-2.828 0L7 10.172V13h2.828l7.586-7.586a2 2 0 000-2.828z" />
+                                                                <path fill-rule="evenodd"
+                                                                    d="M2 6a2 2 0 012-2h4a1 1 0 010 2H4v10h10v-4a1 1 0 112 0v4a2 2 0 01-2 2H4a2 2 0 01-2-2V6z"
+                                                                    clip-rule="evenodd" />
+                                                            </svg>
+                                                            Detail
+                                                        </button>
+                                                    </a>
+                                                @endif
                                                 @if (Auth::user()->isAdmin())
                                                     <form action="{{ route('delete_produk', $pc->id) }}" method="POST">
                                                         @method('delete')
