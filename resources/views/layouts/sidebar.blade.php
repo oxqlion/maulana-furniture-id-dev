@@ -166,8 +166,7 @@
                 style="backdrop-filter: blur(14px); -webkit-backdrop-filter: blur(14px)"></div>
 
             <!-- Sidebar -->
-            <aside 
-                x-transition:enter="transition transform duration-300"
+            <aside x-transition:enter="transition transform duration-300"
                 x-transition:enter-start="-translate-x-full opacity-30  ease-in"
                 x-transition:enter-end="translate-x-0 opacity-100 ease-out"
                 x-transition:leave="transition transform duration-300"
@@ -180,8 +179,7 @@
                     :class="{ 'lg:justify-center': !isSidebarOpen }">
                     <span class="flex p-2 text-xl font-semibold leading-8 tracking-wider uppercase whitespace-nowrap">
                         <span class="p-2 text-xl font-semibold leading-8 tracking-wider uppercase whitespace-nowrap">
-                            <img src="{{ asset('images/logo-maulana.png') }}" alt="Logo Perusahaan"
-                                class="w-40">
+                            <img src="{{ asset('images/logo-maulana.png') }}" alt="Logo Perusahaan" class="w-40">
                         </span>
                         <button @click="toggleSidbarMenu()" class="p-2 rounded-md lg:hidden">
                             <svg class="w-6 h-6 text-gray-600" xmlns="http://www.w3.org/2000/svg" fill="white"
@@ -190,7 +188,7 @@
                                     d="M6 18L18 6M6 6l12 12" />
                             </svg>
                         </button>
-                      </span>
+                    </span>
                 </div>
                 <!-- Sidebar links -->
                 <nav class="flex-1 bg-[#434240] overflow-hidden hover:overflow-y-auto">
@@ -214,33 +212,43 @@
                         <!-- Sidebar Links... -->
                     </ul>
                     <ul class="p-2 overflow-hidden">
-                      <li>
-                          <a href="{{ route('projects') }}"
-                              class="flex items-center gap-2 p-2 space-x-2 rounded-md group hover:bg-gray-100"
-                              :class="{ 'justify-center': !isSidebarOpen }">
-                              <span>
-                                <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" class="w-6 h-6 text-[#DDBD7E] group-hover:text-[#434240]" viewBox="0 0 576 512"><!--!Font Awesome Free 6.5.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2023 Fonticons, Inc.--><path d="M0 80C0 53.5 21.5 32 48 32h96c26.5 0 48 21.5 48 48V96H384V80c0-26.5 21.5-48 48-48h96c26.5 0 48 21.5 48 48v96c0 26.5-21.5 48-48 48H432c-26.5 0-48-21.5-48-48V160H192v16c0 1.7-.1 3.4-.3 5L272 288h96c26.5 0 48 21.5 48 48v96c0 26.5-21.5 48-48 48H272c-26.5 0-48-21.5-48-48V336c0-1.7 .1-3.4 .3-5L144 224H48c-26.5 0-48-21.5-48-48V80z"/></svg>
-                              </span>
-                              <span class="text-[#DDBD7E] group-hover:text-[#434240] font-semibold"
-                                  :class="{ 'lg:hidden': !isSidebarOpen }">Projects</span>
-                          </a>
-                      </li>
-                      <!-- Sidebar Links... -->
-                  </ul>
-                  <ul class="p-2 overflow-hidden">
-                    <li>
-                        <a href="{{ route('pembayaran') }}"
-                            class="flex items-center gap-2 p-2 space-x-2 rounded-md group hover:bg-gray-100"
-                            :class="{ 'justify-center': !isSidebarOpen }">
-                            <span>
-                              <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" class="w-6 h-6 text-[#DDBD7E] group-hover:text-[#434240]" viewBox="0 0 576 512"><!--!Font Awesome Free 6.5.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2023 Fonticons, Inc.--><path d="M64 64C28.7 64 0 92.7 0 128V384c0 35.3 28.7 64 64 64H512c35.3 0 64-28.7 64-64V128c0-35.3-28.7-64-64-64H64zm64 320H64V320c35.3 0 64 28.7 64 64zM64 192V128h64c0 35.3-28.7 64-64 64zM448 384c0-35.3 28.7-64 64-64v64H448zm64-192c-35.3 0-64-28.7-64-64h64v64zM288 160a96 96 0 1 1 0 192 96 96 0 1 1 0-192z"/></svg>
-                            </span>
-                            <span class="text-[#DDBD7E] group-hover:text-[#434240] font-semibold"
-                                :class="{ 'lg:hidden': !isSidebarOpen }">Payment</span>
-                        </a>
-                    </li>
-                    <!-- Sidebar Links... -->
-                </ul>
+                        <li>
+                            <a href="{{ route('projects') }}"
+                                class="flex items-center gap-2 p-2 space-x-2 rounded-md group hover:bg-gray-100"
+                                :class="{ 'justify-center': !isSidebarOpen }">
+                                <span>
+                                    <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor"
+                                        class="w-6 h-6 text-[#DDBD7E] group-hover:text-[#434240]"
+                                        viewBox="0 0 576 512"><!--!Font Awesome Free 6.5.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2023 Fonticons, Inc.-->
+                                        <path
+                                            d="M0 80C0 53.5 21.5 32 48 32h96c26.5 0 48 21.5 48 48V96H384V80c0-26.5 21.5-48 48-48h96c26.5 0 48 21.5 48 48v96c0 26.5-21.5 48-48 48H432c-26.5 0-48-21.5-48-48V160H192v16c0 1.7-.1 3.4-.3 5L272 288h96c26.5 0 48 21.5 48 48v96c0 26.5-21.5 48-48 48H272c-26.5 0-48-21.5-48-48V336c0-1.7 .1-3.4 .3-5L144 224H48c-26.5 0-48-21.5-48-48V80z" />
+                                    </svg>
+                                </span>
+                                <span class="text-[#DDBD7E] group-hover:text-[#434240] font-semibold"
+                                    :class="{ 'lg:hidden': !isSidebarOpen }">Projects</span>
+                            </a>
+                        </li>
+                        <!-- Sidebar Links... -->
+                    </ul>
+                    <ul class="p-2 overflow-hidden">
+                        <li>
+                            <a href="{{ route('pembayaran') }}"
+                                class="flex items-center gap-2 p-2 space-x-2 rounded-md group hover:bg-gray-100"
+                                :class="{ 'justify-center': !isSidebarOpen }">
+                                <span>
+                                    <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor"
+                                        class="w-6 h-6 text-[#DDBD7E] group-hover:text-[#434240]"
+                                        viewBox="0 0 576 512"><!--!Font Awesome Free 6.5.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2023 Fonticons, Inc.-->
+                                        <path
+                                            d="M64 64C28.7 64 0 92.7 0 128V384c0 35.3 28.7 64 64 64H512c35.3 0 64-28.7 64-64V128c0-35.3-28.7-64-64-64H64zm64 320H64V320c35.3 0 64 28.7 64 64zM64 192V128h64c0 35.3-28.7 64-64 64zM448 384c0-35.3 28.7-64 64-64v64H448zm64-192c-35.3 0-64-28.7-64-64h64v64zM288 160a96 96 0 1 1 0 192 96 96 0 1 1 0-192z" />
+                                    </svg>
+                                </span>
+                                <span class="text-[#DDBD7E] group-hover:text-[#434240] font-semibold"
+                                    :class="{ 'lg:hidden': !isSidebarOpen }">Payment</span>
+                            </a>
+                        </li>
+                        <!-- Sidebar Links... -->
+                    </ul>
                 </nav>
                 <!-- Sidebar footer -->
                 <div class="flex-shrink-0 p-2 border-t max-h-14">
@@ -325,8 +333,8 @@
                 </button>
               </div>
             </div> --}}
-            <!-- Desktop search box -->
-            {{-- <div class="items-center hidden px-2 space-x-2 md:flex-1 md:flex md:mr-auto md:ml-5 ">
+                        <!-- Desktop search box -->
+                        {{-- <div class="items-center hidden px-2 space-x-2 md:flex-1 md:flex md:mr-auto md:ml-5 ">
               <!-- search icon -->
               <span>
                 <svg
@@ -355,31 +363,20 @@
               </form>
             </div> --}}
 
-            <!-- Navbar right -->
-            <div class="relative flex items-center space-x-3">
-              <!-- Search button -->
-              <button
-                @click="isSearchBoxOpen = true"
-                class="p-2 bg-gray-100 rounded-full md:hidden focus:outline-none focus:ring hover:bg-gray-200"
-              >
-                <svg
-                  class="w-6 h-6 text-gray-500"
-                  xmlns="http://www.w3.org/2000/svg"
-                  fill="none"
-                  viewBox="0 0 24 24"
-                  stroke="currentColor"
-                >
-                  <path
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                    stroke-width="2"
-                    d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"
-                  />
-                </svg>
-              </button>
+                        <!-- Navbar right -->
+                        <div class="relative flex items-center space-x-3">
+                            <!-- Search button -->
+                            <button @click="isSearchBoxOpen = true"
+                                class="p-2 bg-gray-100 rounded-full md:hidden focus:outline-none focus:ring hover:bg-gray-200">
+                                <svg class="w-6 h-6 text-gray-500" xmlns="http://www.w3.org/2000/svg" fill="none"
+                                    viewBox="0 0 24 24" stroke="currentColor">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                        d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
+                                </svg>
+                            </button>
 
-              <div class="items-center hidden space-x-3 md:flex">
-                {{-- <!-- Notification Button -->
+                            <div class="items-center hidden space-x-3 md:flex">
+                                {{-- <!-- Notification Button -->
                 <div class="relative" x-data="{ isOpen: false }">
                   <!-- red dot -->
                   <div class="absolute right-0 p-1 bg-red-400 rounded-full animate-ping"></div>
@@ -404,8 +401,8 @@
                     </svg>
                   </button> --}}
 
-                  <!-- Dropdown card -->
-                  {{-- <div
+                                <!-- Dropdown card -->
+                                {{-- <div
                     @click.away="isOpen = false"
                     x-show.transition.opacity="isOpen"
                     class="absolute w-48 max-w-md mt-3 transform bg-white rounded-md shadow-lg -translate-x-3/4 min-w-max"
@@ -427,8 +424,8 @@
                   </div>
                 </div> --}}
 
-                <!-- Services Button -->
-                {{-- <div x-data="{ isOpen: false }">
+                                <!-- Services Button -->
+                                {{-- <div x-data="{ isOpen: false }">
                   <button
                     @click="isOpen = !isOpen"
                     class="p-2 bg-gray-100 rounded-full hover:bg-gray-200 focus:outline-none focus:ring"
@@ -449,8 +446,8 @@
                     </svg>
                   </button> --}}
 
-                  <!-- Dropdown -->
-                  {{-- <div
+                                <!-- Dropdown -->
+                                {{-- <div
                     @click.away="isOpen = false"
                     @keydown.escape="isOpen = false"
                     x-show.transition.opacity="isOpen"
@@ -520,8 +517,8 @@
                   </div>
                 </div> --}}
 
-                <!-- Options Button -->
-                {{-- <div class="relative" x-data="{ isOpen: false }">
+                                <!-- Options Button -->
+                                {{-- <div class="relative" x-data="{ isOpen: false }">
                   <button
                     @click="isOpen = !isOpen"
                     class="p-2 bg-gray-100 rounded-full hover:bg-gray-200 focus:outline-none focus:ring"
@@ -564,51 +561,56 @@
                     </div>
                   </div>
                 </div> --}}
-              </div>
+                            </div>
 
-              <!-- avatar button -->
-              <div class="relative" x-data="{ isOpen: false }">
-                <button @click="isOpen = !isOpen" class="p-1 bg-gray-200 rounded-full focus:outline-none focus:ring">
-                  <img
-                    class="object-cover w-8 h-8 rounded-full"
-                    src="https://avatars0.githubusercontent.com/u/57622665?s=460&u=8f581f4c4acd4c18c33a87b3e6476112325e8b38&v=4"
-                    alt="Ahmed Kamel"
-                  />
-                </button>
-                <!-- green dot -->
-                <div class="absolute right-0 p-1 bg-green-400 rounded-full bottom-3 animate-ping"></div>
-                <div class="absolute right-0 p-1 bg-green-400 border border-white rounded-full bottom-3"></div>
+                            <!-- avatar button -->
+                            <div class="relative" x-data="{ isOpen: false }">
+                                <button @click="isOpen = !isOpen"
+                                    class="p-1 bg-gray-200 rounded-full focus:outline-none focus:ring">
+                                    <img class="object-cover w-8 h-8 rounded-full"
+                                        src="https://avatars0.githubusercontent.com/u/57622665?s=460&u=8f581f4c4acd4c18c33a87b3e6476112325e8b38&v=4"
+                                        alt="Ahmed Kamel" />
+                                </button>
+                                <!-- green dot -->
+                                <div class="absolute right-0 p-1 bg-green-400 rounded-full bottom-3 animate-ping">
+                                </div>
+                                <div
+                                    class="absolute right-0 p-1 bg-green-400 border border-white rounded-full bottom-3">
+                                </div>
 
-                <!-- Dropdown card -->
-                <div
-                  @click.away="isOpen = false"
-                  x-show.transition.opacity="isOpen"
-                  class="absolute mt-3 transform -translate-x-full bg-white rounded-md shadow-lg min-w-max"
-                >
-                  <div class="flex flex-col p-4 space-y-1 font-medium border-b">
-                    <span class="text-gray-800">{{ $user->name }}</span>
-                    <span class="text-sm text-gray-400">{{ $user->email }}</span>
-                  </div>
-                  <ul class="flex flex-col p-2 my-2 space-y-1">
-                    <li>
-                      <a href="{{ route('home') }}" class="block px-2 py-1 transition rounded-md hover:bg-gray-100">Beranda</a>
-                    </li>
-                    <li>
-                      <a href="{{ route('logout') }}" class="block px-2 py-1 transition rounded-md hover:bg-gray-100">Logout</a>
-                    </li>
-                  </ul>
-                </div>
-              </div>
-            </div>
-          </div>
-        </header>
-        @yield('content1')
-        <!-- Main footer -->
-        <footer class="flex items-center justify-center flex-shrink-0 p-4 border-t max-h-14">
-          <div class="text-sm">
-            Copyrights © 2023 Maulana Furniture Indonesia.
-          </div>
-          {{-- <div>
+                                <!-- Dropdown card -->
+                                <div @click.away="isOpen = false" x-show.transition.opacity="isOpen"
+                                    class="absolute mt-3 transform -translate-x-full bg-white rounded-md shadow-lg min-w-max">
+                                    <div class="flex flex-col p-4 space-y-1 font-medium border-b">
+                                        <span class="text-gray-800">{{ $user->name }}</span>
+                                        <span class="text-sm text-gray-400">{{ $user->email }}</span>
+                                    </div>
+                                    <ul class="flex flex-col p-2 my-2 space-y-1">
+                                        <li>
+                                            <a href="{{ route('home') }}"
+                                                class="block px-2 py-1 transition rounded-md hover:bg-gray-100">Beranda</a>
+                                        </li>
+                                        <li>
+                                            <form action="{{ route('logout') }}" method="post">
+                                                @csrf
+                                                <button type="submit" href="{{ route('logout') }}"
+                                                    class="block px-2 py-1 transition rounded-md hover:bg-gray-100">Logout
+                                                </button>
+                                            </form>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </header>
+                @yield('content1')
+                <!-- Main footer -->
+                <footer class="flex items-center justify-center flex-shrink-0 p-4 border-t max-h-14">
+                    <div class="text-sm">
+                        Copyrights © 2023 Maulana Furniture Indonesia.
+                    </div>
+                    {{-- <div>
             <!-- Github svg -->
             <a
               href="https://github.com/Kamona-WD/starter-dashboard-layout"
@@ -661,23 +663,23 @@
                 </div>
             </div> --}}
         </div>
-      </div>
+    </div>
     </div>
     <script src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.7.3/dist/alpine.min.js" defer></script>
     <script>
-      const setup = () => {
-        return {
-          loading: true,
-          isSidebarOpen: true,
-          toggleSidbarMenu() {
-            this.isSidebarOpen = !this.isSidebarOpen
-          },
-          isSettingsPanelOpen: false,
-          isSearchBoxOpen: false,
+        const setup = () => {
+            return {
+                loading: true,
+                isSidebarOpen: true,
+                toggleSidbarMenu() {
+                    this.isSidebarOpen = !this.isSidebarOpen
+                },
+                isSettingsPanelOpen: false,
+                isSearchBoxOpen: false,
+            }
         }
-      }
     </script>
-</div>
+    </div>
 
     <script>
         const hamburger = document.querySelector("#hamburger");
