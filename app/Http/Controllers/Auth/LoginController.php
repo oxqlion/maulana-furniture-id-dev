@@ -47,21 +47,21 @@ class LoginController extends Controller
             'email' => $request->email,
             'password' => $request->password,
             'role_id' => 1,
-            'is_login' => '0',
+            // 'is_login' => '0',
             'is_active' => '1'
         ];
         $client = [
             'email' => $request->email,
             'password' => $request->password,
             'role_id' => 2,
-            'is_login' => '0',
+            // 'is_login' => '0',
             'is_active' => '1'
         ];
         $visitor = [
             'email' => $request->email,
             'password' => $request->password,
             'role_id' => 3,
-            'is_login' => '0',
+            // 'is_login' => '0',
             'is_active' => '1'
         ];
 
