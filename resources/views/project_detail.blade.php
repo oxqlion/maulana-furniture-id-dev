@@ -15,7 +15,7 @@
                         <p class="text-3xl font-bold text-[#434240] ">{{ $project->nama_proyek }}</p>
     
                         <p class="text-md font-medium text-gray-500 opacity-50 mt-2">{{ $project->user->name }}</p>
-                        <p class="text-md font-medium text-gray-500 opacity-50 mt-2">{{ $project->harga }}</p>
+                        <p class="text-md font-medium text-gray-500 opacity-50 mt-2">{{ $paid }}/{{ $project->harga }}</p>
                         <h1 class="mt-2 text-md font-medium text-gray-500 capitalize lg:text-lg dark:text-white">
                             {{ $project->deskripsi }}
                         </h1>

@@ -2,8 +2,8 @@
 
 @section('content1')
 <section class="bg-white dark:bg-gray-900 overflow-y-scroll">
-    <div class="py-8 px-4 mx-auto max-w-6xl lg:py-16">
-        <h2 class="mb-4 text-xl font-bold text-gray-900 dark:text-white">Add a new product</h2>
+    <div class="py-8 px-4 mx-auto max-w-6xl lg:py-8">
+        <h2 class="mb-4 text-xl font-bold text-gray-900 dark:text-white">Add a New Product</h2>
         <form action="{{ route('simpan_produk') }}"  method="POST" enctype="multipart/form-data">
             @csrf
             <div class="grid gap-4 sm:grid-cols-2 sm:gap-6">
@@ -48,12 +48,12 @@
                     <label for="ukuran" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Ukuran</label>
                     <input type="text" name="ukuran" id="ukuran" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500" placeholder="Product brand" required="">
                 </div>
-                <div class="sm:col-span-1">
+                <div class="sm:col-span-2">
                     <label for="gambar" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Product Images</label>
                     <input type="file" name="gambar[]" multiple id="gambar" accept="gambar/*" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500" multiple required="">
                 </div>
             </div>
-            <button type="submit" class="inline-flex items-center px-5 py-2.5 mt-4 sm:mt-6 text-sm font-medium text-center text-white bg-slate-700 rounded-lg focus:ring-4 focus:ring-primary-200 dark:focus:ring-primary-900 hover:bg-primary-800">
+            <button type="submit" class="inline-flex items-center px-5 py-2.5 mt-4 sm:mt-6 text-sm font-medium text-center text-white bg-[#434240] hover:bg-[#DDBD7E] transition rounded-lg focus:ring-4 focus:ring-primary-200 dark:focus:ring-primary-900 hover:bg-primary-800">
                 Add product
             </button>
         </form>

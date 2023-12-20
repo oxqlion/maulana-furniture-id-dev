@@ -49,7 +49,7 @@
 
             <div class="flex items-center justify-between">
                 <button type="submit"
-                    class="px-4 py-2 text-white bg-blue-500 rounded-md hover:bg-blue-600 focus:outline-none focus:ring focus:border-blue-300">
+                    class="px-4 py-2 text-white rounded-md bg-[#434240] hover:bg-[#DDBD7E] transition focus:outline-none focus:ring focus:border-blue-300">
                     Add Project
                 </button>
             </div>

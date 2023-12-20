@@ -16,7 +16,7 @@
                             d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
                     </svg>
                 </span>
-                <form action="{{ route('buat_produk') }}" method="GET">
+                <form action="{{ route('pembayaran') }}" method="GET">
                     <input type="text" name="search" placeholder="Search"
                         class="px-4 py-3 rounded-md hover:bg-gray-100 lg:max-w-sm md:py-2 md:flex-1 focus:outline-none md:focus:bg-gray-100 md:focus:shadow md:focus:border" />
                     <input type="submit" style="display:none;" />
@@ -67,7 +67,7 @@
                         </svg>
                     </div>
                     <div class="flex flex-col space-y-2">
-                        {{-- <span class="text-4xl font-semibold">{{ $total_products }}</span> --}}
+                        <span class="text-4xl font-semibold">{{ $total_products }}</span>
                         <span class="text-gray-400">Total Products</span>
                     </div>
                 </div>
@@ -82,7 +82,7 @@
                         </svg>
                     </div>
                     <div class="flex flex-col space-y-2">
-                        <span class="text-4xl font-semibold">100,221</span>
+                        <span class="text-4xl font-semibold">{{ $total_projects }}</span>
                         <span class="text-gray-400">Current Projects</span>
                     </div>
                 </div>
@@ -102,7 +102,11 @@
                                 <tr>
                                     <th scope="col"
                                         class="px-6 py-3 text-xs font-medium tracking-wider text-left text-gray-500 uppercase">
-                                        Project
+                                        Nama Proyek
+                                    </th>
+                                    <th scope="col"
+                                        class="px-6 py-3 text-xs font-medium tracking-wider text-left text-gray-500 uppercase">
+                                        Tanggal
                                     </th>
                                     <th scope="col"
                                         class="px-6 py-3 text-xs font-medium tracking-wider text-left text-gray-500 uppercase">
@@ -111,6 +115,10 @@
                                     <th scope="col"
                                         class="px-6 py-3 text-xs font-medium tracking-wider text-left text-gray-500 uppercase">
                                         Deskripsi
+                                    </th>
+                                    <th scope="col"
+                                        class="px-6 py-3 text-xs font-medium tracking-wider text-left text-gray-500 uppercase">
+                                        Status
                                     </th>
                                     <th scope="col"
                                         class="px-6 py-3 text-xs font-medium tracking-wider text-left text-gray-500 uppercase">
@@ -124,42 +132,65 @@
                                     <tr class="transition-all hover:bg-gray-100 hover:shadow-lg">
                                         <td class="px-6 py-4 whitespace-nowrap">
                                             <div class="flex items-center">
-                                                <div class="flex-shrink-0 w-10 h-10">
-                                                    <img class="w-10 h-10 rounded-md"
-                                                        src="{{ asset('storage/payments/' . $pc->id . '.png') }}"
-                                                        alt="" />
-                                                </div>
                                                 <div class="ml-4">
-                                                    <div class="text-sm font-medium text-gray-900">{{ $pc->project->nama_proyek }}</div>
+                                                    <div class="text-sm font-medium text-gray-900">
+                                                        {{ $pc->project->nama_proyek }}</div>
                                                 </div>
                                             </div>
                                         </td>
-                                        <td class="px-6 py-4 text-sm text-gray-500 whitespace-nowrap">{{ $pc->jumlah }}</td>
-                                        <td class="px-6 py-4 text-sm text-gray-500 whitespace-nowrap">{{ $pc->deskripsi }}</td>
                                         <td class="px-6 py-4 text-sm text-gray-500 whitespace-nowrap">
-                                            @if ($pc->is_paid)
-                                            <div class="text-sm font-medium text-green-600">Paid</div>
-                                        @else
-                                            <div class="text-sm font-medium text-red-600">Unpaid</div>
-                                        @endif
+                                            {{ $pc->created_at->format('Y-m-d') }}</td>
+                                        <td class="px-6 py-4 text-sm text-gray-500 whitespace-nowrap">{{ $pc->jumlah }}
+                                        </td>
+                                        <td class="px-6 py-4 text-sm text-gray-500 whitespace-nowrap">{{ $pc->deskripsi }}
                                         </td>
                                         
+                                        <td class="px-6 py-4 text-sm text-gray-500 whitespace-nowrap">
+                                            @if ($pc->is_paid == 1)
+                                                <div class="text-sm font-medium text-green-600">Paid</div>
+                                            @elseif ($pc->is_paid == 2)
+                                                <div class="text-sm font-medium text-red-600">Decline</div>
+                                            @elseif ($pc->is_paid == 0)
+                                                <div class="text-sm font-medium text-red-600">Unpaid</div>
+                                            @endif
+                                        </td>
+
                                         <td class="px-6 py-4 whitespace-nowrap">
                                             <div class="flex gap-2">
                                                 <form action="{{ route('konfirmasi_pembayaran', $pc) }}" method="POST">
                                                     @csrf
                                                     <button type="submit"
-                                                        class="flex items-center text-red-700 hover:text-white border border-red-700 hover:bg-red-800 focus:ring-4 focus:outline-none focus:ring-red-300 font-medium rounded-lg text-sm px-3 py-2 text-center dark:border-red-500 dark:text-red-500 dark:hover:text-white dark:hover:bg-red-600 dark:focus:ring-red-900">
-                                                        <svg xmlns="http://www.w3.org/2000/svg"
-                                                            class="h-4 w-4 mr-2 -ml-0.5" viewbox="0 0 20 20"
-                                                            fill="currentColor" aria-hidden="true">
-                                                            <path fill-rule="evenodd"
-                                                                d="M9 2a1 1 0 00-.894.553L7.382 4H4a1 1 0 000 2v10a2 2 0 002 2h8a2 2 0 002-2V6a1 1 0 100-2h-3.382l-.724-1.447A1 1 0 0011 2H9zM7 8a1 1 0 012 0v6a1 1 0 11-2 0V8zm5-1a1 1 0 00-1 1v6a1 1 0 102 0V8a1 1 0 00-1-1z"
-                                                                clip-rule="evenodd" />
-                                                        </svg>
+                                                        class="flex items-center text-green-700 hover:text-white border border-green-700 hover:bg-green-700 focus:ring-4 focus:outline-none focus:ring-green-300 font-medium rounded-lg text-sm px-3 py-2 text-center dark:border-red-500 dark:text-red-500 dark:hover:text-white dark:hover:bg-red-600 dark:focus:ring-red-900">
+                                                        <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 mr-2 -ml-0.5" 
+                                                        fill="currentColor" viewBox="0 0 448 512"><!--!Font Awesome Free 6.5.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2023 Fonticons, Inc.--><path d="M438.6 105.4c12.5 12.5 12.5 32.8 0 45.3l-256 256c-12.5 12.5-32.8 12.5-45.3 0l-128-128c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0L160 338.7 393.4 105.4c12.5-12.5 32.8-12.5 45.3 0z"/></svg>
                                                         Confirm
                                                     </button>
                                                 </form>
+                                                <form action="{{ route('penolakan_pembayaran', $pc) }}" method="POST">
+                                                    @csrf
+                                                    <button type="submit"
+                                                        class="flex items-center text-red-700 hover:text-white border border-red-700 hover:bg-red-800 focus:ring-4 focus:outline-none focus:ring-red-300 font-medium rounded-lg text-sm px-3 py-2 text-center dark:border-red-500 dark:text-red-500 dark:hover:text-white dark:hover:bg-red-600 dark:focus:ring-red-900">
+                                                        <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 mr-2 -ml-0.5" 
+                                                        fill="currentColor" viewBox="0 0 384 512"><!--!Font Awesome Free 6.5.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2023 Fonticons, Inc.--><path d="M342.6 150.6c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0L192 210.7 86.6 105.4c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3L146.7 256 41.4 361.4c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0L192 301.3 297.4 406.6c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3L237.3 256 342.6 150.6z"/></svg>
+                                                        Reject
+                                                    </button>
+                                                </form>
+                                                <div class="relative group">
+                                                    <button onclick="openLightbox('{{ asset('storage/payments/' . $pc->id . '.png') }}')"
+                                                        class="flex items-center text-blue-700 hover:text-white border border-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-3 py-2 text-center dark:border-blue-500 dark:text-blue-500 dark:hover:text-white dark:hover:bg-blue-600 dark:focus:ring-blue-900">
+                                                        See Detail
+                                                    </button>
+                                                    <div id="lightbox" class="hidden fixed top-0 left-0 w-full h-full bg-black bg-opacity-75 z-50">
+                                                        <div class="absolute top-4 right-4">
+                                                            <button onclick="closeLightbox()" class="text-white focus:outline-none">
+                                                                <svg xmlns="http://www.w3.org/2000/svg" height="16" width="12" fill="white" viewBox="0 0 384 512"><!--!Font Awesome Free 6.5.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2023 Fonticons, Inc.--><path d="M376.6 84.5c11.3-13.6 9.5-33.8-4.1-45.1s-33.8-9.5-45.1 4.1L192 206 56.6 43.5C45.3 29.9 25.1 28.1 11.5 39.4S-3.9 70.9 7.4 84.5L150.3 256 7.4 427.5c-11.3 13.6-9.5 33.8 4.1 45.1s33.8 9.5 45.1-4.1L192 306 327.4 468.5c11.3 13.6 31.5 15.4 45.1 4.1s15.4-31.5 4.1-45.1L233.7 256 376.6 84.5z"/></svg>
+                                                            </button>
+                                                        </div>
+                                                        <div class="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2">
+                                                            <img src="" alt="Lightbox Image" id="lightbox-image" class="max-w-md max-h-full mx-auto" />
+                                                        </div>
+                                                    </div>
+                                                </div>
                                             </div>
                                         </td>
                                     </tr>
@@ -170,8 +201,18 @@
                 </div>
             </div>
         </div>
-        {{-- <div class="mt-4">
-      {{ $products->links() }}
-    </div> --}}
+        <div class="mt-4">
+      {{ $payments->links() }}
+    </div>
     </main>
+    <script>
+        function openLightbox(imageSrc) {
+            document.getElementById('lightbox-image').src = imageSrc;
+            document.getElementById('lightbox').classList.remove('hidden');
+        }
+    
+        function closeLightbox() {
+            document.getElementById('lightbox').classList.add('hidden');
+        }
+    </script>
 @endsection

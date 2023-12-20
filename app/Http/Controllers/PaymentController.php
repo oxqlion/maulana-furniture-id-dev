@@ -3,25 +3,39 @@
 namespace App\Http\Controllers;
 
 use App\Models\Payment;
+use App\Models\Product;
 use App\Models\Project;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
 class PaymentController extends Controller
 {
-    public function listPembayaran(){
-        $payments = Payment::all();
+    public function listPembayaran(Request $request){
+        if($request->has('search')){
+            $payments = Payment::whereHas('project', function ($query) use ($request) {
+                $query->where('nama_proyek', 'like', '%' . $request->search . '%');
+            })->paginate(10);
+        }else{
+            $payments = Payment::paginate(10);
+        }
+        $total_products = Product::count();
+        $total_projects = Project::count();
         $user = Auth::user();
-        return view('pembayaran', compact('payments', 'user'));
+        return view('pembayaran', compact('payments', 'user', 'total_products', 'total_projects'));
     }
 
     public function konfirmasiPembayaran(Payment $payment){
         $payment->update([
-            'is_paid' => true
+            'is_paid' => 1
         ]);
-        $payments = Payment::all();
-        $user = Auth::user();
-        return view('pembayaran', compact('payments', 'user'));
+        return redirect()->route('pembayaran');
+    }
+
+    public function penolakanPembayaran(Payment $payment){
+        $payment->update([
+            'is_paid' => 2
+        ]);
+        return redirect()->route('pembayaran');
     }
 
     public function simpanPembayaran(Request $request)
@@ -42,9 +56,7 @@ class PaymentController extends Controller
                 'gambar' => $path,
             ]);
         }
-        $projects = Project::all();
-        $user = Auth::user();
 
-        return redirect()->route('projects')->with(['projects' => $projects, 'user' => $user]);
+        return redirect()->route('pembayaran');
     }
 }
