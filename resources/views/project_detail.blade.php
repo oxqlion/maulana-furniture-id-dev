@@ -41,7 +41,7 @@
 
                 <div
                     class="w-full mt-4 bg-transparent border rounded-md w-full dark:border-gray-700 focus-within:border-blue-400 focus-within:ring focus-within:ring-blue-300 dark:focus-within:border-blue-400 focus-within:ring-opacity-40">
-                    <form class="flex flex-col lg:flex-row bg-green-100 rounded-md">
+                    <div class="flex flex-col lg:flex-row bg-green-100 rounded-md">
                         <input type="text" disabled placeholder="Payment: Rp 0 / Rp {{ number_format($project->harga) }}"
                             class="flex-1 h-10 px-4 py-2 m-1 text-gray-700 placeholder-gray-800 bg-transparent border-none appearance-none dark:text-gray-200 focus:outline-none focus:placeholder-transparent focus:ring-0" />
 
@@ -74,7 +74,7 @@
                                         </button>
                                     </div>
                                     <!-- Modal body -->
-                                    <form action="{{ route('simpan_pembayaran') }}" method="POST"
+                                    <form action="{{ route('simpan_pembayaran') }}" method="post"
                                         enctype="multipart/form-data">
                                         @csrf
                                         <div class="flex flex-col gap-4 gap-4 mb-4 sm:grid-cols-2">
@@ -104,7 +104,7 @@
                                                 value="{{ $project->id }}">
                                         </div>
                                         <button type="submit"
-                                            class="text-white inline-flex items-center bg-red-700 hover:bg-primary-800 focus:ring-4 focus:outline-none focus:ring-primary-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-primary-600 dark:hover:bg-primary-700 dark:focus:ring-primary-800">
+                                            class="text-white inline-flex items-center bg-red-700 hover:bg-primary-800 focus:ring-4 focus:outline-none focus:ring-primary-300 font-medium rounded-lg text-sm px-5 py-2 text-center dark:bg-primary-600 dark:hover:bg-primary-700 dark:focus:ring-primary-800">
                                             <svg class="mr-1 -ml-1 w-6 h-6" fill="currentColor" viewBox="0 0 20 20"
                                                 xmlns="http://www.w3.org/2000/svg">
                                                 <path fill-rule="evenodd"
@@ -117,7 +117,7 @@
                                 </div>
                             </div>
                         </div>
-                    </form>
+                    </div>
                 </div>
             </div>
 
