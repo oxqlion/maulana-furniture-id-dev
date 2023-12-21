@@ -51,7 +51,7 @@
                         </svg>
                     </div>
                     <div class="flex flex-col space-y-2">
-                        <span class="text-4xl font-semibold">100,221</span>
+                        <span class="text-4xl font-semibold">{{ $total_clients }}</span>
                         <span class="text-gray-400">Total Client</span>
                     </div>
                 </div>
@@ -89,20 +89,26 @@
         </div>
 
         <!-- Table see (https://tailwindui.com/components/application-ui/lists/tables) -->
+
+        @php
+            $user = Auth::user();
+        @endphp
+        @if ($user->role_id == 1)
         <div class="flex mt-6 gap-4">
             <h3 class=" text-xl">Projects</h3>
             <a href="{{ route('tambah_project') }}">
                 <button type="button"
-                    class="flex items-center justify-center text-white bg-red-800 hover:bg-primary-800 focus:ring-4 focus:ring-primary-300 font-medium rounded-lg text-sm px-4 py-2 dark:bg-primary-600 dark:hover:bg-primary-700 focus:outline-none dark:focus:ring-primary-800">
+                    class="flex items-center justify-center text-white bg-[#434240] hover:text-[#DDBD7E] hover:bg-primary-800 focus:ring-4 focus:ring-primary-300 font-medium rounded-lg text-sm px-4 py-2 dark:bg-primary-600 dark:hover:bg-primary-700 focus:outline-none dark:focus:ring-primary-800">
                     <svg class="h-3.5 w-3.5 mr-2" fill="currentColor" viewbox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"
                         aria-hidden="true">
                         <path clip-rule="evenodd" fill-rule="evenodd"
                             d="M10 3a1 1 0 011 1v5h5a1 1 0 110 2h-5v5a1 1 0 11-2 0v-5H4a1 1 0 110-2h5V4a1 1 0 011-1z" />
                     </svg>
-                    New project
+                    Add project
                 </button>
             </a>
         </div>
+        @endif
         <div class="flex flex-col mt-6">
             <div class="-my-2 overflow-x-auto sm:-mx-6 lg:-mx-8">
                 <div class="inline-block min-w-full py-2 align-middle sm:px-6 lg:px-8">
@@ -189,7 +195,7 @@
                                                 @if (!$pc->user)
                                                     <a href="">
                                                         <button type="button" disabled
-                                                            class="cursor-not-allowed flex items-center text-yellow-600 border border-yellow-600 focus:ring-4 focus:outline-none focus:ring-yellow-600 font-medium rounded-lg text-sm px-3 py-2 text-center dark:border-yellow-600 dark:text-yellow-600 dark:focus:ring-yellow-600">
+                                                            class="flex items-center text-yellow-600 hover:text-white border border-yellow-600 focus:ring-4 focus:outline-none focus:ring-yellow-600 font-medium rounded-lg text-sm px-3 py-2 text-center dark:border-yellow-600 dark:text-yellow-600 dark:focus:ring-yellow-600">
                                                             <svg xmlns="http://www.w3.org/2000/svg"
                                                                 class="h-4 w-4 mr-2 -ml-0.5" viewbox="0 0 20 20"
                                                                 fill="currentColor" aria-hidden="true">
