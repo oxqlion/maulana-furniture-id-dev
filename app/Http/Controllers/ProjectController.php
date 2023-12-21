@@ -25,7 +25,8 @@ class ProjectController extends Controller
         $total_products = Product::count();
         $total_projects = Project::count();
         $clients = User::where('role_id', 2)->get();
-        return view('projects', compact('projects', 'user', 'clients', 'total_products', 'total_projects'));
+        $total_clients = User::where('role_id', '2')->count();
+        return view('projects', compact('projects', 'user', 'clients', 'total_products', 'total_projects', 'total_clients'));
     }
 
     public function tambahProject()

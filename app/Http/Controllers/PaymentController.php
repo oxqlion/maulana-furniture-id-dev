@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Payment;
 use App\Models\Product;
 use App\Models\Project;
+use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
@@ -21,8 +22,9 @@ class PaymentController extends Controller
         }
         $total_products = Product::count();
         $total_projects = Project::count();
+        $total_clients = User::where('role_id', '2')->count();
         $user = Auth::user();
-        return view('pembayaran', compact('payments', 'user', 'total_products', 'total_projects'));
+        return view('pembayaran', compact('payments', 'user', 'total_products', 'total_projects', 'total_clients'));
     }
 
     public function konfirmasiPembayaran(Payment $payment)

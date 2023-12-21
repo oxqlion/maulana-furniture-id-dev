@@ -52,7 +52,7 @@
                         </svg>
                     </div>
                     <div class="flex flex-col space-y-2">
-                        <span class="text-4xl font-semibold">100,221</span>
+                        <span class="text-4xl font-semibold">{{ $total_clients }}</span>
                         <span class="text-gray-400">Total Client</span>
                     </div>
                 </div>

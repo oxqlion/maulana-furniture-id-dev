@@ -254,7 +254,9 @@
                 </nav>
                 <!-- Sidebar footer -->
                 <div class="flex-shrink-0 p-2 border-t max-h-14">
-                    <button
+                  <form action="{{ route('logout') }}" method="post">
+                    @csrf
+                    <button type="submit"
                         class="flex items-center justify-center w-full px-4 py-2 space-x-1 font-medium tracking-wider uppercase bg-gray-100 border rounded-md focus:outline-none focus:ring">
                         <span>
                             <svg class="w-6 h-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
@@ -265,6 +267,7 @@
                         </span>
                         <span :class="{ 'lg:hidden': !isSidebarOpen }"> Logout </span>
                     </button>
+                  </form>
                 </div>
             </aside>
 
@@ -595,7 +598,7 @@
                                         <li>
                                             <form action="{{ route('logout') }}" method="post">
                                                 @csrf
-                                                <button type="submit" href="{{ route('logout') }}"
+                                                <button type="submit"
                                                     class="block px-2 py-1 transition rounded-md hover:bg-gray-100">Logout
                                                 </button>
                                             </form>
