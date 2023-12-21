@@ -43,7 +43,7 @@ class PaymentController extends Controller
         $payment = Payment::create([
             'jumlah' => $request->jumlah,
             'deskripsi' => $request->deskripsi,
-            'project_id' => $request->project_id
+            'project_id' => $request->project_id,
         ]);
         $newlyCreatedPayment = Payment::find($payment->id);
 
