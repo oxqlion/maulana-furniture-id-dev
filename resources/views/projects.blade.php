@@ -162,7 +162,7 @@
                                         <td class="px-6 py-4 text-sm text-gray-500 whitespace-nowrap">
                                             {{ $pc->deskripsi }}</td>
                                         <td class="px-6 py-4 text-sm text-gray-500 whitespace-nowrap">
-                                            {{ $pc->harga }}</td>
+                                            Rp {{ number_format($pc->harga) }}</td>
                                         <td
                                             class="px-6 py-4 text-sm text-gray-500 whitespace-nowrap overflow-hidden overflow-ellipsis max-w-[150px]">
                                             @if (!$pc->user)
