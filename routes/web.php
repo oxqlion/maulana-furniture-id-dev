@@ -60,6 +60,6 @@ Route::get('/baru', function () {
 // Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
 Route::get('/pembayaran', [PaymentController::class, 'listPembayaran'])->middleware('auth')->name('pembayaran');
-Route::post('/simpan-pembayaran', [PaymentController::class, 'storePayment'])->middleware('auth')->name('simpan_pembayaran');
+Route::post('/simpan-pembayaran', [PaymentController::class, 'simpanPembayaran'])->middleware('auth')->name('simpan_pembayaran');
 Route::post('/konfirmasi-pembayaran/{payment}', [PaymentController::class, 'konfirmasiPembayaran'])->middleware('auth')->name('konfirmasi_pembayaran');
 Route::post('/penolakan-pembayaran/{payment}', [PaymentController::class, 'penolakanPembayaran'])->middleware('auth')->name('penolakan_pembayaran');
