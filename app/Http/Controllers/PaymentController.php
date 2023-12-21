@@ -10,12 +10,13 @@ use Illuminate\Support\Facades\Auth;
 
 class PaymentController extends Controller
 {
-    public function listPembayaran(Request $request){
-        if($request->has('search')){
+    public function listPembayaran(Request $request)
+    {
+        if ($request->has('search')) {
             $payments = Payment::whereHas('project', function ($query) use ($request) {
                 $query->where('nama_proyek', 'like', '%' . $request->search . '%');
             })->paginate(10);
-        }else{
+        } else {
             $payments = Payment::paginate(10);
         }
         $total_products = Product::count();
@@ -24,14 +25,16 @@ class PaymentController extends Controller
         return view('pembayaran', compact('payments', 'user', 'total_products', 'total_projects'));
     }
 
-    public function konfirmasiPembayaran(Payment $payment){
+    public function konfirmasiPembayaran(Payment $payment)
+    {
         $payment->update([
             'is_paid' => 1
         ]);
         return redirect()->route('pembayaran');
     }
 
-    public function penolakanPembayaran(Payment $payment){
+    public function penolakanPembayaran(Payment $payment)
+    {
         $payment->update([
             'is_paid' => 2
         ]);
