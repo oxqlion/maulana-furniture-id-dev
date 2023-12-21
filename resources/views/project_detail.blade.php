@@ -22,7 +22,12 @@
                         </h1>
                     </div>
                     <div>
-                        <!-- Modal toggle -->
+                        @php
+                            $userId = Auth::user()->id; 
+                        @endphp
+                        
+                        @if($project->user_id == $userId)
+                            <!-- Modal toggle -->
                         <div class="flex justify-center m-5">
                             <button id="defaultModalButton" data-modal-target="defaultModal"
                                 data-modal-toggle="defaultModal"
@@ -31,6 +36,8 @@
                                 Payment
                             </button>
                         </div>
+                        @endif
+                        
 
                         <!-- Main modal -->
                         <div id="defaultModal" tabindex="-1" aria-hidden="true"

@@ -18,7 +18,8 @@ class ProjectController extends Controller
         if($request->has('search')){
             $projects = Project::where('nama_proyek', 'like','%'. $request->search .'%')->get();
         }else{
-            $projects = Project::all();
+            $projects = Project::orderByRaw("CASE WHEN user_id = " . Auth::id() . " THEN 0 ELSE 1 END")
+            ->get();
         }
         $user = Auth::user();
         $total_products = Product::count();
