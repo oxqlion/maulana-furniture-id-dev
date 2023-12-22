@@ -50,7 +50,7 @@ Route::middleware(['client'])->group(function(){
 });
 
 //company profile
-Route::get('/home', [ProductController::class,'produkPilihan'])->name('home');
+Route::get('/', [ProductController::class,'produkPilihan'])->name('home');
 Route::get('/katalog', [ProductController::class,'listProduk'])->name('katalog');
 Route::get('/produk-detail/{product}', [ProductController::class,'detailProduk'])->name('produk_detail');
 Route::get('/kategori-produk/{category}', [ProductController::class,'kategoriProduk'])->name('kategori_produk');
