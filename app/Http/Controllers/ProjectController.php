@@ -51,7 +51,7 @@ class ProjectController extends Controller
             // return view('projects', compact('projects', 'user'));
             $thumbnail = $request->file('gambar');
             $imageName = $thumbnail->getClientOriginalName();
-            $path = $thumbnail->storeAs('products', $imageName, 'public');
+            $path = $thumbnail->storeAs('projects', $imageName, 'public');
 
             if ($request->client == "") {
                 $user_id = $request->client;
