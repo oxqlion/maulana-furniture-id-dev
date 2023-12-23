@@ -75,6 +75,7 @@ class ProductController extends Controller
             'material' => 'required',
             'furnish' => 'required',
             'ukuran' => 'required',
+            'gambar.*' => 'required|image|mimes:png|max:2048'
         ]);
 
         $product = Product::create([
@@ -86,24 +87,28 @@ class ProductController extends Controller
             'kategori' => $validateData['kategori'],
             'material' => $validateData['material'],
             'furnish' => $validateData['furnish'],
-            'ukuran' => $validateData['ukuran']
+            'ukuran' => $validateData['ukuran'],
+            'gambar' => $validateData['gambar']
         ]);
 
         $files = $request->file('gambar');
         $newlyCreatedProduct = Product::find($product->id);
 
-        if ($request->hasFile('gambar')) {
+        if ($request->hasFile('gambar') && count($files) <= 3 && count($files) >= 1) {
             $i = 1;
             foreach ($files as $file) {
-                $imageName = $newlyCreatedProduct->id.'_'.$i.'.'.$file->extension();
+                $imageName = $newlyCreatedProduct->id . '_' . $i . '.' . $file->extension();
                 $path = $file->storeAs('products', $imageName, 'public');
                 $i++;
-
+        
                 Image::create([
                     'product_id' => $newlyCreatedProduct->id,
                     'gambar' => $path,
                 ]);
             }
+        } elseif (count($files) > 3) {
+            // Jika lebih dari 3 gambar diunggah, kembalikan pesan kesalahan
+            return redirect()->back()->with('error', 'Anda harus mengunggah 3 gambar saja.');
         }
 
         ProductCategory::create([
@@ -122,16 +127,28 @@ class ProductController extends Controller
     }
     
     public function updateProduk(Request $request, Product $product){
+        $validateData = $request->validate([
+            'nama' => 'required',
+            'harga' => 'required',
+            'kondisi' => 'required',
+            'waktu_preorder' => 'required',
+            'minimal_pemesanan' => 'required',
+            'kategori' => 'required',
+            'material' => 'required',
+            'furnish' => 'required',
+            'ukuran' => 'required',
+        ]);
+
         $product->update([
-            'nama' => $request->nama,
-            'harga' => $request->harga,
-            'kondisi' => $request->kondisi,
-            'waktu_preorder' => $request->waktu_preorder,
-            'minimal_pemesanan' => $request->minimal_pemesanan,
-            'kategori' => $request->kategori,
-            'material' => $request->material,
-            'furnish' => $request->furnish,
-            'ukuran' => $request->ukuran
+            'nama' => $validateData['nama'],
+            'harga' => $validateData['harga'],
+            'kondisi' => $validateData['kondisi'],
+            'waktu_preorder' => $validateData['waktu_preorder'],
+            'minimal_pemesanan' => $validateData['minimal_pemesanan'],
+            'kategori' => $validateData['kategori'],
+            'material' => $validateData['material'],
+            'furnish' => $validateData['furnish'],
+            'ukuran' => $validateData['ukuran'],
         ]);
 
         $images = Image::where('product_id', $product->id);
@@ -150,13 +167,15 @@ class ProductController extends Controller
 
         $files = $request->file('gambar');
 
-        if ($request->hasFile('gambar')) {
+        if ($request->hasFile('gambar') && count($files) == 3) {
             $i = 1;
             foreach ($files as $file) {
-                $imageName = $product->id.'_'.$i.'.'.$file->extension();
+                $imageName = $product->id . '_' . $i . '.' . $file->extension();
                 $path = $file->storeAs('products', $imageName, 'public');
                 $i++;
             }
+        } else {
+            return redirect()->back()->with('error', 'Anda harus mengunggah tepat 3 gambar.');
         }
 
         return redirect()->route('buat_produk');
