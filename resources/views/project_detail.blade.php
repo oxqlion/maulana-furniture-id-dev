@@ -49,12 +49,12 @@
                             <input type="text" disabled
                                 placeholder="Payment: Rp {{ number_format($paid) }} / Rp {{ number_format($project->harga) }}"
                                 class="flex-1 h-10 px-4 py-2 m-1 text-gray-700 placeholder-gray-800 bg-transparent border-none appearance-none dark:text-gray-200 focus:outline-none focus:placeholder-transparent focus:ring-0" />
-                            @if($user->role_id == 2)
-                            <button type="button" id="defaultModalButton" data-modal-target="defaultModal"
-                                data-modal-toggle="defaultModal" type="button"
-                                class="h-10 px-4 py-2 m-1 text-white transition duration-300 transform bg-green-400 rounded-md hover:bg-green-300 focus:outline-none focus:bg-blue-400">
-                                Add Payment
-                            </button>
+                            @if ($user->role_id == 2)
+                                <button type="button" id="defaultModalButton" data-modal-target="defaultModal"
+                                    data-modal-toggle="defaultModal" type="button"
+                                    class="h-10 px-4 py-2 m-1 text-white transition duration-300 transform bg-green-400 rounded-md hover:bg-green-300 focus:outline-none focus:bg-blue-400">
+                                    Add Payment
+                                </button>
                             @endif
                             <div id="defaultModal" tabindex="-1" aria-hidden="true"
                                 class="hidden overflow-y-auto overflow-x-hidden fixed top-0 right-0 left-0 z-50 justify-center items-center w-full md:inset-0 h-modal md:h-full">
@@ -125,6 +125,17 @@
                             </div>
                         </div>
                     </div>
+                    @if ($errors->any())
+                            <div class="mb-4 bg-red-100 border mt-4 border-red-400 text-red-700 px-4 py-3 rounded relative"
+                                role="alert">
+                                <strong class="font-bold">Error!</strong>
+                                <ul>
+                                    @foreach ($errors->all() as $error)
+                                        <li>{{ $error }}</li>
+                                    @endforeach
+                                </ul>
+                            </div>
+                        @endif
                 @endif
             </div>
 

@@ -32,30 +32,53 @@
                             <div class="h-64 md:h-96 rounded-lg bg-gray-100 mb-4">
                                 <div x-show="image === 1"
                                     class="h-64 md:h-96 rounded-lg mb-4 flex items-center justify-center">
-                                    <img src="{{ asset('storage/products/' . $product->id . '_1.png') }}" alt=""
-                                        class="h-full w-full object-cover rounded-lg ">
+                                    <img src="{{ asset('storage/' . $product->images->slice(0, 1)->first()->gambar) }}"
+                                        alt="" class="h-full w-full object-cover rounded-lg ">
                                 </div>
                                 <div x-show="image === 2"
                                     class="h-64 md:h-96 rounded-lg mb-4 flex items-center justify-center">
-                                    <img src="{{ asset('storage/products/' . $product->id . '_2.png') }}" alt=""
-                                        class="h-full w-full object-cover rounded-lg">
+                                    <img src="{{ asset('storage/' . $product->images->slice(1, 1)->first()->gambar) }}"
+                                        alt="" class="h-full w-full object-cover rounded-lg">
                                 </div>
                                 <div x-show="image === 3"
                                     class="h-64 md:h-96 rounded-lg mb-4 flex items-center justify-center">
-                                    <img src="{{ asset('storage/products/' . $product->id . '_3.png') }}" alt=""
-                                        class="h-full w-full object-cover rounded-lg">
+                                    <img src="{{ asset('storage/' . $product->images->slice(2, 1)->first()->gambar) }}"
+                                        alt="" class="h-full w-full object-cover rounded-lg">
                                 </div>
                             </div>
+                            @php
+                                $image_1 = $product->images->slice(0, 1)->first()->gambar;
+                                $image_2 = $product->images->slice(1, 1)->first()->gambar;
+                                $image_3 = $product->images->slice(2, 1)->first()->gambar;
+                            @endphp
+
                             <div class="flex -mx-2 mb-4">
-                                <template x-for="i in 3">
-                                    <div class="flex-1 px-2">
-                                        <button x-on:click="image = i" :class="{ 'ring-2 ring-[#434240]': image === i }"
-                                            class="focus:outline-none w-full rounded-lg h-24 md:h-32 bg-gray-100 flex items-center justify-center">
-                                            <img :src="'{{ asset('storage/products/' . $product->id . '_') }}' + i + '.png'"
-                                                alt="" class="h-full w-full object-cover rounded-lg">
-                                        </button>
-                                    </div>
-                                </template>
+                                <!-- Button untuk gambar pertama -->
+                                <div class="flex-1 px-2">
+                                    <button x-on:click="image = 1" :class="{ 'ring-2 ring-[#434240]': image === 1 }"
+                                        class="focus:outline-none w-full rounded-lg h-24 md:h-32 bg-gray-100 flex items-center justify-center">
+                                        <img :src="'{{ asset('storage/' . $image_1) }}'" alt=""
+                                            class="h-full w-full object-cover rounded-lg">
+                                    </button>
+                                </div>
+
+                                <!-- Button untuk gambar kedua -->
+                                <div class="flex-1 px-2">
+                                    <button x-on:click="image = 2" :class="{ 'ring-2 ring-[#434240]': image === 2 }"
+                                        class="focus:outline-none w-full rounded-lg h-24 md:h-32 bg-gray-100 flex items-center justify-center">
+                                        <img :src="'{{ asset('storage/' . $image_2) }}'" alt=""
+                                            class="h-full w-full object-cover rounded-lg">
+                                    </button>
+                                </div>
+
+                                <!-- Button untuk gambar ketiga -->
+                                <div class="flex-1 px-2">
+                                    <button x-on:click="image = 3" :class="{ 'ring-2 ring-[#434240]': image === 3 }"
+                                        class="focus:outline-none w-full rounded-lg h-24 md:h-32 bg-gray-100 flex items-center justify-center">
+                                        <img :src="'{{ asset('storage/' . $image_3) }}'" alt=""
+                                            class="h-full w-full object-cover rounded-lg">
+                                    </button>
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -132,7 +155,7 @@
                                     class="group relative overflow-hidden transform transition-transform duration-300 shadow-xl hover:-translate-y-2 rounded-lg cursor-pointer">
                                     <div class="relative overflow-hidden group">
                                         <!-- Foto Produk -->
-                                        <img src="{{ asset('images/products/' . $pro->id . '_1.png') }}"
+                                        <img src="{{ asset('storage/'.  $pro->images->first()->gambar) }}"
                                             alt="Kursi Hiroshima x Anyaman Viro"
                                             class="w-full h-64 group-hover:brightness-50 transition-transform duration-900 object-fit" />
                                         <div
@@ -142,7 +165,8 @@
                                     </div>
                                     <div class="py-4 bg-white shadow-md px-4 flex flex-col gap-1">
                                         <!-- Nama Produk -->
-                                        <h2 class="text-md text-[#434240] font-semibold truncate">{{ ucwords($pro->nama) }}
+                                        <h2 class="text-md text-[#434240] font-semibold truncate">
+                                            {{ ucwords($pro->nama) }}
                                         </h2>
                                         <h2 class="text-sm text-slate-700">{{ $pro->kategori }}</h2>
                                         <div class="flex">
@@ -201,5 +225,9 @@
                 delay: 1500,
             },
         });
+    </script>
+    <script>
+        // Tambahkan data currentImage di Alpine.js untuk melacak gambar saat ini
+        window.currentImage = null;
     </script>
 @endsection

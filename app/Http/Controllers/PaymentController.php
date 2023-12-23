@@ -45,6 +45,10 @@ class PaymentController extends Controller
 
     public function simpanPembayaran(Request $request)
     {
+        $validateData = $request->validate([
+            'gambar' => 'required|image|mimes:png,jpg,jpeg|max:2048'
+        ]);
+
         $payment = Payment::create([
             'jumlah' => $request->jumlah,
             'deskripsi' => $request->deskripsi,
