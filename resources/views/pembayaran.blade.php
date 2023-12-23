@@ -6,7 +6,7 @@
         <!-- Main content header -->
         <div
             class="flex flex-col items-start justify-between pb-6 space-y-4 border-b lg:items-center lg:space-y-0 lg:flex-row">
-            <h1 class="text-2xl font-semibold whitespace-nowrap">Product Dashboard</h1>
+            <h1 class="text-2xl font-semibold whitespace-nowrap">Payment Dashboard</h1>
             <div class="flex items-center gap-2">
                 <!-- search icon -->
                 <span>
@@ -153,13 +153,15 @@
                                                 </td>
 
                                                 <td class="px-6 py-4 text-sm text-gray-500 whitespace-nowrap">
-                                                    @if ($pc->is_paid == 1)
-                                                        <div class="text-sm font-medium text-green-600">Paid</div>
-                                                    @elseif ($pc->is_paid == 2)
-                                                        <div class="text-sm font-medium text-red-600">Decline</div>
-                                                    @elseif ($pc->is_paid == 0)
-                                                        <div class="text-sm font-medium text-red-600">Unpaid</div>
-                                                    @endif
+                                                    <div class="inline-block p-2 rounded">
+                                                        @if ($pc->is_paid == 1)
+                                                            <div class="text-sm font-medium text-green-600 bg-green-100 p-2 rounded">Confirm</div>
+                                                        @elseif ($pc->is_paid == 2)
+                                                            <div class="text-sm font-medium text-red-600 bg-red-100 p-2 rounded">Decline</div>
+                                                        @elseif ($pc->is_paid == 0)
+                                                            <div class="text-sm font-medium text-yellow-600 bg-yellow-100 p-2 rounded">Pending</div>
+                                                        @endif
+                                                    </div>
                                                 </td>
 
                                                 <td class="px-6 py-4 whitespace-nowrap">

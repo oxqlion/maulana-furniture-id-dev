@@ -75,7 +75,7 @@ class ProductController extends Controller
             'material' => 'required',
             'furnish' => 'required',
             'ukuran' => 'required',
-            'gambar.*' => 'required|image|mimes:png|max:2048'
+            'gambar.*' => 'required|image|mimes:png,jpg,jpeg|max:2048'
         ]);
 
         $product = Product::create([

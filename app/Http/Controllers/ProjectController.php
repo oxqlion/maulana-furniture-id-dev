@@ -43,6 +43,7 @@ class ProjectController extends Controller
             'deadline' => 'required',
             'deskripsi' => 'required',
             'harga' => 'required',
+            'gambar' => 'required|image|mimes:png,jpg,jpeg|max:2048'
         ]);
 
         if ($request->hasFile('gambar')) {
@@ -60,10 +61,10 @@ class ProjectController extends Controller
             }
 
             $project = Project::create([
-                'nama_proyek' => $request->nama_proyek,
-                'deadline' => $request->deadline,
-                'deskripsi' => $request->deskripsi,
-                'harga' => $request->harga,
+                'nama_proyek' => $validateData['nama_proyek'],
+                'deadline' => $validateData['deadline'],
+                'deskripsi' => $validateData['deskripsi'],
+                'harga' => $validateData['harga'],
                 'user_id' => $user_id,
                 'image_path' => $path,
             ]);
