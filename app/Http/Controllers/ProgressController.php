@@ -6,6 +6,7 @@ use App\Models\Progress;
 use App\Models\Project;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Mail;
 
 class ProgressController extends Controller
 {
@@ -25,6 +26,16 @@ class ProgressController extends Controller
 
             $project = Project::find($request->project);
             $user = Auth::user();
+
+            $projectName = $project->nama_proyek;
+            $progressDesc = $progress->deskripsi;
+            $client = $project->user->name;
+           
+            Mail::raw(
+                "Yth. $client\n\nTerdapat progress baru dari project anda, segera kunjugi website dan berikan feedback\nNama Project: $projectName\nDeskripsi: $progressDesc\n\nWebsite: www.maulanafurniture.com\nWhatsapp: +62 87815879282\nInstagram: maulanafurniture.indo" , 
+                function ($message) {             
+                    $message->to('rhermanto01@student.ciputra.ac.id')->subject('Update Progress Baru');             
+                });
 
             // return view('project_detail', ['id' => $request->project])->with(['project' => $project, 'user' => $user]);
             return redirect()->route('detail_project', ['id' => $request->project])->with(['project' => $project, 'user' => $user]);
