@@ -166,7 +166,7 @@
                                         <td class="px-6 py-4 text-sm text-gray-500 whitespace-nowrap">
                                             {{ $pc->deadline }}</td>
                                         <td
-                                            class="px-6 py-4 text-sm text-gray-500 flex h-full w-24 truncate overflow-hidden whitespace-nowrap ">
+                                            class="px-6 py-6 text-sm text-gray-500 flex items-center w-24 truncate">
                                             {{ $pc->deskripsi }}</td>
                                         <td class="px-6 py-4 text-sm text-gray-500 whitespace-nowrap">
                                             Rp {{ number_format($pc->harga) }}</td>
@@ -176,7 +176,7 @@
                                                 <form action="{{ route('assign_client', $pc) }}" method="POST">
                                                     @method('put')
                                                     @csrf
-                                                    <select name="user" id="user">
+                                                    <select name="user" id="user" class="mr-4" {{ Auth::user()->isClient() ? 'disabled' : '' }}>
                                                         @foreach ($clients as $cl)
                                                             <option value="{{ $cl->id }}">{{ $cl->name }}
                                                             </option>
@@ -196,7 +196,7 @@
                                                 @if (!$pc->user)
                                                     <a href="">
                                                         <button type="button" disabled
-                                                            class="flex items-center text-yellow-600 hover:text-white border border-yellow-600 focus:ring-4 focus:outline-none focus:ring-yellow-600 font-medium rounded-lg text-sm px-3 py-2 text-center dark:border-yellow-600 dark:text-yellow-600 dark:focus:ring-yellow-600">
+                                                            class="flex items-center text-gray-600 bg-gray-300 cursor-not-allowed focus:ring-4 focus:outline-none focus:ring-yellow-600 font-medium rounded-lg text-sm px-3 py-2 text-center dark:border-yellow-600 dark:text-yellow-600 dark:focus:ring-yellow-600">
                                                             <svg xmlns="http://www.w3.org/2000/svg"
                                                                 class="h-4 w-4 mr-2 -ml-0.5" viewbox="0 0 20 20"
                                                                 fill="currentColor" aria-hidden="true">

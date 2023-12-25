@@ -19,7 +19,8 @@ use Illuminate\Support\Facades\Auth;
 | be assigned to the "web" middleware group. Make something great!
 |
 */
-Route::middleware(['auth'])->group(function(){
+
+Route::middleware(['auth'])->group(function () {
     Route::get('/projects', [ProjectController::class, 'indexProject'])->name('projects');
     Route::post('/simpan-project', [ProjectController::class, 'storeProject'])->name('store_project');
     Route::get('/detail-project/{id}', [ProjectController::class, 'projectDetail'])->name('detail_project');
@@ -28,11 +29,11 @@ Route::middleware(['auth'])->group(function(){
     Route::get('/pembayaran', [PaymentController::class, 'listPembayaran'])->name('pembayaran');
 });
 
-Route::middleware(['admin'])->group(function(){
-    Route::get('/buat-produk', [ProductController::class,'listProdukAdmin'])->name('buat_produk');
-    Route::get('/tambah-produk', [ProductController::class,'tambahProduk'])->name('tambah_produk');
-    Route::post('/simpan-produk', [ProductController::class,'simpanProduk'])->name('simpan_produk');
-    Route::get('/edit-produk/{product}', [ProductController::class,'editProduk'])->name('edit_produk');
+Route::middleware(['admin'])->group(function () {
+    Route::get('/buat-produk', [ProductController::class, 'listProdukAdmin'])->name('buat_produk');
+    Route::get('/tambah-produk', [ProductController::class, 'tambahProduk'])->name('tambah_produk');
+    Route::post('/simpan-produk', [ProductController::class, 'simpanProduk'])->name('simpan_produk');
+    Route::get('/edit-produk/{product}', [ProductController::class, 'editProduk'])->name('edit_produk');
     Route::put('/update-produk/{product}', [ProductController::class, 'updateProduk'])->name('update_produk');
     Route::delete('/delete-produk/{product}', [ProductController::class, 'deleteProduk'])->name('delete_produk');
 
@@ -42,25 +43,33 @@ Route::middleware(['admin'])->group(function(){
 
     Route::post('/konfirmasi-pembayaran/{payment}', [PaymentController::class, 'konfirmasiPembayaran'])->name('konfirmasi_pembayaran');
     Route::post('/penolakan-pembayaran/{payment}', [PaymentController::class, 'penolakanPembayaran'])->name('penolakan_pembayaran');
+
+    Route::put('/update-status/{project}', [ProjectController::class, 'updateStatus'])->name('update_status');
 });
 
-Route::middleware(['client'])->group(function(){
-    Route::post('/simpan-review', [ReviewController::class,'simpanReview'])->name('simpan_review');
+Route::middleware(['client'])->group(function () {
+    Route::post('/simpan-review', [ReviewController::class, 'simpanReview'])->name('simpan_review');
 
     Route::post('/simpan-pembayaran', [PaymentController::class, 'simpanPembayaran'])->middleware('auth')->name('simpan_pembayaran');
 });
 
 //company profile
-Route::get('/', [ProductController::class,'produkPilihan'])->name('home');
-Route::get('/katalog', [ProductController::class,'listProduk'])->name('katalog');
-Route::get('/produk-detail/{product}', [ProductController::class,'detailProduk'])->name('produk_detail');
-Route::get('/kategori-produk/{category}', [ProductController::class,'kategoriProduk'])->name('kategori_produk');
-Route::get('/cara-pemesanan', function () { return view('cara_pemesanan'); })->name('cara_pemesanan');
-Route::get('/cara-pembayaran', function () { return view('cara_pembayaran'); })->name('cara_pembayaran');
-Route::get('/contact', function () { return view('contact');})->name('kontak');
-Route::get('/reviews', [ReviewController::class,'allReviews'])->name('all_reviews');
+Route::get('/', [ProductController::class, 'produkPilihan'])->name('home');
+Route::get('/katalog', [ProductController::class, 'listProduk'])->name('katalog');
+Route::get('/produk-detail/{product}', [ProductController::class, 'detailProduk'])->name('produk_detail');
+Route::get('/kategori-produk/{category}', [ProductController::class, 'kategoriProduk'])->name('kategori_produk');
+Route::get('/cara-pemesanan', function () {
+    return view('cara_pemesanan');
+})->name('cara_pemesanan');
+Route::get('/cara-pembayaran', function () {
+    return view('cara_pembayaran');
+})->name('cara_pembayaran');
+Route::get('/contact', function () {
+    return view('contact');
+})->name('kontak');
+Route::get('/reviews', [ReviewController::class, 'allReviews'])->name('all_reviews');
 
-Route::get('/send-email', function(){
+Route::get('/send-email', function () {
     Mail::to('richiereubenh@gmail.com')->send(new MyMail);
     return route('home');
 });

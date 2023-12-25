@@ -17,6 +17,7 @@ return new class extends Migration
             $table->date('deadline');
             $table->text('deskripsi');
             $table->integer('harga');
+            $table->enum('status', ['Disiapkan', 'Dikerjakan', 'Ditinjau', 'Dikemas', 'Dikirim', 'Selesai'])->default('Disiapkan');
             $table->foreignId('user_id')->nullable(true)->constrained('users')->cascadeOnUpdate()->cascadeOnDelete();
             $table->string('image_path');
             $table->timestamps();

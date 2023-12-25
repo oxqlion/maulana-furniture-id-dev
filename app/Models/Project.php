@@ -15,7 +15,8 @@ class Project extends Model
         'deskripsi',
         'harga',
         'user_id',
-        'image_path'
+        'image_path',
+        'status'
     ];
 
     public function user()
