@@ -14,7 +14,7 @@
                     <h1 class="text-3xl font-bold tracking-wide text-gray-800 dark:text-white lg:text-4xl">
                         {{ $project->nama_proyek }}
                     </h1>
-                    <h1 class="text-lg font-semibold tracking-wide text-gray-500 dark:text-white lg:text-xl">
+                    <h1 class="text-lg font-semibold tracking-wide text-gray-500 dark:text-white lg:text-xl mt-2">
                         {{ $project->user->name }}
                     </h1>
                     {{-- <div class="flex gap-2 items-center my-4">
@@ -27,8 +27,8 @@
                         {{ $project->user->name }}
                     </h1>
                 </div> --}}
-                    <div class="flex gap-2 items-center my-4">
-                        <svg xmlns="http://www.w3.org/2000/svg" height="24" width="24"
+                    <div class="flex gap-2 items-center mt-4">
+                        <svg xmlns="http://www.w3.org/2000/svg" height="20" width="24"
                             viewBox="0 0 448 512"><!--!Font Awesome Free 6.5.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2023 Fonticons, Inc.-->
                             <path fill="#ddbd7e"
                                 d="M128 0c17.7 0 32 14.3 32 32V64H288V32c0-17.7 14.3-32 32-32s32 14.3 32 32V64h48c26.5 0 48 21.5 48 48v48H0V112C0 85.5 21.5 64 48 64H96V32c0-17.7 14.3-32 32-32zM0 192H448V464c0 26.5-21.5 48-48 48H48c-26.5 0-48-21.5-48-48V192zm80 64c-8.8 0-16 7.2-16 16v96c0 8.8 7.2 16 16 16h96c8.8 0 16-7.2 16-16V272c0-8.8-7.2-16-16-16H80z" />
@@ -37,6 +37,35 @@
                             Deadline: {{ $project->deadline }}
                         </h1>
                     </div>
+                    <div class="flex gap-2 items-center mb-4">
+                        <svg xmlns="http://www.w3.org/2000/svg" height="24" width="24"
+                            viewBox="0 0 640 512"><!--!Font Awesome Free 6.5.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2023 Fonticons, Inc.-->
+                            <path fill="#ddbd7e"
+                                d="M640 0V400c0 61.9-50.1 112-112 112c-61 0-110.5-48.7-112-109.3L48.4 502.9c-17.1 4.6-34.6-5.4-39.3-22.5s5.4-34.6 22.5-39.3L352 353.8V64c0-35.3 28.7-64 64-64H640zM576 400a48 48 0 1 0 -96 0 48 48 0 1 0 96 0zM23.1 207.7c-4.6-17.1 5.6-34.6 22.6-39.2l46.4-12.4 20.7 77.3c2.3 8.5 11.1 13.6 19.6 11.3l30.9-8.3c8.5-2.3 13.6-11.1 11.3-19.6l-20.7-77.3 46.4-12.4c17.1-4.6 34.6 5.6 39.2 22.6l41.4 154.5c4.6 17.1-5.6 34.6-22.6 39.2L103.7 384.9c-17.1 4.6-34.6-5.6-39.2-22.6L23.1 207.7z" />
+                        </svg>
+                        <div class="flex">
+                            <h1
+                                class="lg:text-3xl my-2 font-semibold tracking-wide text-gray-500 dark:text-white lg:text-xl">
+                                Status:
+                            </h1>
+                            <form action="{{ route('update_status', $project) }}" method="POST">
+                                @method('put')
+                                @csrf
+                                <select name="status" id="status" {{ Auth::user()->isAdmin() ? '' : 'disabled' }} class="lg:text-3xl my-2 font-semibold tracking-wide text-gray-500 dark:text-white lg:text-xl">
+                                    <option {{ $project->status == "Disiapkan" ? 'selected' : '' }} value="Disiapkan">Disiapkan</option>
+                                    <option {{ $project->status == "Dikerjakan" ? 'selected' : '' }} value="Dikerjakan">Dikerjakan</option>
+                                    <option {{ $project->status == "Ditinjau" ? 'selected' : '' }} value="Ditinjau">Ditinjau</option>
+                                    <option {{ $project->status == "Dikemas" ? 'selected' : '' }} value="Dikemas">Dikemas</option>
+                                    <option {{ $project->status == "Dikirim" ? 'selected' : '' }} value="Dikirim">Dikirim</option>
+                                    <option {{ $project->status == "Selesai" ? 'selected' : '' }} value="Selesai">Selesai</option>
+                                </select>
+                                @if (Auth::user()->isAdmin())
+                                    <button type="submit" class="bg-green-400 px-8 py-1 rounded-md text-white  ml-6">Save Status</button>
+                                @endif
+                            </form>
+                        </div>
+                    </div>
+
                 </div>
 
                 @php
@@ -49,13 +78,13 @@
                             <input type="text" disabled
                                 placeholder="Payment: Rp {{ number_format($paid) }} / Rp {{ number_format($project->harga) }}"
                                 class="flex-1 h-10 px-4 py-2 m-1 text-gray-700 placeholder-gray-800 bg-transparent border-none appearance-none dark:text-gray-200 focus:outline-none focus:placeholder-transparent focus:ring-0" />
-                            @if ($user->role_id == 2)
-                                <button type="button" id="defaultModalButton" data-modal-target="defaultModal"
-                                    data-modal-toggle="defaultModal" type="button"
-                                    class="h-10 px-4 py-2 m-1 text-white transition duration-300 transform bg-green-400 rounded-md hover:bg-green-300 focus:outline-none focus:bg-blue-400">
-                                    Add Payment
-                                </button>
-                            @endif
+                            {{-- @if ($user->role_id == 2) --}}
+                            <button type="button" id="defaultModalButton" data-modal-target="defaultModal"
+                                data-modal-toggle="defaultModal" type="button"
+                                class="h-10 px-4 py-2 m-1 text-white transition duration-300 transform bg-green-400 rounded-md hover:bg-green-300 focus:outline-none focus:bg-blue-400">
+                                Add Payment
+                            </button>
+                            {{-- @endif --}}
                             <div id="defaultModal" tabindex="-1" aria-hidden="true"
                                 class="hidden overflow-y-auto overflow-x-hidden fixed top-0 right-0 left-0 z-50 justify-center items-center w-full md:inset-0 h-modal md:h-full">
                                 <div class="relative p-4 w-full max-w-2xl h-full md:h-auto">
@@ -126,16 +155,16 @@
                         </div>
                     </div>
                     @if ($errors->any())
-                            <div class="mb-4 bg-red-100 border mt-4 border-red-400 text-red-700 px-4 py-3 rounded relative"
-                                role="alert">
-                                <strong class="font-bold">Error!</strong>
-                                <ul>
-                                    @foreach ($errors->all() as $error)
-                                        <li>{{ $error }}</li>
-                                    @endforeach
-                                </ul>
-                            </div>
-                        @endif
+                        <div class="mb-4 bg-red-100 border mt-4 border-red-400 text-red-700 px-4 py-3 rounded relative"
+                            role="alert">
+                            <strong class="font-bold">Error!</strong>
+                            <ul>
+                                @foreach ($errors->all() as $error)
+                                    <li>{{ $error }}</li>
+                                @endforeach
+                            </ul>
+                        </div>
+                    @endif
                 @endif
             </div>
 
