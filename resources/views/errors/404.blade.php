@@ -1,12 +1,15 @@
-<link href="https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.2.0/flowbite.min.css"  rel="stylesheet" />
-
-<section class="bg-white dark:bg-gray-900 flex justify-center items-center h-screen"> <!-- Mengatur konten di tengah halaman -->
-    <div class="py-8 px-4 mx-auto max-w-screen-xl lg:py-16 lg:px-6">
-        <div class="mx-auto max-w-screen-sm text-center">
-            <h1 class="mb-4 text-7xl tracking-tight font-extrabold lg:text-9xl text-yellow-900">404</h1> <!-- Mengubah warna teks -->
-            <p class="mb-4 text-3xl tracking-tight font-bold text-[#434240] md:text-4xl dark:text-[#434240]">Something's missing.</p> <!-- Mengubah warna teks -->
-            <p class="mb-4 text-lg font-light text-[#434240] dark:text-gray-400">Sorry, we can't find that page. You'll find lots to explore on the home page. </p> <!-- Mengubah warna teks -->
-            <a href="#" class="inline-flex text-[#434240] bg-red-600 hover:bg-red-800 focus:ring-4 focus:outline-none focus:ring-red-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:focus:ring-red-900 my-4">Back to Homepage</a> <!-- Mengubah warna tombol -->
-        </div>   
+<script src="https://cdn.tailwindcss.com"></script>
+<div class="bg-gray-200 w-full px-16 md:px-0 h-screen flex items-center justify-center">
+    <div class="bg-white border border-gray-200 flex flex-col items-center justify-center px-4 md:px-8 lg:px-24 py-8 rounded-lg shadow-2xl">
+        <p class="text-6xl md:text-7xl lg:text-9xl font-bold tracking-wider text-[#434240]">404</p>
+        <p class="text-2xl md:text-3xl lg:text-5xl font-bold tracking-wider text-[#DDBD7E] mt-4">Page Not Found</p>
+        <p class="text-gray-500 mt-4 pb-4 border-b-2 text-center">Sorry, the page you are looking for could not be found.</p>
+        <a href="{{ route('home') }}" class="flex items-center space-x-2 bg-[#434240] text-[#DDBD7E] hover:bg-#5a5454 px-4 py-2 mt-6 rounded transition duration-150" title="Return Home">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
+                <path fill-rule="evenodd" d="M9.707 14.707a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414l4-4a1 1 0 011.414 1.414L7.414 9H15a1 1 0 110 2H7.414l2.293 2.293a1 1 0 010 1.414z" clip-rule="evenodd"></path>
+            </svg>
+            <span>Return Home</span>
+        </a>
     </div>
-</section>
+</div>
+
