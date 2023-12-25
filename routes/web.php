@@ -6,6 +6,7 @@ use App\Http\Controllers\ProductController;
 use App\Http\Controllers\ProgressController;
 use App\Http\Controllers\ProjectController;
 use App\Http\Controllers\ReviewController;
+use App\Mail\MyMail;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Auth;
 /*
@@ -59,6 +60,10 @@ Route::get('/cara-pembayaran', function () { return view('cara_pembayaran'); })-
 Route::get('/contact', function () { return view('contact');})->name('kontak');
 Route::get('/reviews', [ReviewController::class,'allReviews'])->name('all_reviews');
 
+Route::get('/send-email', function(){
+    Mail::to('richiereubenh@gmail.com')->send(new MyMail);
+    return route('home');
+});
 Auth::routes();
 
 //produk

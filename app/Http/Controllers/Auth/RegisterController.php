@@ -9,6 +9,7 @@ use App\Models\User;
 use Illuminate\Foundation\Auth\RegistersUsers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Facades\Validator;
 
 class RegisterController extends Controller
@@ -70,7 +71,17 @@ class RegisterController extends Controller
             'name' => $data['name'],
             'email' => $data['email'],
             'password' => Hash::make($data['password']),
+            $nama = $data['name'],
+            $email = $data['email'],
+            Mail::raw(
+                "Yth. admin\n\nTerdapat client baru saja mendaftarkan akunnya, segera kunjugi website dan buatkan project\n Nama Client : $nama\n Email Client : $email\n\nWebsite: www.maulanafurniture.com\nWhatsapp: +62 87815879282\nInstagram: maulanafurniture.indo", 
+                function ($message) {             
+                    $message->to('rhermanto01@student.ciputra.ac.id')->subject('Client Baru Terdaftar');             
+                }
+            )
         ]);
+
+
     }
 
     public function register(Request $request)
