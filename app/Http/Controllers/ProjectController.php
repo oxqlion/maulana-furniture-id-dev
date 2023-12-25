@@ -15,11 +15,11 @@ class ProjectController extends Controller
 {
     public function indexProject(Request $request)
     {
-        if($request->has('search')){
-            $projects = Project::where('nama_proyek', 'like','%'. $request->search .'%')->get();
-        }else{
+        if ($request->has('search')) {
+            $projects = Project::where('nama_proyek', 'like', '%' . $request->search . '%')->get();
+        } else {
             $projects = Project::orderByRaw("CASE WHEN user_id = " . Auth::id() . " THEN 0 ELSE 1 END")
-            ->get();
+                ->get();
         }
         $user = Auth::user();
         $total_products = Product::count();
@@ -99,6 +99,15 @@ class ProjectController extends Controller
     {
         $project->update([
             'user_id' => $request->user
+        ]);
+
+        return redirect()->back();
+    }
+
+    public function updateStatus(Project $project, Request $request)
+    {
+        $project->update([
+            'status' => $request->status
         ]);
 
         return redirect()->back();
