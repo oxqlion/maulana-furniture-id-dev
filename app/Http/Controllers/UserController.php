@@ -19,7 +19,26 @@ class UserController extends Controller
         return view('user_dashboard')->with(compact('users', 'total_clients', 'total_products', 'total_projects'));
     }
 
-    public function addUser() {
+    public function addUser()
+    {
         return view('auth.register');
+    }
+
+    public function deactivateUser(User $user)
+    {
+        $user->update([
+            'is_active' => '0'
+        ]);
+
+        return redirect()->route('all_user');
+    }
+
+    public function activateUser(User $user)
+    {
+        $user->update([
+            'is_active' => '1'
+        ]);
+
+        return redirect()->route('all_user');
     }
 }
