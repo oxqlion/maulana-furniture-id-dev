@@ -51,6 +51,8 @@ Route::middleware(['admin'])->group(function () {
 
     Route::get('users', [UserController::class, 'getAllUser'])->name('all_user');
     Route::get('add-user', [UserController::class, 'addUser'])->name('add_user');
+    Route::put('deactivate-user/{user}', [UserController::class, 'deactivateUser'])->name('deactivate_user');
+    Route::put('activate-user/{user}', [UserController::class, 'activateUser'])->name('activate_user');
 });
 
 Route::middleware(['client'])->group(function () {
