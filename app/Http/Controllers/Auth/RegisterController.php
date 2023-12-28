@@ -71,6 +71,7 @@ class RegisterController extends Controller
             'name' => $data['name'],
             'email' => $data['email'],
             'password' => Hash::make($data['password']),
+            'role_id' => $data['role'],
             $nama = $data['name'],
             $email = $data['email'],
             Mail::raw(
@@ -89,7 +90,7 @@ class RegisterController extends Controller
         $this->validator($request->all())->validate();
 
         $user = $this->create($request->all());
-        
+
         // $client_project_relation = ClientProject::create([
         //     'user_id' => $user->id,
         //     'nama_project' => $request->project_name
@@ -99,6 +100,6 @@ class RegisterController extends Controller
             redirect()->route('register');
         }
 
-        return redirect()->route('login');
+        return redirect()->route('all_user');
     }
 }

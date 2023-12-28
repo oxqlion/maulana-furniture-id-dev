@@ -68,7 +68,7 @@
                     <form method="POST" action="{{ route('register') }}"
                         class="grid grid-cols-1 gap-6 mt-8 md:grid-cols-2">
                         @csrf
-                        <div class="md:col-span-2">
+                        <div class="md:col-span-1">
                             <label for="project_name"
                                 class="block mb-2 text-sm text-gray-600 dark:text-gray-200">Project Name</label>
                             <input type="text" name="project_name" placeholder="Project Name"
@@ -129,6 +129,16 @@
                             <input id="password-confirm" type="password" placeholder="Enter Your Password"
                                 class="block w-full px-5 py-3 mt-2 text-gray-700 placeholder-gray-400 bg-white border border-gray-200 rounded-lg dark:placeholder-[#b5a27d] dark:bg-[#434240] dark:text-gray-300 dark:border-[#DDBD7E] focus:border-blue-400 dark:focus:border-blue-400 focus:ring-blue-400 focus:outline-none focus:ring focus:ring-opacity-40"
                                 name="password_confirmation" required autocomplete="new-password">
+                        </div>
+
+                        <div class="md:col-span-1">
+                            <label for="role" class="block mb-2 text-sm text-gray-600 dark:text-gray-200">Select
+                                Role:</label>
+                            <select name="role" id="role"
+                                class="block w-full px-5 py-3 mt-2 text-[#b5a27d] placeholder-[#b5a27d] bg-white border border-gray-200 rounded-lg dark:placeholder-[#b5a27d] dark:bg-[#434240] dark:text-gray-300 dark:border-[#DDBD7E] focus:border-blue-400 dark:focus:border-blue-400 focus:ring-blue-400 focus:outline-none focus:ring focus:ring-opacity-40">
+                                <option value="1">Admin</option>
+                                <option value="2">Client</option>
+                            </select>
                         </div>
 
                         <button type="submit"
