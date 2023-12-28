@@ -251,23 +251,43 @@
                         </li>
                         <!-- Sidebar Links... -->
                     </ul>
+                    @if (Auth::user()->isAdmin())
+                        <ul class="p-2 overflow-hidden">
+                            <li>
+                                <a href="{{ route('all_user') }}"
+                                    class="flex items-center gap-2 p-2 space-x-2 rounded-md group hover:bg-gray-100"
+                                    :class="{ 'justify-center': !isSidebarOpen }">
+                                    <span>
+                                        <svg xmlns="http://www.w3.org/2000/svg" height="20" width="24"
+                                            viewBox="0 0 640 512"><!--!Font Awesome Free 6.5.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2023 Fonticons, Inc.-->
+                                            <path fill="#ddbd7e"
+                                                d="M144 0a80 80 0 1 1 0 160A80 80 0 1 1 144 0zM512 0a80 80 0 1 1 0 160A80 80 0 1 1 512 0zM0 298.7C0 239.8 47.8 192 106.7 192h42.7c15.9 0 31 3.5 44.6 9.7c-1.3 7.2-1.9 14.7-1.9 22.3c0 38.2 16.8 72.5 43.3 96c-.2 0-.4 0-.7 0H21.3C9.6 320 0 310.4 0 298.7zM405.3 320c-.2 0-.4 0-.7 0c26.6-23.5 43.3-57.8 43.3-96c0-7.6-.7-15-1.9-22.3c13.6-6.3 28.7-9.7 44.6-9.7h42.7C592.2 192 640 239.8 640 298.7c0 11.8-9.6 21.3-21.3 21.3H405.3zM224 224a96 96 0 1 1 192 0 96 96 0 1 1 -192 0zM128 485.3C128 411.7 187.7 352 261.3 352H378.7C452.3 352 512 411.7 512 485.3c0 14.7-11.9 26.7-26.7 26.7H154.7c-14.7 0-26.7-11.9-26.7-26.7z" />
+                                        </svg>
+                                    </span>
+                                    <span class="text-[#DDBD7E] group-hover:text-[#434240] font-semibold"
+                                        :class="{ 'lg:hidden': !isSidebarOpen }">Users</span>
+                                </a>
+                            </li>
+                            <!-- Sidebar Links... -->
+                        </ul>
+                    @endif
                 </nav>
                 <!-- Sidebar footer -->
                 <div class="flex-shrink-0 p-2 border-t max-h-14">
-                  <form action="{{ route('logout') }}" method="post">
-                    @csrf
-                    <button type="submit"
-                        class="flex items-center justify-center w-full px-4 py-2 space-x-1 font-medium tracking-wider uppercase bg-gray-100 border rounded-md focus:outline-none focus:ring">
-                        <span>
-                            <svg class="w-6 h-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
-                                stroke="currentColor">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                    d="M17 16l4-4m0 0l-4-4m4 4H7m6 4v1a3 3 0 01-3 3H6a3 3 0 01-3-3V7a3 3 0 013-3h4a3 3 0 013 3v1" />
-                            </svg>
-                        </span>
-                        <span :class="{ 'lg:hidden': !isSidebarOpen }"> Logout </span>
-                    </button>
-                  </form>
+                    <form action="{{ route('logout') }}" method="post">
+                        @csrf
+                        <button type="submit"
+                            class="flex items-center justify-center w-full px-4 py-2 space-x-1 font-medium tracking-wider uppercase bg-gray-100 border rounded-md focus:outline-none focus:ring">
+                            <span>
+                                <svg class="w-6 h-6" xmlns="http://www.w3.org/2000/svg" fill="none"
+                                    viewBox="0 0 24 24" stroke="currentColor">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                        d="M17 16l4-4m0 0l-4-4m4 4H7m6 4v1a3 3 0 01-3 3H6a3 3 0 01-3-3V7a3 3 0 013-3h4a3 3 0 013 3v1" />
+                                </svg>
+                            </span>
+                            <span :class="{ 'lg:hidden': !isSidebarOpen }"> Logout </span>
+                        </button>
+                    </form>
                 </div>
             </aside>
 

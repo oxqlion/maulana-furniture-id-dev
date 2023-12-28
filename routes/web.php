@@ -6,9 +6,12 @@ use App\Http\Controllers\ProductController;
 use App\Http\Controllers\ProgressController;
 use App\Http\Controllers\ProjectController;
 use App\Http\Controllers\ReviewController;
+use App\Http\Controllers\UserController;
 use App\Mail\MyMail;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Mail;
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -45,6 +48,9 @@ Route::middleware(['admin'])->group(function () {
     Route::post('/penolakan-pembayaran/{payment}', [PaymentController::class, 'penolakanPembayaran'])->name('penolakan_pembayaran');
 
     Route::put('/update-status/{project}', [ProjectController::class, 'updateStatus'])->name('update_status');
+
+    Route::get('users', [UserController::class, 'getAllUser'])->name('all_user');
+    Route::get('add-user', [UserController::class, 'addUser'])->name('add_user');
 });
 
 Route::middleware(['client'])->group(function () {
