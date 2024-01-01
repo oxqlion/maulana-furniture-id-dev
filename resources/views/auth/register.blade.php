@@ -65,7 +65,7 @@
                         </div>
                     </div> --}}
 
-                    <form method="POST" action="{{ route('register') }}"
+                    <form method="POST" action="{{ route('store_user') }}"
                         class="grid grid-cols-1 gap-6 mt-8 md:grid-cols-2">
                         @csrf
                         <div class="md:col-span-1">

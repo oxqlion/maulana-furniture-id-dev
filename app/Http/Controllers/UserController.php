@@ -6,6 +6,7 @@ use App\Models\Product;
 use App\Models\Project;
 use App\Models\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Hash;
 
 class UserController extends Controller
 {
@@ -37,6 +38,18 @@ class UserController extends Controller
     {
         $user->update([
             'is_active' => '1'
+        ]);
+
+        return redirect()->route('all_user');
+    }
+
+    public function storeUser(Request $request)
+    {
+        $user = User::create([
+            'name' => $request->name,
+            'email' => $request->email,
+            'password' => Hash::make($request->password),
+            'role_id' => $request->role
         ]);
 
         return redirect()->route('all_user');
