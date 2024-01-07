@@ -74,25 +74,25 @@
                             class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Material</label>
                         <input type="text" name="material" id="material"
                             class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500"
-                            placeholder="Product brand" required="">
+                            placeholder="Product Material" required="">
                     </div>
                     <div class="w-full">
                         <label for="furnish"
                             class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Furnish</label>
                         <input type="text" name="furnish" id="furnish"
                             class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500"
-                            placeholder="Product brand" required="">
+                            placeholder="Product Furnish" required="">
                     </div>
                     <div class="w-full">
                         <label for="ukuran"
                             class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Ukuran</label>
                         <input type="text" name="ukuran" id="ukuran"
                             class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500"
-                            placeholder="Product brand" required="">
+                            placeholder="Product Size" required="">
                     </div>
                     <div class="sm:col-span-2">
                         <label for="gambar" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Gambar
-                            Produk</label>
+                            Produk <em class="text-red-700 text-xs">*wajib upload 3 gambar</em></label>
                         <input type="file" name="gambar[]" multiple id="gambar" accept="gambar/*"
                             class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500"
                             multiple required="">

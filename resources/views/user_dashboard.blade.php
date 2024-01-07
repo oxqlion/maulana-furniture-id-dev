@@ -124,19 +124,19 @@
                                         Nama
                                     </th>
                                     <th scope="col"
-                                        class="px-6 py-3 text-xs font-medium tracking-wider text-left text-gray-500 uppercase">
+                                        class="px-6 py-3 text-xs font-medium text-left text-gray-500 uppercase ">
                                         Email
                                     </th>
                                     <th scope="col"
-                                        class="px-6 py-3 text-xs font-medium tracking-wider text-left text-gray-500 uppercase">
+                                        class="px-6 py-3 text-xs font-medium text-left text-gray-500 uppercase">
                                         Role
                                     </th>
                                     {{-- <th scope="col"
-                                            class="px-6 py-3 text-xs font-medium tracking-wider text-left text-gray-500 uppercase">
+                                            class="px-6 py-3 text-xs font-medium text-left text-gray-500 uppercase">
                                             Material
                                         </th> --}}
                                     <th scope="col"
-                                        class="px-6 py-3 text-xs font-medium tracking-wider text-left text-gray-500 uppercase">
+                                        class="px-6 py-3 text-xs font-medium text-left text-gray-500 uppercase">
                                         Action
                                     </th>
 
@@ -186,20 +186,6 @@
                                                 {{ $pc->product->material }}</td> --}}
                                         <td class="px-6 py-4 whitespace-nowrap">
                                             <div class="flex gap-2">
-                                                <a href="{{ route('detail_project', $pc->id) }}">
-                                                    <button type="button"
-                                                        class="flex items-center text-yellow-600 hover:text-white border border-yellow-600 hover:bg-yellow-600 focus:ring-4 focus:outline-none focus:ring-yellow-600 font-medium rounded-lg text-sm px-3 py-2 text-center dark:border-yellow-600 dark:text-yellow-600 dark:hover:text-white dark:hover:bg-yellow-600 dark:focus:ring-yellow-600">
-                                                        <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 mr-2 -ml-0.5"
-                                                            viewbox="0 0 20 20" fill="currentColor" aria-hidden="true">
-                                                            <path
-                                                                d="M17.414 2.586a2 2 0 00-2.828 0L7 10.172V13h2.828l7.586-7.586a2 2 0 000-2.828z" />
-                                                            <path fill-rule="evenodd"
-                                                                d="M2 6a2 2 0 012-2h4a1 1 0 010 2H4v10h10v-4a1 1 0 112 0v4a2 2 0 01-2 2H4a2 2 0 01-2-2V6z"
-                                                                clip-rule="evenodd" />
-                                                        </svg>
-                                                        Sunting
-                                                    </button>
-                                                </a>
                                                 @if (Auth::user()->isAdmin())
                                                     @if ($pc->is_active == 1)
                                                         <form action="{{ route('deactivate_user', $pc) }}" method="POST">
