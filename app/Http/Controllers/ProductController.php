@@ -94,7 +94,7 @@ class ProductController extends Controller
         $files = $request->file('gambar');
         $newlyCreatedProduct = Product::find($product->id);
 
-        if ($request->hasFile('gambar') && count($files) <= 3 && count($files) >= 1) {
+        if ($request->hasFile('gambar') && count($files) == 3) {
             $i = 1;
             foreach ($files as $file) {
                 $imageName = $newlyCreatedProduct->id . '_' . $i . '.' . $file->extension();
@@ -106,7 +106,8 @@ class ProductController extends Controller
                     'gambar' => $path,
                 ]);
             }
-        } elseif (count($files) > 3) {
+        } else {
+            $newlyCreatedProduct->delete();
             // Jika lebih dari 3 gambar diunggah, kembalikan pesan kesalahan
             return redirect()->back()->with('error', 'Anda harus mengunggah 3 gambar saja.');
         }

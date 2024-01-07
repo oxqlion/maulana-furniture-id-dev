@@ -200,9 +200,12 @@
                                         {{-- <td
                                                 class="px-6 py-4 text-sm text-gray-500 whitespace-nowrap overflow-hidden overflow-ellipsis max-w-[150px]">
                                                 {{ $pc->product->material }}</td> --}}
+                                                @php
+                                                    $user = Auth::user();
+                                                @endphp
                                         <td class="px-6 py-4 whitespace-nowrap">
                                             <div class="flex gap-2">
-                                                @if (!$pc->user)
+                                                @if ($pc->user != $user && !Auth::user()->isAdmin())
                                                     <a href="">
                                                         <button type="button" disabled
                                                             class="flex items-center text-gray-600 bg-gray-300 cursor-not-allowed focus:ring-4 focus:outline-none focus:ring-yellow-600 font-medium rounded-lg text-sm px-3 py-2 text-center dark:border-yellow-600 dark:text-yellow-600 dark:focus:ring-yellow-600">
@@ -235,32 +238,15 @@
                                                         </button>
                                                     </a>
                                                 @endif
-                                                @if (Auth::user()->isAdmin())
-                                                    <form action="{{ route('delete_produk', $pc->id) }}" method="POST">
-                                                        @method('delete')
-                                                        @csrf
-                                                        <button type="submit"
-                                                            class="flex items-center text-green-700 hover:text-white border border-green-700 hover:bg-green-800 focus:ring-4 focus:outline-none focus:ring-red-300 font-medium rounded-lg text-sm px-3 py-2 text-center dark:border-red-500 dark:text-red-500 dark:hover:text-white dark:hover:bg-red-600 dark:focus:ring-red-900">
-                                                            <svg xmlns="http://www.w3.org/2000/svg"
-                                                                class="h-4 w-4 mr-2 -ml-0.5" viewbox="0 0 20 20"
-                                                                fill="currentColor" aria-hidden="true">
-                                                                <path fill-rule="evenodd"
-                                                                    d="M9 2a1 1 0 00-.894.553L7.382 4H4a1 1 0 000 2v10a2 2 0 002 2h8a2 2 0 002-2V6a1 1 0 100-2h-3.382l-.724-1.447A1 1 0 0011 2H9zM7 8a1 1 0 012 0v6a1 1 0 11-2 0V8zm5-1a1 1 0 00-1 1v6a1 1 0 102 0V8a1 1 0 00-1-1z"
-                                                                    clip-rule="evenodd" />
-                                                            </svg>
-                                                            Done
-                                                        </button>
-                                                    </form>
-                                                @endif
                                                 <!-- Modal toggle -->
                                                 @php
                                                     $user = Auth::user();
                                                 @endphp
-                                                @if ($user->id == $pc->user_id && $user->role_id == 2 && $pc->status == "Dikirim" || $pc->status == "Selesai")
+                                                @if ($user->id == $pc->user_id && $user->role_id == 2 && $pc->status == "Dikirim" || $user->id == $pc->user_id && $user->role_id == 2 && $pc->status == "Selesai")
                                                     <div class="flex justify-center">
                                                         <button id="defaultModalButton" data-modal-target="defaultModal"
                                                             data-modal-toggle="defaultModal"
-                                                            class="block text-white bg-red-700 hover:bg-primary-800 focus:ring-4 focus:outline-none focus:ring-primary-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-primary-600 dark:hover:bg-primary-700 dark:focus:ring-primary-800"
+                                                            class="block text-white bg-sky-600 hover:bg-primary-800 focus:ring-4 focus:outline-none focus:ring-primary-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-primary-600 dark:hover:bg-primary-700 dark:focus:ring-primary-800"
                                                             type="button">
                                                             Review
                                                         </button>
