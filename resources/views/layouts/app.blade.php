@@ -193,7 +193,7 @@
                                         </a>
                                     </li>
                                 @endif
-
+{{-- 
                                 @if (Route::has('register'))
                                     <li class="group">
                                         <a href="{{ route('register') }}"
@@ -206,7 +206,7 @@
                                             </div>
                                         </a>
                                     </li>
-                                @endif
+                                @endif --}}
                             @else
                                 <li class="nav-item dropdown">
                                     <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button"
